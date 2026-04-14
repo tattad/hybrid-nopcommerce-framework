@@ -2,7 +2,6 @@
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
-hybrid-nopcommerce-framework.iml
 .kotlin
 .idea/
 
