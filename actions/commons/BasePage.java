@@ -23,6 +23,12 @@ public class BasePage {
     //    Nếu như có return dữ liệu thì sẽ khớp vs kiểu dữ liệu ở số 2
     //    Nếu như có return thì nó là cái step cuối cùng
 
+    //Tuân theo nguyên tắc của tính Đóng gói (Encapsulation)
+    //Hàm static có th truy cập trực tiếp từ phạm vi Class
+    public static BasePage getBasePage() {
+        return new BasePage();
+    }
+
     //Common function (hàm dùng chung) cho nhiều class khác
     public void openPageUrl(WebDriver driver, String url) {
         driver.get(url);
@@ -160,7 +166,7 @@ public class BasePage {
         return getElement(driver, locator).getAttribute(attributeName);
     }
 
-    public String getTextElement(WebDriver driver, String locator) {
+    public String getElementText(WebDriver driver, String locator) {
         return getElement(driver, locator).getText();
     }
 
