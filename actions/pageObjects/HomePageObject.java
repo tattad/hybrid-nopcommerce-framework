@@ -9,6 +9,7 @@ public class HomePageObject extends BasePage {
     private WebDriver driver;
 
     public HomePageObject(WebDriver driver) {
+        super(driver);
         this.driver = driver;
     }
 
@@ -20,8 +21,8 @@ public class HomePageObject extends BasePage {
     //5 - Không tự define hàm khởi tạo thì JVM sẽ mặc định tạo ra 1 hàm khởi tạo rỗng
 
     public void clickToRegisterLink() {
-        waitForElementClickable(driver, HomePageUI.REGISTER_LINK);
-        clickToElement(driver, HomePageUI.REGISTER_LINK);
+        waitForElementClickable(HomePageUI.REGISTER_LINK);
+        clickToElement(HomePageUI.REGISTER_LINK);
     }
 
     public boolean isMyAccountLinkDisplayed() {
@@ -29,7 +30,7 @@ public class HomePageObject extends BasePage {
     }
 
     public void clickToMyAccountLink() {
-        waitForElementClickable(driver, HomePageUI.MY_ACCOUNT_LINK);
-        clickToElement(driver, HomePageUI.MY_ACCOUNT_LINK);
+        waitForElementClickable(HomePageUI.MY_ACCOUNT_LINK);
+        clickToElement(HomePageUI.MY_ACCOUNT_LINK);
     }
 }
