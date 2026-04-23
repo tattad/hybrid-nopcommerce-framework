@@ -11,16 +11,18 @@ import java.util.Random;
 public class BaseTest {
 
     private WebDriver driver;
+    private String projectPath = System.getProperty("user.dir");
 
     protected WebDriver getBrowserDriver(String browserName) {
-        switch (browserName) {
-            case "chrome":
+        BrowserList browserList = BrowserList.valueOf(browserName.toUpperCase());
+        switch (browserList) {
+            case FIREFOX:
                 driver = new ChromeDriver();
                 break;
-            case "firefox":
+            case CHORME:
                 driver = new FirefoxDriver();
                 break;
-            case "edge":
+            case EDGE:
                 driver = new EdgeDriver();
                 break;
             default:
