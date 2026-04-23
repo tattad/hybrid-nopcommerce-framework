@@ -20,7 +20,7 @@ public class Level_02_BasePage_2_Static_Method {
     @BeforeClass
     public void beforeClass() {
         driver = new EdgeDriver();
-        basePage = BasePage.getBasePage();
+//        basePage = BasePage.getBasePage();
 
         driver.get("https://demo.nopcommerce.com/");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
