@@ -17,10 +17,10 @@ public class BaseTest {
         BrowserList browserList = BrowserList.valueOf(browserName.toUpperCase());
         switch (browserList) {
             case FIREFOX:
-                driver = new ChromeDriver();
+                driver = new FirefoxDriver();
                 break;
             case CHORME:
-                driver = new FirefoxDriver();
+                driver = new ChromeDriver();
                 break;
             case EDGE:
                 driver = new EdgeDriver();
