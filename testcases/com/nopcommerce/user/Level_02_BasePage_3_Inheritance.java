@@ -15,6 +15,10 @@ public class Level_02_BasePage_3_Inheritance extends BasePage {
     WebDriver driver;
     private String firstName, lastName, email, companyName, password;
 
+    public Level_02_BasePage_3_Inheritance(WebDriver driver) {
+        super(driver);
+    }
+
     @BeforeClass
     public void beforeClass() {
         driver = new EdgeDriver();
@@ -31,49 +35,49 @@ public class Level_02_BasePage_3_Inheritance extends BasePage {
 
     @Test
     public void TC_01_Register() {
-        waitForElementClickable(driver, "//a[@class='ico-register']");
-        clickToElement(driver, "//a[@class='ico-register']");
+        waitForElementClickable("//a[@class='ico-register']");
+        clickToElement("//a[@class='ico-register']");
 
-        waitForElementClickable(driver, "//input[@id='gender-male']");
-        clickToElement(driver, "//input[@id='gender-male']");
+        waitForElementClickable("//input[@id='gender-male']");
+        clickToElement("//input[@id='gender-male']");
 
-        sendkeyToElement(driver, "//input[@id='FirstName']", firstName);
-        sendkeyToElement(driver, "//input[@id='LastName']", lastName);
-        sendkeyToElement(driver, "//input[@id='Email']", email);
-        sendkeyToElement(driver, "//input[@id='Company']", companyName);
-        sendkeyToElement(driver, "//input[@id='Password']", password);
-        sendkeyToElement(driver, "//input[@id='ConfirmPassword']", password);
+        sendkeyToElement("//input[@id='FirstName']", firstName);
+        sendkeyToElement("//input[@id='LastName']", lastName);
+        sendkeyToElement("//input[@id='Email']", email);
+        sendkeyToElement("//input[@id='Company']", companyName);
+        sendkeyToElement("//input[@id='Password']", password);
+        sendkeyToElement("//input[@id='ConfirmPassword']", password);
 
-        waitForElementClickable(driver, "//button[@id='register-button']");
-        clickToElement(driver, "//button[@id='register-button']");
+        waitForElementClickable("//button[@id='register-button']");
+        clickToElement("//button[@id='register-button']");
 
-        Assert.assertEquals(getElementText(driver, "//div[@class='result']"), "Your registration completed");
+        Assert.assertEquals(getElementText("//div[@class='result']"), "Your registration completed");
     }
 
     @Test
     public void TC_02_Login() {
-        waitForElementClickable(driver, "//a[@class='ico-login']");
-        clickToElement(driver, "//a[@class='ico-login']");
+        waitForElementClickable("//a[@class='ico-login']");
+        clickToElement("//a[@class='ico-login']");
 
-        sendkeyToElement(driver, "//input[@id='Email']", email);
-        sendkeyToElement(driver, "//input[@id='Password']", password);
+        sendkeyToElement("//input[@id='Email']", email);
+        sendkeyToElement("//input[@id='Password']", password);
 
-        waitForElementClickable(driver, "//button[contains(@class,'login-button')]");
-        clickToElement(driver, "//button[contains(@class,'login-button')]");
+        waitForElementClickable("//button[contains(@class,'login-button')]");
+        clickToElement("//button[contains(@class,'login-button')]");
 
-        Assert.assertTrue(isElementDisplayed(driver, "//a[@class='ico-account' and text()='My account']"));
+        Assert.assertTrue(isElementDisplayed("//a[@class='ico-account' and text()='My account']"));
     }
 
     @Test
     public void TC_03_MyAccount() {
-        waitForElementClickable(driver, "//a[@class='ico-account']");
-        clickToElement(driver, "//a[@class='ico-account']");
+        waitForElementClickable("//a[@class='ico-account']");
+        clickToElement("//a[@class='ico-account']");
 
 
-        Assert.assertTrue(isElementSelected(driver, "//input[@id='gender-male']"));
+        Assert.assertTrue(isElementSelected("//input[@id='gender-male']"));
 
-        Assert.assertEquals(getElementAttribute(driver, "//input[@id='FirstName']", "value"), firstName);
-        Assert.assertEquals(getElementAttribute(driver, "//input[@id='LastName']", "value"), lastName);
+        Assert.assertEquals(getElementAttribute("//input[@id='FirstName']", "value"), firstName);
+        Assert.assertEquals(getElementAttribute("//input[@id='LastName']", "value"), lastName);
     }
 
     @AfterClass
