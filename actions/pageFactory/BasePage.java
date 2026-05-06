@@ -2,7 +2,9 @@ package pageFactory;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -10,81 +12,44 @@ import java.util.Set;
 
 public class BasePage {
 
-    private WebDriver driver;
-
-    public void openPageUrl(String url) {
-        driver.get(url);
+    public void clickToElement(WebElement element) {
+        element.click();
     }
 
-    public String getPageTitle() {
-        return driver.getTitle();
+    public void sendkeyToElement(WebElement element, String value) {
+        element.clear();
+        element.sendKeys(value);
     }
 
-    public String getPageUrl() {
-        return driver.getCurrentUrl();
+    public void selectItemInDropdown(WebElement element, String itemText) {
+        new Select(element).selectByVisibleText(itemText);
     }
 
-    public void backToPage() {
-        driver.navigate().back();
+    public String getSelectedItemInDropdown(WebElement element) {
+        return new Select(element).getFirstSelectedOption().getText();
     }
 
-    public void forwardToPage() {
-        driver.navigate().forward();
+    public String getElementAttribute(WebElement element, String attributeName) {
+        return element.getAttribute(attributeName);
     }
 
-    public void refreshCurrentPage() {
-        driver.navigate().refresh();
+    public String getElementText(WebElement element) {
+        return element.getText();
     }
 
-    public Alert waitForAlertPresence() {
-        return new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.alertIsPresent());
+    public boolean isElementDisplayed(WebElement element) {
+        return element.isDisplayed();
     }
 
-    public void acceptToAlert() {
-        waitForAlertPresence().accept();
+    public boolean isElementSelected(WebElement element) {
+        return element.isSelected();
     }
 
-    public void cancelToAlert() {
-        driver.switchTo().alert().dismiss();
+    public void waitForElementVisible(WebDriver driver, WebElement element) {
+        new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.visibilityOf(element));
     }
 
-    public String getAlertText() {
-        return waitForAlertPresence().getText();
-    }
-
-    public void sendkeyToAlert(String keysToSend) {
-        waitForAlertPresence().sendKeys(keysToSend);
-    }
-
-    public void switchToWindowByID(String parentID) {
-        Set<String> allWindows = driver.getWindowHandles();
-        for (String runWindow : allWindows) {
-            if (!runWindow.equals(parentID)) {
-                driver.switchTo().window(runWindow);
-                break;
-            }
-        }
-    }
-
-    public void switchToWindowByTitle(String title) {
-        Set<String> allWindows = driver.getWindowHandles();
-        for (String runWindow : allWindows) {
-            driver.switchTo().window(runWindow);
-            String currentWin = driver.getTitle();
-            if (currentWin.equals(title)) {
-                break;
-            }
-        }
-    }
-
-    public void closeAllWindowsWithoutParent(String parentID) {
-        Set<String> allWindows = driver.getWindowHandles();
-        for (String runWindow : allWindows) {
-            if (!runWindow.equals(parentID)) {
-                driver.switchTo().window(runWindow);
-                driver.close();
-            }
-        }
-        driver.switchTo().window(parentID);
+    public void waitForElementClickable(WebDriver driver, WebElement element) {
+        new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.elementToBeClickable(element));
     }
 }

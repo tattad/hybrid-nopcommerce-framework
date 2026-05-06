@@ -18,19 +18,10 @@ import pageObjects.RegisterPageObject;
 
 public class Level_05_PageFactory extends BaseTest {
 
-    private WebDriver driver;
-    private HomePageFactory homePage;
-    private RegisterPageFactory registerPage;
-    private LoginPageFactory loginPage;
-    private CustomerInfoPageFactory customerInforPage;
-    private String firstName, lastName, emailAddress, companyName, password;
-
     @Parameters("browser")
     @BeforeClass
     public void beforeClass(String browserName) {
-
         driver = getBrowserDriver(browserName);
-
         homePage = new HomePageFactory(driver);
 
         firstName = "Automation";
@@ -40,10 +31,16 @@ public class Level_05_PageFactory extends BaseTest {
         password = "12345678";
     }
 
-    @Test
-    public void User_01_Register() {
-        homePage.clickToRegisterLink();
+    private WebDriver driver;
+    private HomePageFactory homePage;
+    private RegisterPageFactory registerPage;
+    private LoginPageFactory loginPage;
+    private CustomerInfoPageFactory customerInforPage;
+    private String firstName, lastName, emailAddress, companyName, password;
 
+    @Test
+    public void User_01_Register() throws InterruptedException {
+        homePage.clickToRegisterLink();
         registerPage = new RegisterPageFactory(driver);
 
         registerPage.clickToMaleRadio();

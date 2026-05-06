@@ -1,42 +1,97 @@
 package pageFactory;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class RegisterPageFactory extends BasePage {
     private WebDriver driver;
 
     public RegisterPageFactory(WebDriver driver) {
         this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
 
+    @FindBy(id = "gender-male")
+    private WebElement genderMaleRadio;
+
+    @FindBy(id = "FirstName")
+    private WebElement firstNameTextbox;
+
+    @FindBy(id = "LastName")
+    private WebElement lastNameTextbox;
+
+    @FindBy(id = "Email")
+    private WebElement emailTextbox;
+
+    @FindBy(id = "Company")
+    private WebElement companyNameTextbox;
+
+    @FindBy(id = "Password")
+    private WebElement passwordTextbox;
+
+    @FindBy(id = "ConfirmPassword")
+    private WebElement confirmPasswordTextbox;
+
+    @FindBy(id = "register-button")
+    private WebElement registerButton;
+
+    @FindBy(className = "result")
+    private WebElement registerSuccessMessage;
+
+    @FindBy(className = "ico-login")
+    private WebElement loginLink;
+
+
     public void clickToMaleRadio() {
+        waitForElementClickable(driver, genderMaleRadio);
+        clickToElement(genderMaleRadio);
     }
 
     public void enterToFirstNameTextbox(String firstName) {
+        waitForElementVisible(driver, firstNameTextbox);
+        sendkeyToElement(firstNameTextbox, firstName);
     }
 
     public void enterToLastNameTextbox(String lastName) {
+        waitForElementVisible(driver, lastNameTextbox);
+        sendkeyToElement(lastNameTextbox, lastName);
     }
 
     public void enterToEmailTextbox(String emailAddress) {
+        waitForElementVisible(driver, emailTextbox);
+        sendkeyToElement(emailTextbox, emailAddress);
     }
 
     public void enterToCompanyTextbox(String companyName) {
+        waitForElementVisible(driver, companyNameTextbox);
+        sendkeyToElement(companyNameTextbox, companyName);
     }
 
     public void enterToPasswordTextbox(String password) {
+        waitForElementVisible(driver, passwordTextbox);
+        sendkeyToElement(passwordTextbox, password);
     }
 
     public void enterToConfirmPasswordTextbox(String password) {
+        waitForElementVisible(driver, confirmPasswordTextbox);
+        sendkeyToElement(confirmPasswordTextbox, password);
     }
 
     public void clickToRegisterButton() {
+        waitForElementClickable(driver, registerButton);
+        clickToElement(registerButton);
     }
 
-    public byte[] getRegisterSuccessMessage() {
+    public String getRegisterSuccessMessage() {
+        waitForElementVisible(driver, registerSuccessMessage);
+        return getElementText(registerSuccessMessage);
     }
 
     public void clickToLoginButton() {
-
+        waitForElementClickable(driver, loginLink);
+        clickToElement(loginLink);
     }
 }
