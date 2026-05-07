@@ -57,7 +57,7 @@ public class Level_05_PageFactory extends BaseTest {
 
     @Test
     public void User_02_Login() {
-        registerPage.clickToLoginButton();
+        registerPage.clickToLoginLink();
 
         loginPage = new LoginPageFactory(driver);
 

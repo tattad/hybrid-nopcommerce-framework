@@ -52,4 +52,12 @@ public class BasePage {
     public void waitForElementClickable(WebDriver driver, WebElement element) {
         new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.elementToBeClickable(element));
     }
+
+    public void waitForElementSelected(WebDriver driver, WebElement element) {
+        new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.elementToBeSelected(element));
+    }
+
+    public boolean isElementEnabled(WebElement element) {
+        return element.isEnabled();
+    }
 }
