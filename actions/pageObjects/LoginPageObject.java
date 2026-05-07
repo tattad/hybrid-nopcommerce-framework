@@ -28,9 +28,10 @@ public class LoginPageObject extends BasePage {
         clickToElement(LoginPageUI.LOGIN_BUTTON);
     }
 
-    public void loginToSystem(String emailAddress, String password) {
+    public HomePageObject loginToSystem(String emailAddress, String password) {
         enterToEmailTextbox(emailAddress);
         enterToPasswordTextbox(password);
         clickToLoginButton();
+        return PageGenerator.getHomePage(driver);
     }
 }
