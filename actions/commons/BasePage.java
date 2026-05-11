@@ -6,6 +6,8 @@ import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pageObjects.*;
+import pageUIs.*;
 
 import java.time.Duration;
 import java.util.List;
@@ -321,5 +323,48 @@ public class BasePage {
 
     public void waitForElementClickable(String locator) {
         new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.elementToBeClickable(getByXpath(locator)));
+    }
+
+
+    public RewardPointPageObject openRewardPointPage(WebDriver driver) {
+        waitForElementClickable(BasePageUI.REWARD_POINT_LINK);
+        clickToElement(BasePageUI.REWARD_POINT_LINK);
+        return new RewardPointPageObject(driver);
+    }
+
+    public CustomerInfoPageObject openCustomerInforPage(WebDriver driver) {
+        waitForElementClickable(BasePageUI.CUSTOMER_INFO_LINK);
+        clickToElement(BasePageUI.CUSTOMER_INFO_LINK);
+        return new CustomerInfoPageObject(driver);
+    }
+
+    public AddressPageObject openAddressPage(WebDriver driver) {
+        waitForElementClickable(BasePageUI.ADDRESS_LINK);
+        clickToElement(BasePageUI.ADDRESS_LINK);
+        return PageGenerator.getAddressPage(driver);
+    }
+
+    public RegisterPageObject openToRegisterPage() {
+        waitForElementClickable(HomePageUI.REGISTER_LINK);
+        clickToElement(HomePageUI.REGISTER_LINK);
+        return PageGenerator.getRegisterPage(driver);
+    }
+
+    public CustomerInfoPageObject openCustomerInfoPage() {
+        waitForElementClickable(HomePageUI.MY_ACCOUNT_LINK);
+        clickToElement(HomePageUI.MY_ACCOUNT_LINK);
+        return PageGenerator.getCustomerInforPage(driver);
+    }
+
+    public OrderPageObject openOrderPage(WebDriver driver) {
+        waitForElementClickable(BasePageUI.ORDER_LINK);
+        clickToElement(BasePageUI.ORDER_LINK);
+        return PageGenerator.getOrderPage(driver);
+    }
+
+    public LoginPageObject openLoginPage() {
+        waitForElementClickable(RegisterPageUI.LOGIN_LINK);
+        clickToElement(RegisterPageUI.LOGIN_LINK);
+        return PageGenerator.getLoginPage(driver);
     }
 }

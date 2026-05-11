@@ -7,18 +7,27 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import pageFactory.CustomerInfoPageFactory;
-import pageFactory.HomePageFactory;
-import pageFactory.LoginPageFactory;
-import pageFactory.RegisterPageFactory;
+import pageObjects.*;
 
-public class Level_05_PageFactory extends BaseTest {
+public class Level_07_Switch_Page_Object extends BaseTest {
+
+    private WebDriver driver;
+    private HomePageObject homePage;
+    private RegisterPageObject registerPage;
+    private LoginPageObject loginPage;
+    private CustomerInfoPageObject customerInforPage;
+    private AddressPageObject addressPage;
+    private OrderPageObject orderPage;
+    private RewardPointPageObject rewardPointPage;
+    private String firstName, lastName, emailAddress, companyName, password;
 
     @Parameters("browser")
     @BeforeClass
     public void beforeClass(String browserName) {
+
         driver = getBrowserDriver(browserName);
-        homePage = new HomePageFactory(driver);
+
+        homePage = PageGenerator.getHomePage(driver);
 
         firstName = "Automation";
         lastName = "Testing";
@@ -27,17 +36,9 @@ public class Level_05_PageFactory extends BaseTest {
         password = "12345678";
     }
 
-    private WebDriver driver;
-    private HomePageFactory homePage;
-    private RegisterPageFactory registerPage;
-    private LoginPageFactory loginPage;
-    private CustomerInfoPageFactory customerInforPage;
-    private String firstName, lastName, emailAddress, companyName, password;
-
     @Test
-    public void User_01_Register() throws InterruptedException {
-        homePage.clickToRegisterLink();
-        registerPage = new RegisterPageFactory(driver);
+    public void User_01_Register() {
+        registerPage = homePage.openToRegisterPage();
 
         registerPage.clickToMaleRadio();
         registerPage.enterToFirstNameTextbox(firstName);
@@ -53,29 +54,40 @@ public class Level_05_PageFactory extends BaseTest {
 
     @Test
     public void User_02_Login() {
-        registerPage.clickToLoginLink();
+        loginPage = registerPage.openLoginPage();
 
-        loginPage = new LoginPageFactory(driver);
-
-        loginPage.loginToSystem(emailAddress, password);
-
-        homePage = new HomePageFactory(driver);
+        homePage = loginPage.loginToSystem(emailAddress, password);
 
         Assert.assertTrue(homePage.isMyAccountLinkDisplayed());
     }
 
     @Test
     public void User_03_MyAccount() {
-        homePage.clickToMyAccountLink();
-
-        customerInforPage = new CustomerInfoPageFactory(driver);
+        customerInforPage = homePage.openCustomerInfoPage();
 
         Assert.assertTrue(customerInforPage.isGenderMaleIsSelected());
-
         Assert.assertEquals(customerInforPage.getFirstNameTextboxValue(), firstName);
         Assert.assertEquals(customerInforPage.getLastNameTextboxValue(), lastName);
         Assert.assertEquals(customerInforPage.getEmailTextboxValue(), emailAddress);
         Assert.assertEquals(customerInforPage.getCompanyTextboxValue(), companyName);
+    }
+
+    @Test
+    public void User_04_Switch_Page() {
+        // Customer Infor -> Address
+        addressPage = customerInforPage.openAddressPage(driver);
+
+        // Address -> Reward Point
+        rewardPointPage = addressPage.openRewardPointPage(driver);
+
+        // Reward Point -> Order
+        orderPage = rewardPointPage.openOrderPage(driver);
+
+         // Order -> Address
+        addressPage = orderPage.openAddressPage( driver);
+
+        // Address -> Customer Info
+        customerInforPage = addressPage.openCustomerInforPage(driver);
     }
 
     @AfterClass

@@ -7,7 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pageObjects.CustomerInforPageObject;
+import pageObjects.CustomerInfoPageObject;
 import pageObjects.HomePageObject;
 import pageObjects.LoginPageObject;
 import pageObjects.RegisterPageObject;
@@ -20,7 +20,7 @@ public class Level_03_Page_Object extends BaseTest {
     private HomePageObject homePage;
     private RegisterPageObject registerPage;
     private LoginPageObject loginPage;
-    private CustomerInforPageObject customerInforPage;
+    private CustomerInfoPageObject customerInforPage;
     private String firstName, lastName, emailAddress, companyName, password;
 
     //Pre-condition
@@ -43,7 +43,7 @@ public class Level_03_Page_Object extends BaseTest {
     //Testcases
     @Test
     public void User_01_Register() {
-        homePage.clickToRegisterLink();
+        homePage.openToRegisterPage();
 
         //Từ Home Page qua Register Page
         //Page đó được sinh ra và bắt đầu làm những action của page đó
@@ -63,7 +63,7 @@ public class Level_03_Page_Object extends BaseTest {
 
     @Test
     public void User_02_Login() {
-        registerPage.clickToLoginButton();
+        registerPage.openLoginPage();
 
         //Từ Register Page qua Login Page
         //Page đó được sinh ra và bắt đầu làm những action của page đó
@@ -80,11 +80,11 @@ public class Level_03_Page_Object extends BaseTest {
 
     @Test
     public void User_03_MyAccount() {
-        homePage.clickToMyAccountLink();
+        homePage.openCustomerInfoPage();
 
         //Từ Home Page qua Customer Info Page
         //Page đó được sinh ra và bắt đầu làm những action của page đó
-        customerInforPage = new CustomerInforPageObject(driver);
+        customerInforPage = new CustomerInfoPageObject(driver);
 
         Assert.assertTrue(customerInforPage.isGenderMaleIsSelected());
 

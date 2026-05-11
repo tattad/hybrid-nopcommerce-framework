@@ -7,7 +7,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import pageObjects.CustomerInforPageObject;
+import pageObjects.CustomerInfoPageObject;
 import pageObjects.HomePageObject;
 import pageObjects.LoginPageObject;
 import pageObjects.RegisterPageObject;
@@ -18,7 +18,7 @@ public class Level_06_Page_Generator_02 extends BaseTest {
     private HomePageObject homePage;
     private RegisterPageObject registerPage;
     private LoginPageObject loginPage;
-    private CustomerInforPageObject customerInforPage;
+    private CustomerInfoPageObject customerInforPage;
     private String firstName, lastName, emailAddress, companyName, password;
 
     @Parameters("browser")
@@ -38,7 +38,7 @@ public class Level_06_Page_Generator_02 extends BaseTest {
 
     @Test
     public void User_01_Register() {
-        registerPage = homePage.clickToRegisterLink();
+        registerPage = homePage.openToRegisterPage();
 
         registerPage.clickToMaleRadio();
         registerPage.enterToFirstNameTextbox(firstName);
@@ -54,7 +54,7 @@ public class Level_06_Page_Generator_02 extends BaseTest {
 
     @Test
     public void User_02_Login() {
-        loginPage = registerPage.clickToLoginButton();
+        loginPage = registerPage.openLoginPage();
 
         homePage = loginPage.loginToSystem(emailAddress, password);
 
@@ -63,7 +63,7 @@ public class Level_06_Page_Generator_02 extends BaseTest {
 
     @Test
     public void User_03_MyAccount() {
-        customerInforPage = homePage.clickToMyAccountLink();
+        customerInforPage = homePage.openCustomerInfoPage();
 
         Assert.assertTrue(customerInforPage.isGenderMaleIsSelected());
         Assert.assertEquals(customerInforPage.getFirstNameTextboxValue(), firstName);

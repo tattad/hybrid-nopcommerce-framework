@@ -57,10 +57,4 @@ public class RegisterPageObject extends BasePage {
         waitForElementVisible(RegisterPageUI.REGISTER_SUCCESS_MESSAGE);
         return getElementText(RegisterPageUI.REGISTER_SUCCESS_MESSAGE);
     }
-
-    public LoginPageObject clickToLoginButton() {
-        waitForElementClickable(RegisterPageUI.LOGIN_LINK);
-        clickToElement(RegisterPageUI.LOGIN_LINK);
-        return PageGenerator.getLoginPage(driver);
-    }
 }

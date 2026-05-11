@@ -7,7 +7,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import pageObjects.CustomerInforPageObject;
+import pageObjects.CustomerInfoPageObject;
 import pageObjects.HomePageObject;
 import pageObjects.LoginPageObject;
 import pageObjects.RegisterPageObject;
@@ -18,7 +18,7 @@ public class Level_06_Page_Generator_01 extends BaseTest {
     private HomePageObject homePage;
     private RegisterPageObject registerPage;
     private LoginPageObject loginPage;
-    private CustomerInforPageObject customerInforPage;
+    private CustomerInfoPageObject customerInforPage;
     private String firstName, lastName, emailAddress, companyName, password;
 
     @Parameters("browser")
@@ -38,7 +38,7 @@ public class Level_06_Page_Generator_01 extends BaseTest {
 
     @Test
     public void User_01_Register() {
-        homePage.clickToRegisterLink(); //page A: Home page -> Register
+        homePage.openToRegisterPage(); //page A: Home page -> Register
         //Thể hiện trực tiếp trên test class
         registerPage = new RegisterPageObject(driver); //page B: Register
 
@@ -56,7 +56,7 @@ public class Level_06_Page_Generator_01 extends BaseTest {
 
     @Test
     public void User_02_Login() {
-        registerPage.clickToLoginButton();
+        registerPage.openLoginPage();
         loginPage = new LoginPageObject(driver);
 
         loginPage.loginToSystem(emailAddress, password);
@@ -67,8 +67,8 @@ public class Level_06_Page_Generator_01 extends BaseTest {
 
     @Test
     public void User_03_MyAccount() {
-        homePage.clickToMyAccountLink();
-        customerInforPage = new CustomerInforPageObject(driver);
+        homePage.openCustomerInfoPage();
+        customerInforPage = new CustomerInfoPageObject(driver);
 
         Assert.assertTrue(customerInforPage.isGenderMaleIsSelected());
         Assert.assertEquals(customerInforPage.getFirstNameTextboxValue(), firstName);

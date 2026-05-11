@@ -2,20 +2,15 @@ package com.nopcommerce.user;
 
 import commons.BaseTest;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import pageObjects.CustomerInforPageObject;
+import pageObjects.CustomerInfoPageObject;
 import pageObjects.HomePageObject;
 import pageObjects.LoginPageObject;
 import pageObjects.RegisterPageObject;
-
-import java.time.Duration;
 
 public class Level_04_Multi_Browsers extends BaseTest {
 
@@ -23,7 +18,7 @@ public class Level_04_Multi_Browsers extends BaseTest {
     private HomePageObject homePage;
     private RegisterPageObject registerPage;
     private LoginPageObject loginPage;
-    private CustomerInforPageObject customerInforPage;
+    private CustomerInfoPageObject customerInforPage;
     private String firstName, lastName, emailAddress, companyName, password;
 
     @Parameters("browser")
@@ -43,7 +38,7 @@ public class Level_04_Multi_Browsers extends BaseTest {
 
     @Test
     public void User_01_Register() {
-        homePage.clickToRegisterLink();
+        homePage.openToRegisterPage();
 
         registerPage = new RegisterPageObject(driver);
 
@@ -61,7 +56,7 @@ public class Level_04_Multi_Browsers extends BaseTest {
 
     @Test
     public void User_02_Login() {
-        registerPage.clickToLoginButton();
+        registerPage.openLoginPage();
 
         loginPage = new LoginPageObject(driver);
 
@@ -74,9 +69,9 @@ public class Level_04_Multi_Browsers extends BaseTest {
 
     @Test
     public void User_03_MyAccount() {
-        homePage.clickToMyAccountLink();
+        homePage.openCustomerInfoPage();
 
-        customerInforPage = new CustomerInforPageObject(driver);
+        customerInforPage = new CustomerInfoPageObject(driver);
 
         Assert.assertTrue(customerInforPage.isGenderMaleIsSelected());
 
