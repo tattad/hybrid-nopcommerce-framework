@@ -1,14 +1,14 @@
-package pageObjects;
+package pageObjects.user;
 
 import commons.BasePage;
 import org.openqa.selenium.WebDriver;
-import pageUIs.HomePageUI;
+import pageUIs.user.UserHomePageUI;
 
-public class HomePageObject extends BasePage {
+public class UserHomePO extends BasePage {
 
     private WebDriver driver;
 
-    public HomePageObject(WebDriver driver) {
+    public UserHomePO(WebDriver driver) {
         super(driver);
         this.driver = driver;
     }
@@ -22,7 +22,7 @@ public class HomePageObject extends BasePage {
 
 
     public boolean isMyAccountLinkDisplayed() {
-        waitForElementVisible(HomePageUI.MY_ACCOUNT_LINK);
-        return isElementDisplayed(HomePageUI.MY_ACCOUNT_LINK);
+        waitForElementVisible(UserHomePageUI.MY_ACCOUNT_LINK);
+        return isElementDisplayed(UserHomePageUI.MY_ACCOUNT_LINK);
     }
 }

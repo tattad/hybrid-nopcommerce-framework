@@ -7,20 +7,20 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pageObjects.CustomerInfoPageObject;
-import pageObjects.HomePageObject;
-import pageObjects.LoginPageObject;
-import pageObjects.RegisterPageObject;
+import pageObjects.user.UserCustomerInfoPO;
+import pageObjects.user.UserHomePO;
+import pageObjects.user.UserLoginPO;
+import pageObjects.user.UserRegisterPO;
 
 import java.time.Duration;
 
 public class Level_03_Page_Object extends BaseTest {
     //Declare variables
     private WebDriver driver;
-    private HomePageObject homePage;
-    private RegisterPageObject registerPage;
-    private LoginPageObject loginPage;
-    private CustomerInfoPageObject customerInforPage;
+    private UserHomePO homePage;
+    private UserRegisterPO registerPage;
+    private UserLoginPO loginPage;
+    private UserCustomerInfoPO customerInforPage;
     private String firstName, lastName, emailAddress, companyName, password;
 
     //Pre-condition
@@ -31,7 +31,7 @@ public class Level_03_Page_Object extends BaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
         //Page đó được sinh ra và bắt đầu làm những action của page đó
-        homePage = new HomePageObject(driver);
+        homePage = new UserHomePO(driver);
 
         firstName = "Automation";
         lastName = "Testing";
@@ -47,7 +47,7 @@ public class Level_03_Page_Object extends BaseTest {
 
         //Từ Home Page qua Register Page
         //Page đó được sinh ra và bắt đầu làm những action của page đó
-        registerPage = new RegisterPageObject(driver);
+        registerPage = new UserRegisterPO(driver);
 
         registerPage.clickToMaleRadio();
         registerPage.enterToFirstNameTextbox(firstName);
@@ -67,13 +67,13 @@ public class Level_03_Page_Object extends BaseTest {
 
         //Từ Register Page qua Login Page
         //Page đó được sinh ra và bắt đầu làm những action của page đó
-        loginPage = new LoginPageObject(driver);
+        loginPage = new UserLoginPO(driver);
 
         loginPage.loginToSystem(emailAddress, password);
 
         //Từ Login Page qua Home Page
         //Page đó được sinh ra và bắt đầu làm những action của page đó
-        homePage = new HomePageObject(driver);
+        homePage = new UserHomePO(driver);
 
         Assert.assertTrue(homePage.isMyAccountLinkDisplayed());
     }
@@ -84,7 +84,7 @@ public class Level_03_Page_Object extends BaseTest {
 
         //Từ Home Page qua Customer Info Page
         //Page đó được sinh ra và bắt đầu làm những action của page đó
-        customerInforPage = new CustomerInfoPageObject(driver);
+        customerInforPage = new UserCustomerInfoPO(driver);
 
         Assert.assertTrue(customerInforPage.isGenderMaleIsSelected());
 

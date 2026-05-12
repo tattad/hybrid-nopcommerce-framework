@@ -2,10 +2,14 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="NopCommerce Automation Testing">
+    
+    <parameter name="userUrl" value="https://demo.nopcommerce.com/"/>
+    <parameter name="adminUrl" value="https://admin-demo.nopcommerce.com"/>
+
     <test name="Run on Firefox browser">
         <parameter name="browser" value="firefox"/>
         <classes>
-            <class name="com.nopcommerce.user.Level_08_Page_Navigation"/>
+            <class name="com.nopcommerce.user.Level_09_Switch_Site_Url"/>
         </classes>
     </test>
-</suite>
+</suite> 

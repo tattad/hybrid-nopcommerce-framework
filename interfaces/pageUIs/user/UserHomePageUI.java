@@ -1,6 +1,6 @@
-package pageUIs;
+package pageUIs.user;
 
-public class HomePageUI {
+public class UserHomePageUI {
 
     //public: gọi hàm/ biến ra sử dụng bình thường
     //private/ default: khác package không dùng được

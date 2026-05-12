@@ -8,17 +8,18 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageObjects.*;
+import pageObjects.user.*;
 
 public class Level_07_Switch_Page_Object extends BaseTest {
 
     private WebDriver driver;
-    private HomePageObject homePage;
-    private RegisterPageObject registerPage;
-    private LoginPageObject loginPage;
-    private CustomerInfoPageObject customerInforPage;
-    private AddressPageObject addressPage;
-    private OrderPageObject orderPage;
-    private RewardPointPageObject rewardPointPage;
+    private UserHomePO homePage;
+    private UserRegisterPO registerPage;
+    private UserLoginPO loginPage;
+    private UserCustomerInfoPO customerInforPage;
+    private UserAddressPO addressPage;
+    private UserOrderPO orderPage;
+    private UserRewardPointPO rewardPointPage;
     private String firstName, lastName, emailAddress, companyName, password;
 
     @Parameters("browser")
@@ -27,7 +28,7 @@ public class Level_07_Switch_Page_Object extends BaseTest {
 
         driver = getBrowserDriver(browserName);
 
-        homePage = PageGenerator.getHomePage(driver);
+        homePage = PageGenerator.getUserHomePage(driver);
 
         firstName = "Automation";
         lastName = "Testing";

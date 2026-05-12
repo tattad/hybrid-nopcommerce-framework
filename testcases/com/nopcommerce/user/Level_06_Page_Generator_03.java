@@ -8,14 +8,18 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageObjects.*;
+import pageObjects.user.UserCustomerInfoPO;
+import pageObjects.user.UserHomePO;
+import pageObjects.user.UserLoginPO;
+import pageObjects.user.UserRegisterPO;
 
 public class Level_06_Page_Generator_03 extends BaseTest {
 
     private WebDriver driver;
-    private HomePageObject homePage;
-    private RegisterPageObject registerPage;
-    private LoginPageObject loginPage;
-    private CustomerInfoPageObject customerInforPage;
+    private UserHomePO homePage;
+    private UserRegisterPO registerPage;
+    private UserLoginPO loginPage;
+    private UserCustomerInfoPO customerInforPage;
     private String firstName, lastName, emailAddress, companyName, password;
 
     @Parameters("browser")
@@ -24,7 +28,7 @@ public class Level_06_Page_Generator_03 extends BaseTest {
 
         driver = getBrowserDriver(browserName);
 
-        homePage = PageGenerator.getHomePage(driver);
+        homePage = PageGenerator.getUserHomePage(driver);
 
         firstName = "Automation";
         lastName = "Testing";
