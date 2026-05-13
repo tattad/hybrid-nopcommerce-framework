@@ -1,7 +1,6 @@
 package com.nopcommerce.user;
 
 import commons.BasePage;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.Assert;
@@ -34,10 +33,10 @@ public class Level_02_BasePage_1_Initial {
 
     @Test
     public void TC_01_Register() {
-        basePage.waitForElementClickable("//a[@class='ico-register']");
+        basePage.waitForElementClickable(driver, "//a[@class='ico-register']");
         basePage.clickToElement(driver, "//a[@class='ico-register']");
 
-        basePage.waitForElementClickable("//input[@id='gender-male']");
+        basePage.waitForElementClickable(driver, "//input[@id='gender-male']");
         basePage.clickToElement(driver, "//input[@id='gender-male']");
 
         basePage.sendkeyToElement(driver, "//input[@id='FirstName']", firstName);
@@ -47,7 +46,7 @@ public class Level_02_BasePage_1_Initial {
         basePage.sendkeyToElement(driver, "//input[@id='Password']", password);
         basePage.sendkeyToElement(driver, "//input[@id='ConfirmPassword']", password);
 
-        basePage.waitForElementClickable("//button[@id='register-button']");
+        basePage.waitForElementClickable(driver, "//button[@id='register-button']");
         basePage.clickToElement(driver, "//button[@id='register-button']");
 
         Assert.assertEquals(basePage.getElementText(driver, "//div[@class='result']"), "Your registration completed");
@@ -55,25 +54,25 @@ public class Level_02_BasePage_1_Initial {
 
     @Test
     public void TC_02_Login() {
-        basePage.waitForElementClickable("//a[@class='ico-login']");
+        basePage.waitForElementClickable(driver, "//a[@class='ico-login']");
         basePage.clickToElement(driver, "//a[@class='ico-login']");
 
         basePage.sendkeyToElement(driver, "//input[@id='Email']", email);
         basePage.sendkeyToElement(driver, "//input[@id='Password']", password);
 
-        basePage.waitForElementClickable("//button[contains(@class,'login-button')]");
+        basePage.waitForElementClickable(driver, "//button[contains(@class,'login-button')]");
         basePage.clickToElement(driver, "//button[contains(@class,'login-button')]");
 
-        Assert.assertTrue(basePage.isElementDisplayed("//a[@class='ico-account' and text()='My account']"));
+        Assert.assertTrue(basePage.isElementDisplayed(driver, "//a[@class='ico-account' and text()='My account']"));
     }
 
     @Test
     public void TC_03_MyAccount() {
-        basePage.waitForElementClickable("//a[@class='ico-account']");
+        basePage.waitForElementClickable(driver, "//a[@class='ico-account']");
         basePage.clickToElement(driver, "//a[@class='ico-account']");
 
 
-        Assert.assertTrue(basePage.isElementSelected("//input[@id='gender-male']"));
+        Assert.assertTrue(basePage.isElementSelected(driver, "//input[@id='gender-male']"));
 
         Assert.assertEquals(basePage.getElementAttribute(driver, "//input[@id='FirstName']", "value"), firstName);
         Assert.assertEquals(basePage.getElementAttribute(driver, "//input[@id='LastName']", "value"), lastName);

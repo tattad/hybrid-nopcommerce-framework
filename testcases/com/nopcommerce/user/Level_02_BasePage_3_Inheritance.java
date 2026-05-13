@@ -35,10 +35,10 @@ public class Level_02_BasePage_3_Inheritance extends BasePage {
 
     @Test
     public void TC_01_Register() {
-        waitForElementClickable("//a[@class='ico-register']");
+        waitForElementClickable(driver, "//a[@class='ico-register']");
         clickToElement(driver, "//a[@class='ico-register']");
 
-        waitForElementClickable("//input[@id='gender-male']");
+        waitForElementClickable(driver, "//input[@id='gender-male']");
         clickToElement(driver, "//input[@id='gender-male']");
 
         sendkeyToElement(driver, "//input[@id='FirstName']", firstName);
@@ -48,7 +48,7 @@ public class Level_02_BasePage_3_Inheritance extends BasePage {
         sendkeyToElement(driver, "//input[@id='Password']", password);
         sendkeyToElement(driver, "//input[@id='ConfirmPassword']", password);
 
-        waitForElementClickable("//button[@id='register-button']");
+        waitForElementClickable(driver, "//button[@id='register-button']");
         clickToElement(driver, "//button[@id='register-button']");
 
         Assert.assertEquals(getElementText(driver, "//div[@class='result']"), "Your registration completed");
@@ -56,25 +56,25 @@ public class Level_02_BasePage_3_Inheritance extends BasePage {
 
     @Test
     public void TC_02_Login() {
-        waitForElementClickable("//a[@class='ico-login']");
+        waitForElementClickable(driver, "//a[@class='ico-login']");
         clickToElement(driver, "//a[@class='ico-login']");
 
         sendkeyToElement(driver, "//input[@id='Email']", email);
         sendkeyToElement(driver, "//input[@id='Password']", password);
 
-        waitForElementClickable("//button[contains(@class,'login-button')]");
+        waitForElementClickable(driver, "//button[contains(@class,'login-button')]");
         clickToElement(driver, "//button[contains(@class,'login-button')]");
 
-        Assert.assertTrue(isElementDisplayed("//a[@class='ico-account' and text()='My account']"));
+        Assert.assertTrue(isElementDisplayed(driver, "//a[@class='ico-account' and text()='My account']"));
     }
 
     @Test
     public void TC_03_MyAccount() {
-        waitForElementClickable("//a[@class='ico-account']");
+        waitForElementClickable(driver, "//a[@class='ico-account']");
         clickToElement(driver, "//a[@class='ico-account']");
 
 
-        Assert.assertTrue(isElementSelected("//input[@id='gender-male']"));
+        Assert.assertTrue(isElementSelected(driver, "//input[@id='gender-male']"));
 
         Assert.assertEquals(getElementAttribute(driver, "//input[@id='FirstName']", "value"), firstName);
         Assert.assertEquals(getElementAttribute(driver, "//input[@id='LastName']", "value"), lastName);

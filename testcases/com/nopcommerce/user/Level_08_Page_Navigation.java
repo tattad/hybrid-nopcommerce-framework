@@ -77,19 +77,19 @@ public class Level_08_Page_Navigation extends BaseTest {
     public void User_04_Switch_Page() {
 
         // Customer Infor -> Address
-        addressPage = customerInfoPage.openAddressPage(driver);
+        addressPage = customerInfoPage.openAddressPage();
 
         // Address -> Reward Point
-        rewardPointPage = addressPage.openRewardPointPage(driver);
+        rewardPointPage = addressPage.openRewardPointPage();
 
         // Reward Point -> Order
-        orderPage = rewardPointPage.openOrderPage(driver);
+        orderPage = rewardPointPage.openOrderPage();
 
-         // Order -> Address
-        addressPage = orderPage.openAddressPage( driver);
+        // Order -> Address
+        addressPage = orderPage.openAddressPage();
 
         // Address -> Customer Info
-        customerInfoPage = addressPage.openCustomerInforPage(driver);
+        customerInfoPage = addressPage.openCustomerInforPage();
     }
 
     @AfterClass

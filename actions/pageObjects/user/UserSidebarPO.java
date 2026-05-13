@@ -13,26 +13,26 @@ public class UserSidebarPO extends BasePage {
         this.driver = driver;
     }
 
-    public UserRewardPointPO openRewardPointPage(WebDriver driver) {
-        waitForElementClickable(UserSidebarPageUI.REWARD_POINT_LINK);
+    public UserRewardPointPO openRewardPointPage() {
+        waitForElementClickable(driver, UserSidebarPageUI.REWARD_POINT_LINK);
         clickToElement(driver, UserSidebarPageUI.REWARD_POINT_LINK);
         return new UserRewardPointPO(driver);
     }
 
-    public UserCustomerInfoPO openCustomerInforPage(WebDriver driver) {
-        waitForElementClickable(UserSidebarPageUI.CUSTOMER_INFO_LINK);
+    public UserCustomerInfoPO openCustomerInforPage() {
+        waitForElementClickable(driver, UserSidebarPageUI.CUSTOMER_INFO_LINK);
         clickToElement(driver, UserSidebarPageUI.CUSTOMER_INFO_LINK);
         return new UserCustomerInfoPO(driver);
     }
 
-    public UserAddressPO openAddressPage(WebDriver driver) {
-        waitForElementClickable(UserSidebarPageUI.ADDRESS_LINK);
+    public UserAddressPO openAddressPage() {
+        waitForElementClickable(driver, UserSidebarPageUI.ADDRESS_LINK);
         clickToElement(driver, UserSidebarPageUI.ADDRESS_LINK);
         return PageGenerator.getUserAddressPage(driver);
     }
 
-    public UserOrderPO openOrderPage(WebDriver driver) {
-        waitForElementClickable(UserSidebarPageUI.ORDER_LINK);
+    public UserOrderPO openOrderPage() {
+        waitForElementClickable(driver, UserSidebarPageUI.ORDER_LINK);
         clickToElement(driver, UserSidebarPageUI.ORDER_LINK);
         return PageGenerator.getUserOrderPage(driver);
     }

@@ -22,7 +22,7 @@ public class UserHomePO extends BasePage {
 
 
     public boolean isMyAccountLinkDisplayed() {
-        waitForElementVisible(UserHomePageUI.MY_ACCOUNT_LINK);
-        return isElementDisplayed(UserHomePageUI.MY_ACCOUNT_LINK);
+        waitForElementVisible(driver, UserHomePageUI.MY_ACCOUNT_LINK);
+        return isElementDisplayed(driver, UserHomePageUI.MY_ACCOUNT_LINK);
     }
 }
