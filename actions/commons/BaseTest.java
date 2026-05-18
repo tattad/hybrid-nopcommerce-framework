@@ -28,8 +28,8 @@ public class BaseTest {
             default:
                 throw new RuntimeException("Browser not recognized");
         }
-        driver.get("https://demo.nopcommerce.com/");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        driver.get(GlobalConstants.DEV_USER_URL);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(GlobalConstants.LONG_TIMEOUT));
         return driver;
     }
 
@@ -49,7 +49,7 @@ public class BaseTest {
                 throw new RuntimeException("Browser not recognized");
         }
         driver.get(url);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(GlobalConstants.LONG_TIMEOUT));
         return driver;
     }
 
