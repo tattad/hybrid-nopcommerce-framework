@@ -19,7 +19,7 @@ public class HomePO extends BasePage {
     }
 
     public boolean isPageNumberActived(String pageNumber) {
-        waitForElementInvisible(driver, HomePageUI.DYNAMIC_PAGE_LINK, pageNumber);
+        waitForElementVisible(driver, HomePageUI.DYNAMIC_PAGE_LINK, pageNumber);
         return getElementAttribute(driver, HomePageUI.DYNAMIC_PAGE_LINK, "class", pageNumber).endsWith("active");
     }
 }

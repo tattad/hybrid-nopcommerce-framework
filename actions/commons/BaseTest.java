@@ -50,6 +50,7 @@ public class BaseTest {
         }
         driver.get(url);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(GlobalConstants.LONG_TIMEOUT));
+        driver.manage().window().maximize();
         return driver;
     }
 
