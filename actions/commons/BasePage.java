@@ -6,11 +6,11 @@ import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pageObjects.*;
-import pageObjects.user.*;
-import pageUIs.*;
-import pageUIs.user.UserHomePageUI;
-import pageUIs.user.UserRegisterPageUI;
+import pageObjects.nopCommerce.PageGenerator;
+import pageObjects.nopCommerce.user.*;
+import pageUIs.nopCommerce.BasePageUI;
+import pageUIs.nopCommerce.user.UserHomePageUI;
+import pageUIs.nopCommerce.user.UserRegisterPageUI;
 
 import java.time.Duration;
 import java.util.List;
@@ -127,17 +127,17 @@ public class BasePage {
     //Convention: css/Css/CSS - id/Id/ID
     private By getByLocator(String prefixLocator) {
         By by = null;
-        if (prefixLocator.startsWith("id") || prefixLocator.startsWith("Id") || prefixLocator.startsWith("ID")) {
+        if (prefixLocator.toUpperCase().startsWith("ID")) {
             by = By.id(prefixLocator.substring(3));
-        } else if (prefixLocator.startsWith("class") || prefixLocator.startsWith("Class") || prefixLocator.startsWith("CLASS")) {
+        } else if (prefixLocator.toUpperCase().startsWith("CLASS")) {
             by = By.className(prefixLocator.substring(6));
-        } else if (prefixLocator.startsWith("name") || prefixLocator.startsWith("Name") || prefixLocator.startsWith("NAME")) {
+        } else if (prefixLocator.toUpperCase().startsWith("NAME")) {
             by = By.name(prefixLocator.substring(5));
-        } else if (prefixLocator.startsWith("tagname") || prefixLocator.startsWith("Tagname") || prefixLocator.startsWith("TAGNAME")) {
+        } else if (prefixLocator.toUpperCase().startsWith("TAGNAME")) {
             by = By.tagName(prefixLocator.substring(8));
-        } else if (prefixLocator.startsWith("css") || prefixLocator.startsWith("Css") || prefixLocator.startsWith("CSS")) {
+        } else if (prefixLocator.toUpperCase().startsWith("CSS")) {
             by = By.cssSelector(prefixLocator.substring(4));
-        } else if (prefixLocator.startsWith("xpath") || prefixLocator.startsWith("Xpath") || prefixLocator.startsWith("XPath") || prefixLocator.startsWith("XPATH")) {
+        } else if (prefixLocator.toUpperCase().startsWith("XPATH")) {
             by = By.xpath(prefixLocator.substring(6));
         } else {
             throw new RuntimeException("Locator type is not supported!!!");
@@ -388,6 +388,10 @@ public class BasePage {
 
     public void waitForElementInvisible(WebDriver driver, String locator) {
         new WebDriverWait(driver, Duration.ofSeconds(GlobalConstants.LONG_TIMEOUT)).until(ExpectedConditions.invisibilityOfElementLocated(getByLocator(locator)));
+    }
+
+    public void waitForElementInvisible(WebDriver driver, String locator, String restParameter) {
+        new WebDriverWait(driver, Duration.ofSeconds(GlobalConstants.LONG_TIMEOUT)).until(ExpectedConditions.invisibilityOfElementLocated(getByLocator(castParameter(locator, restParameter))));
     }
 
     public void waitForElementClickable(WebDriver driver, String locator) {

@@ -7,8 +7,8 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import pageObjects.*;
-import pageObjects.user.*;
+import pageObjects.nopCommerce.PageGenerator;
+import pageObjects.nopCommerce.user.*;
 
 public class Level_07_Switch_Page_Object extends BaseTest {
 
