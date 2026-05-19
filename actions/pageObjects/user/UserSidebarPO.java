@@ -13,6 +13,7 @@ public class UserSidebarPO extends BasePage {
         this.driver = driver;
     }
 
+    /*Only use for level_08_Page_Navigation*/
     public UserRewardPointPO openRewardPointPage() {
         waitForElementClickable(driver, UserSidebarPageUI.REWARD_POINT_LINK);
         clickToElement(driver, UserSidebarPageUI.REWARD_POINT_LINK);
@@ -35,5 +36,29 @@ public class UserSidebarPO extends BasePage {
         waitForElementClickable(driver, UserSidebarPageUI.ORDER_LINK);
         clickToElement(driver, UserSidebarPageUI.ORDER_LINK);
         return PageGenerator.getUserOrderPage(driver);
+    }
+
+    //Phù hợp cho số lượng page ít - switch case ít
+    public UserSidebarPO openSidebarLinkPageName(String pageName) {
+        waitForElementClickable(driver, UserSidebarPageUI.DYNAMIC_LINK_BY_PAGE_NAME, pageName);
+        clickToElement(driver, UserSidebarPageUI.DYNAMIC_LINK_BY_PAGE_NAME, pageName);
+
+        switch (pageName) {
+            case "Addresses":
+                return PageGenerator.getUserAddressPage(driver);
+            case "Reward Points":
+                return PageGenerator.getUserRewardPointPage(driver);
+            case "Orders":
+                return PageGenerator.getUserOrderPage(driver);
+            case "Customer Info":
+                return PageGenerator.getUserCustomerPage(driver);
+            default:
+                throw new RuntimeException("Page name is invalid!!!");
+        }
+    }
+
+    public void openSidebarLinkPageNames(String pageName) {
+        waitForElementClickable(driver, UserSidebarPageUI.DYNAMIC_LINK_BY_PAGE_NAME, pageName);
+        clickToElement(driver, UserSidebarPageUI.DYNAMIC_LINK_BY_PAGE_NAME, pageName);
     }
 }

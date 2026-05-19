@@ -15,17 +15,17 @@ public class UserLoginPO extends BasePage {
     }
 
     public void enterToEmailTextbox(String emailAddress) {
-        waitForElementVisible(UserLoginPageUI.EMAIL_TEXTBOX);
+        waitForElementVisible(driver, UserLoginPageUI.EMAIL_TEXTBOX);
         sendkeyToElement(driver, UserLoginPageUI.EMAIL_TEXTBOX, emailAddress);
     }
 
     public void enterToPasswordTextbox(String password) {
-        waitForElementVisible(UserLoginPageUI.EMAIL_TEXTBOX);
+        waitForElementVisible(driver, UserLoginPageUI.EMAIL_TEXTBOX);
         sendkeyToElement(driver, UserLoginPageUI.EMAIL_TEXTBOX, password);
     }
 
     public void clickToLoginButton() {
-        waitForElementClickable(UserLoginPageUI.LOGIN_BUTTON);
+        waitForElementClickable(driver, UserLoginPageUI.LOGIN_BUTTON);
         clickToElement(driver, UserLoginPageUI.LOGIN_BUTTON);
     }
 
