@@ -23,8 +23,8 @@ public class Level_11_DataTable extends BaseTest {
         homePage = PageGenerator.getHomePage(driver);
     }
 
-    @Test
-    public void Table_01() {
+//    @Test
+    public void Table_01_Switch_Page() {
         //Navigate to any page (paging)
         homePage.openPageByNumber("15");
         Assert.assertTrue(homePage.isPageNumberActived("15"));
@@ -36,21 +36,44 @@ public class Level_11_DataTable extends BaseTest {
         Assert.assertTrue(homePage.isPageNumberActived("12"));
     }
 
-    @Test
-    public void Table_02() {
+//    @Test
+    public void Table_02_Search() {
+        //Enter value to header textbox and search -> verify data in first row
+        homePage.enterToTextboxByHeaderName("Country", "Algeria");
+        homePage.sleepInSecond(2);
+        Assert.assertTrue(homePage.isRowDataValueDisplayed("283821", "Algeria", "295140", "578961"));
+        homePage.refreshCurrentPage(driver);
 
+        homePage.enterToTextboxByHeaderName("Males", "12599691");
+        Assert.assertTrue(homePage.isRowDataValueDisplayed("12253515", "AFRICA", "12599691", "24853148"));
+        homePage.sleepInSecond(2);
+        homePage.refreshCurrentPage(driver);
+
+        homePage.enterToTextboxByHeaderName("Females", "764956");
+        Assert.assertTrue(homePage.isRowDataValueDisplayed("764956", "Arab Rep of Egypt", "802948", "1567904"));
+        homePage.sleepInSecond(2);
     }
 
     @Test
-    public void Table_03() {
+    public void Table_03_Delete_Edit() {
+        //Enter value to header textbox and search
+        homePage.enterToTextboxByHeaderName("Country", "Afghanistan");
+        homePage.sleepInSecond(2);
 
+        //Click Remove button
+        homePage.removeRowByCountryName("Afghanistan");
+        homePage.refreshCurrentPage(driver);
+
+        homePage.enterToTextboxByHeaderName("Country", "Angola");
+        homePage.sleepInSecond(2);
+        homePage.removeRowByCountryName("Angola");
+        homePage.refreshCurrentPage(driver);
+
+        homePage.enterToTextboxByHeaderName("Country", "Arab Rep of Egypt");
+        homePage.sleepInSecond(2);
+        homePage.editRowByCountryName("Arab Rep of Egypt");
+        homePage.refreshCurrentPage(driver);
     }
-
-    @Test
-    public void User_04_Dynamic_Page() {
-
-    }
-
 
     @AfterClass
     public void afterClass() {

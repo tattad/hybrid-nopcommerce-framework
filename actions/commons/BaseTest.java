@@ -49,8 +49,8 @@ public class BaseTest {
                 throw new RuntimeException("Browser not recognized");
         }
         driver.get(url);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(GlobalConstants.LONG_TIMEOUT));
         driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(GlobalConstants.LONG_TIMEOUT));
         return driver;
     }
 
