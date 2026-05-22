@@ -56,4 +56,10 @@ public class HomePO extends BasePage {
         clickToElement(driver, HomePageUI.DYNAMIC_EDIT_BUTTON_BY_COUNTRY_NAME, countryName);
         sleepInSecond(2);
     }
+
+    public void editRecordDetails(String fieldName, String editData) {
+        waitForElementVisible(driver, HomePageUI.EDIT_RECORD_POPUP);
+        sendkeyToElement(driver, HomePageUI.DYNAMIC_EDIT, editData, fieldName);
+        clickToElement(driver, HomePageUI.SUBMIT_BUTTON);
+    }
 }

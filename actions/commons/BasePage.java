@@ -118,6 +118,10 @@ public class BasePage {
         return driver.findElements(getByLocator(locator));
     }
 
+    public List<WebElement> getListElement(WebDriver driver,String locator, String... restParamter) {
+        return driver.findElements(getByLocator(castParameter(locator, restParamter)));
+    }
+
     private String castParameter(String locator, String... restParameter) {
         return String.format(locator, (Object[]) restParameter);
     }

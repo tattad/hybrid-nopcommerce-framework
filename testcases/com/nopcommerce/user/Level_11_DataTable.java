@@ -23,7 +23,7 @@ public class Level_11_DataTable extends BaseTest {
         homePage = PageGenerator.getHomePage(driver);
     }
 
-//    @Test
+    //    @Test
     public void Table_01_Switch_Page() {
         //Navigate to any page (paging)
         homePage.openPageByNumber("15");
@@ -36,7 +36,7 @@ public class Level_11_DataTable extends BaseTest {
         Assert.assertTrue(homePage.isPageNumberActived("12"));
     }
 
-//    @Test
+    //    @Test
     public void Table_02_Search() {
         //Enter value to header textbox and search -> verify data in first row
         homePage.enterToTextboxByHeaderName("Country", "Algeria");
@@ -56,22 +56,25 @@ public class Level_11_DataTable extends BaseTest {
 
     @Test
     public void Table_03_Delete_Edit() {
-        //Enter value to header textbox and search
-        homePage.enterToTextboxByHeaderName("Country", "Afghanistan");
-        homePage.sleepInSecond(2);
-
-        //Click Remove button
-        homePage.removeRowByCountryName("Afghanistan");
-        homePage.refreshCurrentPage(driver);
-
-        homePage.enterToTextboxByHeaderName("Country", "Angola");
-        homePage.sleepInSecond(2);
-        homePage.removeRowByCountryName("Angola");
-        homePage.refreshCurrentPage(driver);
+//        //Enter value to header textbox and search
+//        homePage.enterToTextboxByHeaderName("Country", "Afghanistan");
+//        homePage.sleepInSecond(2);
+//
+//        //Click Remove button
+//        homePage.removeRowByCountryName("Afghanistan");
+//        homePage.refreshCurrentPage(driver);
+//
+//        homePage.enterToTextboxByHeaderName("Country", "Angola");
+//        homePage.sleepInSecond(2);
+//        homePage.removeRowByCountryName("Angola");
+//        homePage.refreshCurrentPage(driver);
 
         homePage.enterToTextboxByHeaderName("Country", "Arab Rep of Egypt");
         homePage.sleepInSecond(2);
         homePage.editRowByCountryName("Arab Rep of Egypt");
+        homePage.editRecordDetails("females", "2");
+        homePage.enterToTextboxByHeaderName("Country", "Arab Rep of Egypt");
+        Assert.assertTrue(homePage.isRowDataValueDisplayed("2", "Arab Rep of Egypt", "802948", "1567904"));
         homePage.refreshCurrentPage(driver);
     }
 
