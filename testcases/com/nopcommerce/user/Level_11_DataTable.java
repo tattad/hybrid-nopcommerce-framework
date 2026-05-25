@@ -54,7 +54,7 @@ public class Level_11_DataTable extends BaseTest {
         homePage.sleepInSecond(2);
     }
 
-    @Test
+    //    @Test
     public void Table_03_Delete_Edit() {
 //        //Enter value to header textbox and search
 //        homePage.enterToTextboxByHeaderName("Country", "Afghanistan");
@@ -76,6 +76,31 @@ public class Level_11_DataTable extends BaseTest {
         homePage.enterToTextboxByHeaderName("Country", "Arab Rep of Egypt");
         Assert.assertTrue(homePage.isRowDataValueDisplayed("2", "Arab Rep of Egypt", "802948", "1567904"));
         homePage.refreshCurrentPage(driver);
+    }
+
+    @Test
+    public void Table_04_Get_All_Value_Row_Or_Index() {
+        homePage.getAllValueAtColumnName("Country");
+        homePage.getAllValueAtColumnName("Females");
+    }
+
+//    @Test
+    public void Table_05_Action_By_Index() {
+        homePage.openPageUrl(driver, "https://www.jqueryscript.net/demo/jQuery-Dynamic-Data-Grid-Plugin-appendGrid/");
+        homePage.clickToLoadDataButon();
+
+        homePage.enterToTextboxByIndex("4", "Contact Person", "Automation");
+        homePage.enterToTextboxByIndex("2", "Company", "Automation Company");
+
+        homePage.selectToDropdownByIndex("6", "Country", "Hong Kong");
+        homePage.selectToDropdownByIndex("8", "Country", "United Kingdom");
+
+        homePage.checkToCheckboxByIndex("5", "NPO?", false);
+        homePage.checkToCheckboxByIndex("6", "NPO?", true);
+
+        homePage.clickToIconByIndex("8","Move Up");
+        homePage.clickToIconByIndex("6","Remove");
+        homePage.clickToIconByIndex("4","Insert");
     }
 
     @AfterClass
