@@ -118,7 +118,7 @@ public class BasePage {
         return driver.findElements(getByLocator(locator));
     }
 
-    public List<WebElement> getListElement(WebDriver driver,String locator, String... restParamter) {
+    public List<WebElement> getListElement(WebDriver driver, String locator, String... restParamter) {
         return driver.findElements(getByLocator(castParameter(locator, restParamter)));
     }
 
@@ -419,6 +419,19 @@ public class BasePage {
 
     public void waitForElementClickable(WebDriver driver, String locator, String... restParameter) {
         new WebDriverWait(driver, Duration.ofSeconds(GlobalConstants.LONG_TIMEOUT)).until(ExpectedConditions.elementToBeClickable(getByLocator(castParameter(locator, restParameter))));
+    }
+
+    public void uploadMultipleFiles(WebDriver driver, String... fileNames) {
+        //Lấy ra đuờng dẫn thư mục upload file
+        String filePath = GlobalConstants.UPLOAD_PATH;
+        String fullFileName = "";
+        //Dùng vòng lặp duyệt qua các file name
+        for (String file : fileNames) {
+            fullFileName += filePath + file + "\n";
+        }
+        //Cắt kí tự xuống dòng (\n) ở đầu 2 chuỗi
+        fullFileName = fullFileName.trim();
+        getElement(driver, BasePageUI.UPLOAD_FILE_TYPE).sendKeys(fullFileName);
     }
 
     /*Only use for Level_07_Switch_Page_Object*/

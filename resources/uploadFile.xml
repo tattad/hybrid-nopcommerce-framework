@@ -2,13 +2,13 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="DataTable">
-    
-    <parameter name="url" value="https://www.jqueryscript.net/demo/CRUD-Data-Grid-Plugin-jQuery-Quickgrid/"/>
+
+    <parameter name="url" value="https://blueimp.github.io/jQuery-File-Upload/"/>
 
     <test name="Run on Firefox browser">
         <parameter name="browser" value="firefox"/>
         <classes>
-            <class name="com.jquery.Level_11_DataTable"/>
+            <class name="com.jquery.Level_12_Upload"/>
         </classes>
     </test>
-</suite> 
+</suite>

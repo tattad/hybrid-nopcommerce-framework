@@ -1,6 +1,5 @@
-package com.nopcommerce.user;
+package com.jquery;
 
-import commons.BasePage;
 import commons.BaseTest;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
