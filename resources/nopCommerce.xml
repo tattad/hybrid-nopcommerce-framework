@@ -12,7 +12,7 @@
     <test name="Run on Firefox browser">
         <parameter name="browser" value="firefox"/>
         <classes>
-            <class name="com.nopcommerce.user.Level_13_Assert"/>
+            <class name="com.nopcommerce.user.Level_14_Log4J"/>
         </classes>
     </test>
 </suite> 
