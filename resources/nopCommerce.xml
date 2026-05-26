@@ -2,14 +2,17 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="NopCommerce Automation Testing">
-    
+    <listeners>
+        <listener class-name="commons.MethodListener"></listener>
+    </listeners>
+
     <parameter name="userUrl" value="https://demo.nopcommerce.com/"/>
     <parameter name="adminUrl" value="https://admin-demo.nopcommerce.com"/>
 
     <test name="Run on Firefox browser">
         <parameter name="browser" value="firefox"/>
         <classes>
-            <class name="com.nopcommerce.user.Level_09_Switch_Site_Url"/>
+            <class name="com.nopcommerce.user.Level_13_Assert"/>
         </classes>
     </test>
 </suite> 
