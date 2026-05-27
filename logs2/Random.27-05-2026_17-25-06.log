@@ -1,0 +1,4 @@
+[27-05-2026 17:25:15.381 INFO com.jquery.Level_12_Upload] - USTEP 01: Upload 3 files
+[27-05-2026 17:25:18.442 INFO com.jquery.Level_12_Upload] - USTEP 02: Verify files are loaded
+[27-05-2026 17:25:18.552 INFO com.jquery.Level_12_Upload] - USTEP 03: Click upload button
+[27-05-2026 17:25:27.797 INFO com.jquery.Level_12_Upload] - USTEP 04: Verify files are uploaded

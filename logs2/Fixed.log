@@ -1,0 +1,20 @@
+[27-05-2026 17:25:15.381 INFO com.jquery.Level_12_Upload] - USTEP 01: Upload 3 files
+[27-05-2026 17:25:18.442 INFO com.jquery.Level_12_Upload] - USTEP 02: Verify files are loaded
+[27-05-2026 17:25:18.552 INFO com.jquery.Level_12_Upload] - USTEP 03: Click upload button
+[27-05-2026 17:25:27.797 INFO com.jquery.Level_12_Upload] - USTEP 04: Verify files are uploaded
+[27-05-2026 20:47:35.102 INFO com.jquery.Level_12_Upload] - USTEP 01: Upload 3 files
+[27-05-2026 20:47:38.167 INFO com.jquery.Level_12_Upload] - USTEP 02: Verify files are loaded
+[27-05-2026 20:47:38.264 INFO com.jquery.Level_12_Upload] - USTEP 03: Click upload button
+[27-05-2026 20:47:47.499 INFO com.jquery.Level_12_Upload] - USTEP 04: Verify files are uploaded
+[27-05-2026 20:53:01.191 INFO com.jquery.Level_12_Upload] - USTEP 01: Upload 3 files
+[27-05-2026 20:53:04.248 INFO com.jquery.Level_12_Upload] - USTEP 02: Verify files are loaded
+[27-05-2026 20:53:04.342 INFO com.jquery.Level_12_Upload] - USTEP 03: Click upload button
+[27-05-2026 20:53:13.577 INFO com.jquery.Level_12_Upload] - USTEP 04: Verify files are uploaded
+[27-05-2026 20:54:00.527 INFO com.jquery.Level_12_Upload] - USTEP 01: Upload 3 files
+[27-05-2026 20:54:03.587 INFO com.jquery.Level_12_Upload] - USTEP 02: Verify files are loaded
+[27-05-2026 20:54:03.695 INFO com.jquery.Level_12_Upload] - USTEP 03: Click upload button
+[27-05-2026 20:54:12.877 INFO com.jquery.Level_12_Upload] - USTEP 04: Verify files are uploaded
+[27-05-2026 21:31:41.063 INFO com.jquery.Level_12_Upload] - USTEP 01: Upload 3 files
+[27-05-2026 21:31:44.117 INFO com.jquery.Level_12_Upload] - USTEP 02: Verify files are loaded
+[27-05-2026 21:31:44.403 INFO com.jquery.Level_12_Upload] - USTEP 03: Click upload button
+[27-05-2026 21:31:53.643 INFO com.jquery.Level_12_Upload] - USTEP 04: Verify files are uploaded

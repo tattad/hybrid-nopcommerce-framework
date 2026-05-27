@@ -2,6 +2,7 @@ package commons;
 
 import java.util.List;
 
+//log4j version 1
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.testng.IInvokedMethod;

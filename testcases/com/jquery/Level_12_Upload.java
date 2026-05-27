@@ -39,26 +39,25 @@ public class Level_12_Upload extends BaseTest {
 //        homePage.refreshCurrentPage(driver);
 
         //Có thể upload 1 lần nhiều file => dùng 1 hàm
+        log.info("STEP 01: Upload 3 files");
         homePage.uploadMultipleFiles(driver, karik, brightSide, darkSide);
         homePage.sleepInSecond(3);
 
         //Verify load file lên
+        log.info("STEP 02: Verify files are loaded");
         Assert.assertTrue(homePage.isFileLoadedByName(karik));
         Assert.assertTrue(homePage.isFileLoadedByName(brightSide));
         Assert.assertTrue(homePage.isFileLoadedByName(darkSide));
 
         //Click upload button tại từng file
+        log.info("STEP 03: Click upload button");
         homePage.clickToUploadButton();
 
         //Có thể verify 1 file/ nhiều file được upload xong
+        log.info("STEP 04: Verify files are uploaded");
         Assert.assertTrue(homePage.isFileUploadedByName(karik));
         Assert.assertTrue(homePage.isFileUploadedByName(brightSide));
         Assert.assertTrue(homePage.isFileUploadedByName(darkSide));
-    }
-
-    @Test
-    public void Table_02_() {
-
     }
 
     @AfterClass
