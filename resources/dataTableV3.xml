@@ -4,14 +4,14 @@
 <suite name="DataTable">
     <listeners>
         <listener class-name="commons.MethodListener"></listener>
-        <listener class-name="reportConfigs.ExtentReportListenerV2" />
+        <listener class-name="reportConfigs.ExtentListenerV3" />
     </listeners>
-    <parameter name="url" value="https://blueimp.github.io/jQuery-File-Upload/"/>
+    <parameter name="url" value="https://www.jqueryscript.net/demo/CRUD-Data-Grid-Plugin-jQuery-Quickgrid/"/>
 
     <test name="Run on Firefox browser">
         <parameter name="browser" value="firefox"/>
         <classes>
-            <class name="com.jquery.Level_12_Upload"/>
+            <class name="com.jquery.Level_15_ExtentReport_v3"/>
         </classes>
     </test>
-</suite>
+</suite> 

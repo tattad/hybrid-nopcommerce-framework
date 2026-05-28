@@ -18,3 +18,77 @@
 [27-05-2026 21:31:44.117 INFO com.jquery.Level_12_Upload] - USTEP 02: Verify files are loaded
 [27-05-2026 21:31:44.403 INFO com.jquery.Level_12_Upload] - USTEP 03: Click upload button
 [27-05-2026 21:31:53.643 INFO com.jquery.Level_12_Upload] - USTEP 04: Verify files are uploaded
+[28-05-2026 11:58:21.465 INFO com.jquery.Level_12_Upload] - STEP 01: Upload 3 files
+[28-05-2026 11:58:24.518 INFO com.jquery.Level_12_Upload] - STEP 02: Verify files are loaded
+[28-05-2026 11:58:24.599 INFO com.jquery.Level_12_Upload] - STEP 03: Click upload button
+[28-05-2026 11:58:33.823 INFO com.jquery.Level_12_Upload] - STEP 04: Verify files are uploaded
+[28-05-2026 13:29:06.574 INFO com.jquery.Level_12_Upload] - STEP 01: Upload 3 files
+[28-05-2026 13:29:09.729 INFO com.jquery.Level_12_Upload] - STEP 02: Verify files are loaded
+[28-05-2026 13:29:09.810 INFO com.jquery.Level_12_Upload] - STEP 03: Click upload button
+[28-05-2026 13:29:19.034 INFO com.jquery.Level_12_Upload] - STEP 04: Verify files are uploaded
+[28-05-2026 14:25:29.003 INFO com.jquery.Level_11_DataTable] - Table_01_Switch_Page - STEP 01: Switch to Page 15
+[28-05-2026 14:25:31.306 INFO com.jquery.Level_11_DataTable] - -------------------- PASSED --------------------
+[28-05-2026 14:25:31.306 INFO com.jquery.Level_11_DataTable] - Table_01_Switch_Page - STEP 02: Switch to Page 5
+[28-05-2026 14:25:33.429 INFO com.jquery.Level_11_DataTable] - -------------------- PASSED --------------------
+[28-05-2026 14:25:33.429 INFO com.jquery.Level_11_DataTable] - Table_01_Switch_Page - STEP 03: Switch to Page 12
+[28-05-2026 14:25:35.543 INFO com.jquery.Level_11_DataTable] - -------------------- FAILED --------------------
+[28-05-2026 14:25:35.550 INFO com.jquery.Level_11_DataTable] - Table_02_Search - STEP 01: Search by Country
+[28-05-2026 14:25:36.738 INFO com.jquery.Level_11_DataTable] - Table_02_Search - STEP 02: Check result
+[28-05-2026 14:26:06.749 INFO com.jquery.Level_11_DataTable] - Table_03_Delete_Edit - STEP 01: Search by Country
+[28-05-2026 14:26:08.925 INFO com.jquery.Level_11_DataTable] - Table_03_Delete_Edit - STEP 02: Open country details
+[28-05-2026 14:27:13.120 INFO com.jquery.Level_11_DataTable] - Table_01_Switch_Page - STEP 01: Switch to Page 15
+[28-05-2026 14:27:15.399 INFO com.jquery.Level_11_DataTable] - -------------------- PASSED --------------------
+[28-05-2026 14:27:15.399 INFO com.jquery.Level_11_DataTable] - Table_01_Switch_Page - STEP 02: Switch to Page 5
+[28-05-2026 14:27:17.523 INFO com.jquery.Level_11_DataTable] - -------------------- PASSED --------------------
+[28-05-2026 14:27:17.523 INFO com.jquery.Level_11_DataTable] - Table_01_Switch_Page - STEP 03: Switch to Page 12
+[28-05-2026 14:27:19.638 INFO com.jquery.Level_11_DataTable] - -------------------- FAILED --------------------
+[28-05-2026 14:27:22.119 INFO com.jquery.Level_11_DataTable] - Table_02_Search - STEP 01: Search by Country
+[28-05-2026 14:27:23.329 INFO com.jquery.Level_11_DataTable] - Table_02_Search - STEP 02: Check result
+[28-05-2026 14:27:23.348 INFO com.jquery.Level_11_DataTable] - -------------------- PASSED --------------------
+[28-05-2026 14:27:25.277 INFO com.jquery.Level_11_DataTable] - Table_02_Search - STEP 03: Search by Males
+[28-05-2026 14:27:25.453 INFO com.jquery.Level_11_DataTable] - Table_02_Search - STEP 04: Check result
+[28-05-2026 14:27:25.481 INFO com.jquery.Level_11_DataTable] - -------------------- PASSED --------------------
+[28-05-2026 14:27:28.327 INFO com.jquery.Level_11_DataTable] - Table_02_Search - STEP 05: Search by Females
+[28-05-2026 14:27:28.507 INFO com.jquery.Level_11_DataTable] - Table_02_Search - STEP 06: Check result
+[28-05-2026 14:27:28.538 INFO com.jquery.Level_11_DataTable] - -------------------- PASSED --------------------
+[28-05-2026 14:27:33.750 INFO com.jquery.Level_11_DataTable] - Table_03_Delete_Edit - STEP 01: Search by Country
+[28-05-2026 14:27:35.954 INFO com.jquery.Level_11_DataTable] - Table_03_Delete_Edit - STEP 02: Open country details
+[28-05-2026 14:27:38.060 INFO com.jquery.Level_11_DataTable] - Table_03_Delete_Edit - STEP 03: Edit females field
+[28-05-2026 14:27:38.188 INFO com.jquery.Level_11_DataTable] - Table_03_Delete_Edit - STEP 04: Search by Country
+[28-05-2026 14:27:38.452 INFO com.jquery.Level_11_DataTable] - Table_03_Delete_Edit - STEP 05: Verify edited data
+[28-05-2026 15:46:04.128 INFO com.jquery.Level_15_ExtentReport_v2] - -------------------- PASSED --------------------
+[28-05-2026 15:46:06.254 INFO com.jquery.Level_15_ExtentReport_v2] - -------------------- PASSED --------------------
+[28-05-2026 15:46:08.381 INFO com.jquery.Level_15_ExtentReport_v2] - -------------------- FAILED --------------------
+[28-05-2026 15:46:12.249 INFO com.jquery.Level_15_ExtentReport_v2] - -------------------- PASSED --------------------
+[28-05-2026 15:46:14.741 INFO com.jquery.Level_15_ExtentReport_v2] - -------------------- PASSED --------------------
+[28-05-2026 15:46:18.330 INFO com.jquery.Level_15_ExtentReport_v2] - -------------------- PASSED --------------------
+[28-05-2026 16:41:17.415 INFO com.jquery.Level_15_ExtentReport_v3] - -------------------- PASSED --------------------
+[28-05-2026 16:41:19.544 INFO com.jquery.Level_15_ExtentReport_v3] - -------------------- PASSED --------------------
+[28-05-2026 16:41:21.663 INFO com.jquery.Level_15_ExtentReport_v3] - -------------------- FAILED --------------------
+[28-05-2026 16:41:25.526 INFO com.jquery.Level_15_ExtentReport_v3] - -------------------- PASSED --------------------
+[28-05-2026 16:41:27.496 INFO com.jquery.Level_15_ExtentReport_v3] - -------------------- PASSED --------------------
+[28-05-2026 16:41:31.135 INFO com.jquery.Level_15_ExtentReport_v3] - -------------------- PASSED --------------------
+[28-05-2026 16:51:40.881 INFO com.jquery.Level_15_ExtentReport_v4] - -------------------- PASSED --------------------
+[28-05-2026 16:51:43.004 INFO com.jquery.Level_15_ExtentReport_v4] - -------------------- PASSED --------------------
+[28-05-2026 16:51:45.121 INFO com.jquery.Level_15_ExtentReport_v4] - -------------------- FAILED --------------------
+[28-05-2026 16:51:48.936 INFO com.jquery.Level_15_ExtentReport_v4] - -------------------- PASSED --------------------
+[28-05-2026 16:51:50.923 INFO com.jquery.Level_15_ExtentReport_v4] - -------------------- PASSED --------------------
+[28-05-2026 16:51:54.661 INFO com.jquery.Level_15_ExtentReport_v4] - -------------------- PASSED --------------------
+[28-05-2026 17:20:22.954 INFO com.jquery.Level_15_ExtentReport_v5] - -------------------- PASSED --------------------
+[28-05-2026 17:20:25.067 INFO com.jquery.Level_15_ExtentReport_v5] - -------------------- PASSED --------------------
+[28-05-2026 17:20:27.201 INFO com.jquery.Level_15_ExtentReport_v5] - -------------------- FAILED --------------------
+[28-05-2026 17:20:30.756 INFO com.jquery.Level_15_ExtentReport_v5] - -------------------- PASSED --------------------
+[28-05-2026 17:20:32.941 INFO com.jquery.Level_15_ExtentReport_v5] - -------------------- PASSED --------------------
+[28-05-2026 17:20:36.549 INFO com.jquery.Level_15_ExtentReport_v5] - -------------------- PASSED --------------------
+[28-05-2026 17:30:48.116 INFO com.jquery.Level_15_ExtentReport_v5] - -------------------- PASSED --------------------
+[28-05-2026 17:30:50.247 INFO com.jquery.Level_15_ExtentReport_v5] - -------------------- PASSED --------------------
+[28-05-2026 17:30:52.367 INFO com.jquery.Level_15_ExtentReport_v5] - -------------------- FAILED --------------------
+[28-05-2026 17:30:56.173 INFO com.jquery.Level_15_ExtentReport_v5] - -------------------- PASSED --------------------
+[28-05-2026 17:30:58.886 INFO com.jquery.Level_15_ExtentReport_v5] - -------------------- PASSED --------------------
+[28-05-2026 17:31:01.933 INFO com.jquery.Level_15_ExtentReport_v5] - -------------------- PASSED --------------------
+[28-05-2026 17:33:35.681 INFO com.jquery.Level_15_ExtentReport_v5] - -------------------- PASSED --------------------
+[28-05-2026 17:33:37.806 INFO com.jquery.Level_15_ExtentReport_v5] - -------------------- PASSED --------------------
+[28-05-2026 17:33:39.944 INFO com.jquery.Level_15_ExtentReport_v5] - -------------------- FAILED --------------------
+[28-05-2026 17:33:43.564 INFO com.jquery.Level_15_ExtentReport_v5] - -------------------- PASSED --------------------
+[28-05-2026 17:33:46.064 INFO com.jquery.Level_15_ExtentReport_v5] - -------------------- PASSED --------------------
+[28-05-2026 17:33:49.203 INFO com.jquery.Level_15_ExtentReport_v5] - -------------------- PASSED --------------------

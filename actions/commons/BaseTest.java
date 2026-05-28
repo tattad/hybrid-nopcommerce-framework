@@ -5,7 +5,6 @@ package commons;
 //import org.apache.commons.logging.LogFactory;
 
 //log4j version 2
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -131,7 +130,7 @@ public class BaseTest {
     }
 
     @BeforeSuite
-    public void deleteReportFolder(){
+    public void deleteReportFolder() {
         deleteAllFileInFolder("htmlReportNG");
     }
 
@@ -140,7 +139,7 @@ public class BaseTest {
             String pathFolderDownload = GlobalConstants.PROJECT_PATH + File.separator + folderName;
             File file = new File(pathFolderDownload);
             File[] listOfFiles = file.listFiles();
-            if (listOfFiles.length != 0) {
+            if (listOfFiles != null && listOfFiles.length != 0) {
                 for (int i = 0; i < listOfFiles.length; i++) {
                     if (listOfFiles[i].isFile() && !listOfFiles[i].getName().equals("environment.properties")) {
                         new File(listOfFiles[i].toString()).delete();

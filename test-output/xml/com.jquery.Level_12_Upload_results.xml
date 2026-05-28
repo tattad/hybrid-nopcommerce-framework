@@ -4,10 +4,10 @@
            failures="0"
            errors="0"
            skipped="0"
-           time="12.661">
+           time="12.438">
   <properties />
   
   
-            <testcase name="Table_01_Upload" time="12.661" classname="com.jquery.Level_12_Upload" />
+            <testcase name="Table_01_Upload" time="12.438" classname="com.jquery.Level_12_Upload" />
       
 </testsuite>
