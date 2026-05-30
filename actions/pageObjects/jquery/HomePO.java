@@ -5,6 +5,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import pageUIs.jquery.HomePageUI;
+import io.qameta.allure.Step;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +18,7 @@ public class HomePO extends BasePage {
         this.driver = driver;
     }
 
+    @Step("Open page number {0}")
     public void openPageByNumber(String pageNumber) {
         waitForElementClickable(driver, HomePageUI.DYNAMIC_PAGE_LINK, pageNumber);
         clickToElement(driver, HomePageUI.DYNAMIC_PAGE_LINK, pageNumber);
@@ -24,6 +26,7 @@ public class HomePO extends BasePage {
         sleepInSecond(2);
     }
 
+    @Step("Close Google Ad")
     public void closeToGoogleAd() {
         if (isElementDisplayed(driver, HomePageUI.IFRAME_GOOGLE_AD)) {
             switchToIFrame(driver, HomePageUI.IFRAME_GOOGLE_AD);
@@ -33,45 +36,52 @@ public class HomePO extends BasePage {
         }
     }
 
+    @Step("Check if page number {0} is active")
     public boolean isPageNumberActived(String pageNumber) {
         waitForElementVisible(driver, HomePageUI.DYNAMIC_PAGE_LINK, pageNumber);
         return getElementAttribute(driver, HomePageUI.DYNAMIC_PAGE_LINK, "class", pageNumber).endsWith("active");
     }
 
+    @Step("Enter value ({1}) into textbox by header name ({0})")
     public void enterToTextboxByHeaderName(String headerName, String value) {
         waitForElementVisible(driver, HomePageUI.DYNAMIC_TEXTBOX_BY_HEADER_NAME, headerName);
         sendkeyToElement(driver, HomePageUI.DYNAMIC_TEXTBOX_BY_HEADER_NAME, value, headerName);
         pressKeyToElement(driver, HomePageUI.DYNAMIC_TEXTBOX_BY_HEADER_NAME, Keys.ENTER, headerName);
     }
 
+    @Step("Check if row data is displayed")
     public boolean isRowDataValueDisplayed(String females, String country, String males, String total) {
         waitForElementVisible(driver, HomePageUI.DYNAMIC_DATA_ROW, females, country, males, total);
         return isElementDisplayed(driver, HomePageUI.DYNAMIC_DATA_ROW, females, country, males, total);
     }
 
+    @Step("Remove row by country name {0}")
     public void removeRowByCountryName(String countryName) {
         waitForElementClickable(driver, HomePageUI.DYNAMIC_REMOVE_BUTTON_BY_COUNTRY_NAME, countryName);
         clickToElement(driver, HomePageUI.DYNAMIC_REMOVE_BUTTON_BY_COUNTRY_NAME, countryName);
         sleepInSecond(2);
     }
-
+    @Step("Edit row by country name {0}")
     public void editRowByCountryName(String countryName) {
         waitForElementClickable(driver, HomePageUI.DYNAMIC_EDIT_BUTTON_BY_COUNTRY_NAME, countryName);
         clickToElement(driver, HomePageUI.DYNAMIC_EDIT_BUTTON_BY_COUNTRY_NAME, countryName);
         sleepInSecond(2);
     }
 
+    @Step("Edit field name {0} with data {1}")
     public void editRecordDetails(String fieldName, String editData) {
         waitForElementVisible(driver, HomePageUI.EDIT_RECORD_POPUP);
         sendkeyToElement(driver, HomePageUI.DYNAMIC_EDIT, editData, fieldName);
         clickToElement(driver, HomePageUI.SUBMIT_BUTTON);
     }
 
+    @Step("Click load data button")
     public void clickToLoadDataButon() {
         waitForElementClickable(driver, HomePageUI.LOAD_DATA_BUTTON);
         clickToElement(driver, HomePageUI.LOAD_DATA_BUTTON);
     }
 
+    @Step("Enter text ({2}) into textbox by row index ({0}) and column name ({1})")
     public void enterToTextboxByIndex(String rowIndex, String columnName, String value) {
         //Từ column name làm sao để lấy ra được column index
         int columnIndexNumber = getListElement(driver, HomePageUI.DYNAMIC_PRECEDING_SIBLING_COLUMN_NUMBER, columnName).size() + 1;
@@ -81,6 +91,7 @@ public class HomePO extends BasePage {
         sendkeyToElement(driver, HomePageUI.DYNAMIC_TEXTBOX_BY_ROW_AND_COLUMN_INDEX, value, rowIndex, columnIndex);
     }
 
+    @Step("Select ({2}) at row number {0} and column name {1}")
     public void selectToDropdownByIndex(String rowIndex, String columnName, String valueToSelect) {
         int columnIndexNumber = getListElement(driver, HomePageUI.DYNAMIC_PRECEDING_SIBLING_COLUMN_NUMBER, columnName).size() + 1;
         String columnIndex = String.valueOf(columnIndexNumber);
@@ -89,6 +100,7 @@ public class HomePO extends BasePage {
 //        selectItemInDropdown(driver, HomePageUI.DYNAMIC_DROPDOWN_BY_ROW_AND_COLUMN_INDEX_2, valueToSelect, columnIndex, rowIndex);
     }
 
+    @Step("Check to checkbox by index {0} and column name {1}")
     public void checkToCheckboxByIndex(String rowIndex, String columnName, boolean checkOrUncheck) {
         int columnIndexNumber = getListElement(driver, HomePageUI.DYNAMIC_PRECEDING_SIBLING_COLUMN_NUMBER, columnName).size() + 1;
         String columnIndex = String.valueOf(columnIndexNumber);
@@ -99,6 +111,7 @@ public class HomePO extends BasePage {
         }
     }
 
+    @Step("Click icon by index {0} and icon name {1}")
     public void clickToIconByIndex(String rowIndex, String iconName) {
         waitForElementClickable(driver, HomePageUI.DYNAMIC_ICON_BY_ROW_INDEX, rowIndex, iconName);
         clickToElement(driver, HomePageUI.DYNAMIC_ICON_BY_ROW_INDEX, rowIndex, iconName);

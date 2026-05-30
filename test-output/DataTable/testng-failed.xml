@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [DataTable]" guice-stage="DEVELOPMENT">
+  <parameter name="url" value="https://www.jqueryscript.net/demo/CRUD-Data-Grid-Plugin-jQuery-Quickgrid/"/>
+  <listeners>
+    <listener class-name="commons.MethodListener"/>
+    <listener class-name="reportConfigs.AllureListener"/>
+  </listeners>
+  <test thread-count="5" name="Run on Firefox browser(failed)">
+    <parameter name="browser" value="firefox"/>
+    <classes>
+      <class name="com.jquery.Level_16_AllureReport">
+        <methods>
+          <include name="afterClass"/>
+          <include name="beforeClass"/>
+          <include name="deleteFileInReport"/>
+          <include name="Table_01_Switch_Page" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- com.jquery.Level_16_AllureReport -->
+    </classes>
+  </test> <!-- Run on Firefox browser(failed) -->
+</suite> <!-- Failed suite [DataTable] -->
