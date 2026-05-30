@@ -1,5 +1,7 @@
 ### IntelliJ IDEA ###
 out/
+allure-report/
+allure-results/
 !**/src/main/**/out/
 !**/src/test/**/out/
 hybrid-nopcommerce-framework.iml
@@ -30,3 +32,9 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+/allure-report/
+/allure-results/
+
+### Log ###
+log/
+logs2/
