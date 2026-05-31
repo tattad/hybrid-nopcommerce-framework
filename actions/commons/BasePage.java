@@ -271,6 +271,42 @@ public class BasePage {
         return getElement(driver, castParameter(locator, restParamter)).isDisplayed();
     }
 
+    public void overideGlobalTimeout(WebDriver driver, long timeout) {
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(timeout));
+    }
+
+    public boolean isElementUndisplayed(WebDriver driver, String locator) {
+        try {
+            overideGlobalTimeout(driver, GlobalConstants.SHORT_TIMEOUT);
+            List<WebElement> elements = getListElement(driver, locator);
+            if (elements.isEmpty()) {
+                System.out.println("Element not in DOM");
+                return true;
+            }
+            return !elements.get(0).isDisplayed();
+        } catch (NoSuchElementException | StaleElementReferenceException e) {
+            return true;
+        } finally {
+            overideGlobalTimeout(driver, GlobalConstants.LONG_TIMEOUT);
+        }
+    }
+
+    public boolean isElementUndisplayed(WebDriver driver, String locator, String... restParamter) {
+        try {
+            overideGlobalTimeout(driver, GlobalConstants.SHORT_TIMEOUT);
+            List<WebElement> elements = getListElement(driver, castParameter(locator, restParamter));
+            if (elements.isEmpty()) {
+                System.out.println("Element not in DOM");
+                return true;
+            }
+            return !elements.get(0).isDisplayed();
+        } catch (NoSuchElementException | StaleElementReferenceException e) {
+            return true;
+        } finally {
+            overideGlobalTimeout(driver, GlobalConstants.LONG_TIMEOUT);
+        }
+    }
+
     public boolean isElementEnabled(WebDriver driver, String locator) {
         return getElement(driver, locator).isEnabled();
     }
