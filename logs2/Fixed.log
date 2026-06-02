@@ -134,3 +134,46 @@
 [31-05-2026 02:34:52.703 INFO com.jquery.Level_16_AllureReport] - -------------------- PASSED --------------------
 [31-05-2026 02:34:55.911 INFO com.jquery.Level_16_AllureReport] - -------------------- PASSED --------------------
 [31-05-2026 02:34:59.533 INFO com.jquery.Level_16_AllureReport] - -------------------- PASSED --------------------
+[02-06-2026 10:10:04.672 INFO com.nopcommerce.user.Level_19_Pattern_Object] - User_01_Register - STEP 01: Open Register Page
+[02-06-2026 10:10:12.503 INFO com.nopcommerce.user.Level_19_Pattern_Object] - User_02_Login - STEP 01: Click to Log Out link
+[02-06-2026 10:11:20.486 INFO com.nopcommerce.user.Level_19_Pattern_Object] - User_01_Register - STEP 01: Open Register Page
+[02-06-2026 10:11:20.839 INFO com.nopcommerce.user.Level_19_Pattern_Object] - User_01_Register - STEP 02: Click to Male radio button
+[02-06-2026 10:11:20.991 INFO com.nopcommerce.user.Level_19_Pattern_Object] - User_01_Register - STEP 03: Enter to First Name textbox with value is 'Automation'
+[02-06-2026 10:11:21.043 INFO com.nopcommerce.user.Level_19_Pattern_Object] - User_01_Register - STEP 04: Enter to Last Name textbox with value is 'Testing'
+[02-06-2026 10:11:21.106 INFO com.nopcommerce.user.Level_19_Pattern_Object] - User_01_Register - STEP 05: Enter to Email textbox with value is 'autotest87292@gmail.com'
+[02-06-2026 10:11:21.166 INFO com.nopcommerce.user.Level_19_Pattern_Object] - User_01_Register - STEP 06: Enter to Company textbox with value is 'Continental'
+[02-06-2026 10:11:21.219 INFO com.nopcommerce.user.Level_19_Pattern_Object] - User_01_Register - STEP 07: Enter to Password textbox with value is '12345678'
+[02-06-2026 10:11:21.256 INFO com.nopcommerce.user.Level_19_Pattern_Object] - User_01_Register - STEP 08: Enter to Confirm Password textbox with value is '12345678'
+[02-06-2026 10:11:21.291 INFO com.nopcommerce.user.Level_19_Pattern_Object] - User_01_Register - STEP 09: Click to Register button
+[02-06-2026 10:11:21.673 INFO com.nopcommerce.user.Level_19_Pattern_Object] - User_01_Register - STEP 10: Verify successful message is displayed
+[02-06-2026 10:11:21.772 INFO com.nopcommerce.user.Level_19_Pattern_Object] - User_02_Login - STEP 01: Click to Log Out link
+[02-06-2026 10:11:22.019 INFO com.nopcommerce.user.Level_19_Pattern_Object] - User_02_Login - STEP 02: Open Login Page
+[02-06-2026 10:11:22.196 INFO com.nopcommerce.user.Level_19_Pattern_Object] - User_02_Login - STEP 03: Login with email 'autotest87292@gmail.com' and password '12345678'
+[02-06-2026 10:13:30.444 INFO com.nopcommerce.user.Level_19_Pattern_Object] - User_01_Register - STEP 01: Open Register Page
+[02-06-2026 10:13:30.695 INFO com.nopcommerce.user.Level_19_Pattern_Object] - User_01_Register - STEP 02: Click to Male radio button
+[02-06-2026 10:13:30.857 INFO com.nopcommerce.user.Level_19_Pattern_Object] - User_01_Register - STEP 03: Enter to First Name textbox with value is 'Automation'
+[02-06-2026 10:13:30.909 INFO com.nopcommerce.user.Level_19_Pattern_Object] - User_01_Register - STEP 04: Enter to Last Name textbox with value is 'Testing'
+[02-06-2026 10:13:30.959 INFO com.nopcommerce.user.Level_19_Pattern_Object] - User_01_Register - STEP 05: Enter to Email textbox with value is 'autotest90220@gmail.com'
+[02-06-2026 10:13:31.010 INFO com.nopcommerce.user.Level_19_Pattern_Object] - User_01_Register - STEP 06: Enter to Company textbox with value is 'Continental'
+[02-06-2026 10:13:31.045 INFO com.nopcommerce.user.Level_19_Pattern_Object] - User_01_Register - STEP 07: Enter to Password textbox with value is '12345678'
+[02-06-2026 10:13:31.097 INFO com.nopcommerce.user.Level_19_Pattern_Object] - User_01_Register - STEP 08: Enter to Confirm Password textbox with value is '12345678'
+[02-06-2026 10:13:31.147 INFO com.nopcommerce.user.Level_19_Pattern_Object] - User_01_Register - STEP 09: Click to Register button
+[02-06-2026 10:13:31.352 INFO com.nopcommerce.user.Level_19_Pattern_Object] - User_01_Register - STEP 10: Verify successful message is displayed
+[02-06-2026 10:13:31.465 INFO com.nopcommerce.user.Level_19_Pattern_Object] - User_02_Login - STEP 01: Click to Log Out link
+[02-06-2026 10:13:31.679 INFO com.nopcommerce.user.Level_19_Pattern_Object] - User_02_Login - STEP 02: Open Login Page
+[02-06-2026 10:13:31.873 INFO com.nopcommerce.user.Level_19_Pattern_Object] - User_02_Login - STEP 03: Login with email 'autotest90220@gmail.com' and password '12345678'
+[02-06-2026 10:13:33.576 INFO com.nopcommerce.user.Level_19_Pattern_Object] - -------------------- PASSED --------------------
+[02-06-2026 10:13:33.601 INFO com.nopcommerce.user.Level_19_Pattern_Object] - -------------------- PASSED --------------------
+[02-06-2026 10:13:33.642 INFO com.nopcommerce.user.Level_19_Pattern_Object] - -------------------- PASSED --------------------
+[02-06-2026 10:13:33.665 INFO com.nopcommerce.user.Level_19_Pattern_Object] - -------------------- PASSED --------------------
+[02-06-2026 10:13:33.686 INFO com.nopcommerce.user.Level_19_Pattern_Object] - -------------------- PASSED --------------------
+[02-06-2026 17:09:31.206 INFO com.nopcommerce.user.Level_19_Pattern_Object] - -------------------- PASSED --------------------
+[02-06-2026 17:09:31.241 INFO com.nopcommerce.user.Level_19_Pattern_Object] - -------------------- PASSED --------------------
+[02-06-2026 17:09:31.262 INFO com.nopcommerce.user.Level_19_Pattern_Object] - -------------------- PASSED --------------------
+[02-06-2026 17:09:31.296 INFO com.nopcommerce.user.Level_19_Pattern_Object] - -------------------- PASSED --------------------
+[02-06-2026 17:09:31.326 INFO com.nopcommerce.user.Level_19_Pattern_Object] - -------------------- PASSED --------------------
+[02-06-2026 17:13:45.004 INFO com.nopcommerce.user.Level_19_Pattern_Object] - -------------------- PASSED --------------------
+[02-06-2026 17:13:45.095 INFO com.nopcommerce.user.Level_19_Pattern_Object] - -------------------- PASSED --------------------
+[02-06-2026 17:13:45.130 INFO com.nopcommerce.user.Level_19_Pattern_Object] - -------------------- PASSED --------------------
+[02-06-2026 17:13:45.150 INFO com.nopcommerce.user.Level_19_Pattern_Object] - -------------------- PASSED --------------------
+[02-06-2026 17:13:45.173 INFO com.nopcommerce.user.Level_19_Pattern_Object] - -------------------- PASSED --------------------

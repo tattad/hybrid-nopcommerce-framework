@@ -429,6 +429,14 @@ public class BasePage {
         new WebDriverWait(driver, Duration.ofSeconds(GlobalConstants.LONG_TIMEOUT)).until(ExpectedConditions.visibilityOfElementLocated(getByLocator(castParameter(locator, restParameter))));
     }
 
+    public void waitForElementAttribute(WebDriver driver, String locator, String attributeName, String attributeValue) {
+        new WebDriverWait(driver, Duration.ofSeconds(GlobalConstants.LONG_TIMEOUT)).until(ExpectedConditions.attributeToBe(getByLocator(locator), attributeName, attributeValue));
+    }
+
+    public void waitForElementAttribute(WebDriver driver, String locator, String attributeName, String attributeValue, String... restParameter) {
+        new WebDriverWait(driver, Duration.ofSeconds(GlobalConstants.LONG_TIMEOUT)).until(ExpectedConditions.attributeToBe(getByLocator(castParameter(locator, restParameter)), attributeName, attributeValue));
+    }
+
     public void waitForElementSelected(WebDriver driver, String locator) {
         new WebDriverWait(driver, Duration.ofSeconds(GlobalConstants.LONG_TIMEOUT)).until(ExpectedConditions.elementToBeSelected(getByLocator(locator)));
     }
@@ -515,5 +523,40 @@ public class BasePage {
 
     public void openAdminSite(WebDriver driver, String adminUrl) {
         openPageUrl(driver, adminUrl);
+    }
+
+    public void enterToTextBoxByID(WebDriver driver, String textboxID, String value) {
+        waitForElementVisible(driver, BasePageUI.TEXTBOX_BY_ID, textboxID);
+        sendkeyToElement(driver, BasePageUI.TEXTBOX_BY_ID, value, textboxID);
+    }
+
+    public void clickToButtonByText(WebDriver driver, String buttonText) {
+        waitForElementClickable(driver, BasePageUI.BUTTON_BY_TEXT, buttonText);
+        clickToElement(driver, BasePageUI.BUTTON_BY_TEXT, buttonText);
+    }
+
+    public void clickToRadioByID(WebDriver driver, String radioID) {
+        waitForElementClickable(driver, BasePageUI.RADIO_BY_ID, radioID);
+        checkToCheckboxOrRadio(driver, BasePageUI.RADIO_BY_ID, radioID);
+    }
+
+    public void clickToCheckboxByID(WebDriver driver, String checkboxID) {
+        waitForElementClickable(driver, BasePageUI.CHECKBOX_BY_ID, checkboxID);
+        checkToCheckboxOrRadio(driver, BasePageUI.CHECKBOX_BY_ID, checkboxID);
+    }
+
+    public String getTextboxValueByID(WebDriver driver, String textboxID) {
+        waitForElementVisible(driver, BasePageUI.TEXTBOX_BY_ID, textboxID);
+        return getElementAttribute(driver, BasePageUI.TEXTBOX_BY_ID, "value", textboxID);
+    }
+
+    public boolean isRadioByIDIsSelected(WebDriver driver, String radioID) {
+        waitForElementSelected(driver, BasePageUI.RADIO_BY_ID, radioID);
+        return isElementSelected(driver, BasePageUI.RADIO_BY_ID, radioID);
+    }
+
+    public boolean isCheckboxByIDIsSelected(WebDriver driver, String checkboxID) {
+        waitForElementSelected(driver, BasePageUI.CHECKBOX_BY_ID, checkboxID);
+        return isElementSelected(driver, BasePageUI.CHECKBOX_BY_ID, checkboxID);
     }
 }

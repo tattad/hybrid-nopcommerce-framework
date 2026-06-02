@@ -8,17 +8,17 @@ public class GlobalConstants {
     public static final String SEPARTOR = System.getProperty("file.separator");
 
     // App Infor User
-    public static final String DEV_USER_URL = "https://demo.nopcommerce.com/";
+    public static final String DEV_USER_URL = "http://demo.nopcommerce:5000/";
     public static final String STAGING_USER_URL = "https://staging.nopcommerce.com/";
     public static final String LIVE_USER_URL = "https://live.nopcommerce.com/";
 
     // App Infor Admin
-    public static final String DEV_ADMIN_URL = "https://admin-demo.nopcommerce.com/";
+    public static final String DEV_ADMIN_URL = "http://demo.nopcommerce:5000/admin/";
     public static final String STAGING_ADMIN_URL = "https://admin-staging.nopcommerce.com/";
     public static final String LIVE_ADMIN_URL = "https://admin-live.nopcommerce.com/";
 
-    public static final String ADMIN_USERNAME = "admin@yourstore.com";
-    public static final String ADMIN_PASSWORD = "admin";
+    public static final String ADMIN_USERNAME = "tada@automation.vn";
+    public static final String ADMIN_PASSWORD = "tada@automation.vn";
 
     // Wait Infor
     public static final long SHORT_TIMEOUT = 10;

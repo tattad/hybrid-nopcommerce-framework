@@ -6,13 +6,13 @@
         <listener class-name="commons.MethodListener"></listener>
     </listeners>
 
-    <parameter name="userUrl" value="https://demo.nopcommerce.com/"/>
-    <parameter name="adminUrl" value="https://admin-demo.nopcommerce.com"/>
+    <parameter name="userUrl" value="http://demo.nopcommerce:5000/"/>
+    <parameter name="adminUrl" value="http://demo.nopcommerce:5000/admin"/>
 
     <test name="Run on Firefox browser">
         <parameter name="browser" value="firefox"/>
         <classes>
-            <class name="com.nopcommerce.user.Level_14_Log4J"/>
+            <class name="com.nopcommerce.user.Level_19_Pattern_Object"/>
         </classes>
     </test>
 </suite> 
