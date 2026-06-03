@@ -153,6 +153,24 @@ public class BasePage {
         return By.xpath(locator);
     }
 
+    public Set<Cookie> getAllCookies(WebDriver driver) {
+        return driver.manage().getCookies();
+    }
+
+    public void setCookies(WebDriver driver, Set<Cookie> cookies) {
+        for (Cookie cookie : cookies) {
+            Cookie newCookie = new Cookie.Builder(cookie.getName(), cookie.getValue())
+                    .domain(cookie.getDomain())
+                    .path(cookie.getPath())
+                    .expiresOn(cookie.getExpiry())
+                    .isHttpOnly(cookie.isHttpOnly())
+                    .isSecure(false) // Set secure to false for HTTP
+                    .build();
+            driver.manage().addCookie(newCookie);
+        }
+        sleepInSecond(3);
+    }
+
     public void clickToElement(WebDriver driver, String locator) {
         getElement(driver, locator).click();
     }
