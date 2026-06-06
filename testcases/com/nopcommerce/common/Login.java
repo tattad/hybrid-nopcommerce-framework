@@ -62,8 +62,6 @@ public class Login extends BaseTest {
 
         //Get Cookies
         nopCommerceCookie = homePage.getAllCookies(driver);
-
-
     }
 
     @AfterTest

@@ -61,6 +61,6 @@ public class Level_20_Share_State extends BaseTest {
 
     @AfterClass
     public void afterClass() {
-        driver.quit();
+        closeBrowserDriver();
     }
 }

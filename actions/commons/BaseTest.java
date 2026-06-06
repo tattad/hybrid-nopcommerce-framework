@@ -18,6 +18,7 @@ import org.testng.Reporter;
 import org.testng.annotations.BeforeSuite;
 
 import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 import java.util.Random;
 
@@ -174,6 +175,69 @@ public class BaseTest {
             }
         } catch (Exception e) {
             System.out.print(e.getMessage());
+        }
+    }
+
+    // lỗi thời do Selenium 4.x đã có tính năng tự động đóng driver khi gọi quit() hoặc close()
+//    protected void closeBrowserDriver() {
+//        String cmd = null;
+//        try {
+//            String osName = System.getProperty("os.name").toLowerCase();
+//            log.info("OS name = " + osName);
+//
+//            String driverInstanceName = driver.toString().toLowerCase();
+//            log.info("Driver instance name = " + driverInstanceName);
+//
+//            String browserDriverName = null;
+//
+//            if (driverInstanceName.contains("chrome")) {
+//                browserDriverName = "chromedriver";
+//            } else if (driverInstanceName.contains("firefox")) {
+//                browserDriverName = "geckodriver";
+//            } else if (driverInstanceName.contains("edge")) {
+//                browserDriverName = "msedgedriver";
+//            } else if (driverInstanceName.contains("opera")) {
+//                browserDriverName = "operadriver";
+//            } else {
+//                browserDriverName = "safaridriver";
+//            }
+//
+//            if (osName.contains("window")) {
+//                cmd = "taskkill /F /FI \"IMAGENAME eq " + browserDriverName + "*\"";
+//            } else {
+//                cmd = "pkill " + browserDriverName;
+//            }
+//
+//            if (driver != null) {
+//                driver.manage().deleteAllCookies();
+//                driver.quit();
+//            }
+//        } catch (Exception e) {
+//            log.info(e.getMessage());
+//        } finally {
+//            try {/**/
+//                Process process = Runtime.getRuntime().exec(cmd);
+//                process.waitFor();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//    }
+
+    protected void closeBrowserDriver() {
+        try {
+            if (driver != null) {
+                driver.manage().deleteAllCookies();
+                driver.quit();
+                log.info("Closed browser successfully.");
+            }
+        } catch (Exception e) {
+            log.error("Error while closing browser: " + e.getMessage());
+        } finally {
+            //Ép garbage collector của Java dọn dẹp rác (an toàn hơn kill OS)
+            System.gc();
         }
     }
 }
