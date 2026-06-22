@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Orange HRM 5">
+    <listeners>
+        <listener class-name="commons.MethodListener"></listener>
+    </listeners>
+
+    <parameter name="url" value="http://automationtada.edu:90/orangehrm5"/>
+
+    <test name="Run on Firefox browser" preserve-order="true">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="com.orangehrm.pim.PIM_01_Employee"/>
+        </classes>
+    </test>
+</suite> 
