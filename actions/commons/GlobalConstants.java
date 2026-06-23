@@ -20,6 +20,9 @@ public class GlobalConstants {
     public static final String ADMIN_USERNAME = "tada@automation.vn";
     public static final String ADMIN_PASSWORD = "tada@automation.vn";
 
+    public static final String ADMIN_USERNAME_ORANGEHRM = "automationtada";
+    public static final String ADMIN_PASSWORD_ORANGEHRM = "D@ttran8895";
+
     // Wait Infor
     public static final long SHORT_TIMEOUT = 10;
     public static final long LONG_TIMEOUT = 30;

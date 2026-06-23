@@ -11,6 +11,7 @@ import pageObjects.nopCommerce.user.*;
 import pageUIs.nopCommerce.BasePageUI;
 import pageUIs.nopCommerce.user.UserHomePageUI;
 import pageUIs.nopCommerce.user.UserRegisterPageUI;
+import pageUIs.orangehrm.BasePUI;
 
 import java.time.Duration;
 import java.util.List;
@@ -475,6 +476,10 @@ public class BasePage {
         new WebDriverWait(driver, Duration.ofSeconds(GlobalConstants.LONG_TIMEOUT)).until(ExpectedConditions.invisibilityOfElementLocated(getByLocator(castParameter(locator, restParameter))));
     }
 
+    public boolean waitForListElementInvisible(WebDriver driver, String locator) {
+        return new WebDriverWait(driver, Duration.ofSeconds(GlobalConstants.LONG_TIMEOUT)).until(ExpectedConditions.invisibilityOfAllElements(getListElement(driver, locator)));
+    }
+
     public void waitForElementClickable(WebDriver driver, String locator) {
         new WebDriverWait(driver, Duration.ofSeconds(GlobalConstants.LONG_TIMEOUT)).until(ExpectedConditions.elementToBeClickable(getByLocator(locator)));
     }
@@ -576,5 +581,10 @@ public class BasePage {
     public boolean isCheckboxByIDIsSelected(WebDriver driver, String checkboxID) {
         waitForElementSelected(driver, BasePageUI.CHECKBOX_BY_ID, checkboxID);
         return isElementSelected(driver, BasePageUI.CHECKBOX_BY_ID, checkboxID);
+    }
+
+    /* Only use for OrangeHRM project */
+    public void waitForAllLoadingIconInvisible(WebDriver driver) {
+        waitForListElementInvisible(driver, BasePUI.LOADING_ICON);
     }
 }

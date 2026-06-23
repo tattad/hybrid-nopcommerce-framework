@@ -12,6 +12,7 @@
         <parameter name="browser" value="firefox"/>
         <classes>
             <class name="com.orangehrm.pim.PIM_01_Employee"/>
+            <!--            <class name="com.orangehrm.pim.PIM_02_Employee"/>-->
         </classes>
     </test>
 </suite> 

@@ -177,3 +177,7 @@
 [02-06-2026 17:13:45.130 INFO com.nopcommerce.user.Level_19_Pattern_Object] - -------------------- PASSED --------------------
 [02-06-2026 17:13:45.150 INFO com.nopcommerce.user.Level_19_Pattern_Object] - -------------------- PASSED --------------------
 [02-06-2026 17:13:45.173 INFO com.nopcommerce.user.Level_19_Pattern_Object] - -------------------- PASSED --------------------
+[23-06-2026 13:59:17.324 INFO com.orangehrm.pim.PIM_01_Employee] - Closed browser successfully.
+[23-06-2026 16:49:32.845 INFO com.orangehrm.pim.PIM_01_Employee] - Closed browser successfully.
+[23-06-2026 16:50:47.615 INFO com.orangehrm.pim.PIM_01_Employee] - Closed browser successfully.
+[23-06-2026 16:51:41.001 INFO com.orangehrm.pim.PIM_01_Employee] - Closed browser successfully.
