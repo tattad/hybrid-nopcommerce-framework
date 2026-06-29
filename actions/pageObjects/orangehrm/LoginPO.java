@@ -26,6 +26,6 @@ public class LoginPO extends BasePage {
         waitForElementClickable(driver, LoginPUI.LOGIN_BUTTON);
         clickToElement(driver, LoginPUI.LOGIN_BUTTON);
         waitForAllLoadingIconInvisible(driver);
-        return PageGenerator.getDashboardPage(driver);
+        return PageGenerator.getPage(DashboardPO.class, driver);
     }
 }

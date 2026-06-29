@@ -181,3 +181,55 @@
 [23-06-2026 16:49:32.845 INFO com.orangehrm.pim.PIM_01_Employee] - Closed browser successfully.
 [23-06-2026 16:50:47.615 INFO com.orangehrm.pim.PIM_01_Employee] - Closed browser successfully.
 [23-06-2026 16:51:41.001 INFO com.orangehrm.pim.PIM_01_Employee] - Closed browser successfully.
+[24-06-2026 16:14:36.102 INFO com.orangehrm.pim.PIM_01_Employee] - Closed browser successfully.
+[25-06-2026 17:17:14.188 INFO com.orangehrm.pim.PIM_01_Employee] - -------------------- PASSED --------------------
+[26-06-2026 14:25:28.308 INFO com.orangehrm.pim.PIM_01_Employee] - -------------------- PASSED --------------------
+[26-06-2026 14:25:59.092 INFO com.orangehrm.pim.PIM_01_Employee] - Closed browser successfully.
+[26-06-2026 14:34:55.648 INFO com.orangehrm.pim.PIM_01_Employee] - -------------------- PASSED --------------------
+[26-06-2026 14:35:18.817 ERROR com.orangehrm.pim.PIM_01_Employee] - Error while closing browser: Tried to run command without establishing a connection
+Build info: version: '4.43.0', revision: 'dd0f534'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.1'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [dcc96b14-9bbe-43b7-a794-0e055fc982c4, deleteAllCookies {}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 152.0.3, moz:accessibilityChecks: false, moz:buildID: 20260624221428, moz:geckodriverVersion: 0.37.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 30700, moz:profile: C:\Users\DAT~1.TRA\AppData\..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: dcc96b14-9bbe-43b7-a794-0e055fc982c4
+[26-06-2026 14:48:47.934 INFO com.orangehrm.pim.PIM_01_Employee] - -------------------- PASSED --------------------
+[26-06-2026 14:49:19.427 INFO com.orangehrm.pim.PIM_01_Employee] - Closed browser successfully.
+[26-06-2026 16:07:59.684 INFO com.orangehrm.pim.PIM_01_Employee] - Closed browser successfully.
+[26-06-2026 16:13:45.749 INFO com.orangehrm.pim.PIM_01_Employee] - -------------------- PASSED --------------------
+[26-06-2026 16:13:59.174 INFO com.orangehrm.pim.PIM_01_Employee] - Closed browser successfully.
+[29-06-2026 09:48:22.374 INFO com.orangehrm.pim.PIM_01_Employee] - -------------------- PASSED --------------------
+[29-06-2026 09:48:33.839 INFO com.orangehrm.pim.PIM_01_Employee] - -------------------- PASSED --------------------
+[29-06-2026 09:49:04.536 INFO com.orangehrm.pim.PIM_01_Employee] - Closed browser successfully.
+[29-06-2026 09:55:40.292 INFO com.orangehrm.pim.PIM_01_Employee] - -------------------- PASSED --------------------
+[29-06-2026 09:55:52.250 INFO com.orangehrm.pim.PIM_01_Employee] - -------------------- PASSED --------------------
+[29-06-2026 09:56:24.038 INFO com.orangehrm.pim.PIM_01_Employee] - Closed browser successfully.
+[29-06-2026 10:49:18.513 INFO com.orangehrm.pim.PIM_01_Employee] - -------------------- PASSED --------------------
+[29-06-2026 10:50:00.761 INFO com.orangehrm.pim.PIM_01_Employee] - -------------------- PASSED --------------------
+[29-06-2026 10:51:02.641 INFO com.orangehrm.pim.PIM_01_Employee] - Closed browser successfully.
+[29-06-2026 10:56:01.734 INFO com.orangehrm.pim.PIM_01_Employee] - -------------------- PASSED --------------------
+[29-06-2026 10:56:43.799 INFO com.orangehrm.pim.PIM_01_Employee] - -------------------- PASSED --------------------
+[29-06-2026 10:57:14.295 INFO com.orangehrm.pim.PIM_01_Employee] - Closed browser successfully.
+[29-06-2026 11:02:23.848 INFO com.orangehrm.pim.PIM_01_Employee] - -------------------- PASSED --------------------
+[29-06-2026 11:03:05.775 INFO com.orangehrm.pim.PIM_01_Employee] - -------------------- PASSED --------------------
+[29-06-2026 11:03:47.060 INFO com.orangehrm.pim.PIM_01_Employee] - -------------------- PASSED --------------------
+[29-06-2026 11:03:48.084 INFO com.orangehrm.pim.PIM_01_Employee] - Closed browser successfully.
+[29-06-2026 11:17:17.487 INFO com.orangehrm.pim.PIM_01_Employee] - -------------------- PASSED --------------------
+[29-06-2026 11:17:58.724 INFO com.orangehrm.pim.PIM_01_Employee] - -------------------- PASSED --------------------
+[29-06-2026 11:18:29.821 INFO com.orangehrm.pim.PIM_01_Employee] - Closed browser successfully.
+[29-06-2026 11:19:50.570 INFO com.orangehrm.pim.PIM_01_Employee] - Closed browser successfully.
+[29-06-2026 11:21:59.343 INFO com.orangehrm.pim.PIM_01_Employee] - Closed browser successfully.
+[29-06-2026 11:24:23.560 INFO com.orangehrm.pim.PIM_01_Employee] - Closed browser successfully.
+[29-06-2026 11:29:50.231 INFO com.orangehrm.pim.PIM_01_Employee] - Closed browser successfully.
+[29-06-2026 11:31:11.888 INFO com.orangehrm.pim.PIM_01_Employee] - -------------------- PASSED --------------------
+[29-06-2026 11:31:12.597 INFO com.orangehrm.pim.PIM_01_Employee] - Closed browser successfully.
+[29-06-2026 11:39:41.535 INFO com.orangehrm.pim.PIM_01_Employee] - -------------------- PASSED --------------------
+[29-06-2026 11:40:22.729 INFO com.orangehrm.pim.PIM_01_Employee] - -------------------- PASSED --------------------
+[29-06-2026 11:40:23.548 INFO com.orangehrm.pim.PIM_01_Employee] - Closed browser successfully.
+[29-06-2026 16:01:26.046 INFO com.orangehrm.pim.PIM_01_Employee] - -------------------- PASSED --------------------
+[29-06-2026 16:01:57.275 INFO com.orangehrm.pim.PIM_01_Employee] - -------------------- PASSED --------------------
+[29-06-2026 16:01:58.843 INFO com.orangehrm.pim.PIM_01_Employee] - -------------------- PASSED --------------------
+[29-06-2026 16:02:32.958 INFO com.orangehrm.pim.PIM_01_Employee] - -------------------- PASSED --------------------
+[29-06-2026 16:02:34.989 INFO com.orangehrm.pim.PIM_01_Employee] - -------------------- PASSED --------------------
+[29-06-2026 16:02:35.012 INFO com.orangehrm.pim.PIM_01_Employee] - -------------------- PASSED --------------------
+[29-06-2026 16:03:05.458 INFO com.orangehrm.pim.PIM_01_Employee] - Closed browser successfully.

@@ -17,6 +17,6 @@ public class EmployeeListPO extends BasePage {
         waitForElementClickable(driver, EmployeeListPUI.ADD_EMPLOYEE_NAV_BUTTON);
         clickToElement(driver, EmployeeListPUI.ADD_EMPLOYEE_NAV_BUTTON);
         waitForAllLoadingIconInvisible(driver);
-        return PageGenerator.getAddNewEmployeePage(driver);
+        return PageGenerator.getPage(AddNewEmployeePO.class, driver);
     }
 }

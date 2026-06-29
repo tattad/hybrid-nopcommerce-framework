@@ -1,6 +1,16 @@
 package pageUIs.orangehrm;
 
 public class BasePUI {
-    public static final String LOADING_ICON = "css=div.oxd-loading-spinner";
-
+    public static final String LOADING_SPINNER_ICON = "css=div.oxd-loading-spinner";
+    public static final String DYNAMIC_TEXTBOX_BY_LABEL = "xpath=//label[text()=\"%s\"]/parent::div/following-sibling::div//input";
+    public static final String DYNAMIC_TEXBOX_BY_NAME = "xpath=//input[@name='%s']";
+    public static final String DYNAMIC_BUTTON_BY_TEXT = "xpath=//button[contains(string(),'%s')]";
+    public static final String DYNAMIC_BUTTON_BY_MAIN_TITLE = "xpath=//h6[text()='%s']/following-sibling::form//button[contains(string(),'%s')]";
+    public static final String DYNAMIC_TOAST_MESSAGE_BY_TEXT = "xpath=//p[contains(@class,'oxd-text--toast-message') and text='%s']";
+    public static final String DYNAMIC_MODULE_BY_TEXT_IN_MENU_ITEM = "xpath=//a[contains(@class,'oxd-main-menu-item')]//span[text()='%s']";
+    public static final String DYNAMIC_PARENT_DROPDOWN_BY_LABEL = "xpath=//label[text()='%s']/parent::div/following-sibling::div//i";
+    public static final String DYNAMIC_CHILD_DROPDOWN_BY_LABEL = "xpath=//label[text()='%s']/parent::div/following-sibling::div//div[@class='oxd-select-option']/span";
+    public static final String DYNAMIC_RADIO_BUTTON_BY_LABEL = "xpath=//label[text()='%s']/input";
+    public static final String DYNAMIC_CHECKBOX_BY_LABEL = "xpath=//p[text()='%s']/following-sibling::div//input";
 }
+
