@@ -2,12 +2,11 @@ package com.nopcommerce.user;
 
 import commons.BaseTest;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import pageObjects.nopCommerce.PageGenerator;
+import pageObjects.nopCommerce.PageGenerators;
 import pageObjects.nopCommerce.user.UserCustomerInfoPO;
 import pageObjects.nopCommerce.user.UserHomePO;
 import pageObjects.nopCommerce.user.UserLoginPO;
@@ -28,7 +27,7 @@ public class Level_13_Verify extends BaseTest {
 
         driver = getBrowserDriver(browserName);
 
-        homePage = PageGenerator.getUserHomePage(driver);
+        homePage = PageGenerators.getUserHomePage(driver);
 
         firstName = "Automation";
         lastName = "Testing";

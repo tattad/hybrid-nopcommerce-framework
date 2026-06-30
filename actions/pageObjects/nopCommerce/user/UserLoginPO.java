@@ -3,7 +3,7 @@ package pageObjects.nopCommerce.user;
 import commons.BasePage;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
-import pageObjects.nopCommerce.PageGenerator;
+import pageObjects.nopCommerce.PageGenerators;
 import pageUIs.nopCommerce.user.UserLoginPageUI;
 
 public class UserLoginPO extends BasePage {
@@ -30,7 +30,7 @@ public class UserLoginPO extends BasePage {
     public UserHomePO clickToLoginButton() {
         waitForElementClickable(driver, UserLoginPageUI.LOGIN_BUTTON);
         clickToElement(driver, UserLoginPageUI.LOGIN_BUTTON);
-        return PageGenerator.getUserHomePage(driver);
+        return PageGenerators.getUserHomePage(driver);
     }
 
     @Step("Login to application with valid Email and Password")
@@ -38,6 +38,6 @@ public class UserLoginPO extends BasePage {
         enterToEmailTextbox(emailAddress);
         enterToPasswordTextbox(password);
         clickToLoginButton();
-        return PageGenerator.getUserHomePage(driver);
+        return PageGenerators.getUserHomePage(driver);
     }
 }

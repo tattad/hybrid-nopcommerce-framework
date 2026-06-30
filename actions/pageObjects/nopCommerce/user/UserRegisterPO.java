@@ -2,7 +2,7 @@ package pageObjects.nopCommerce.user;
 
 import commons.BasePage;
 import org.openqa.selenium.WebDriver;
-import pageObjects.nopCommerce.PageGenerator;
+import pageObjects.nopCommerce.PageGenerators;
 import pageUIs.nopCommerce.user.UserRegisterPageUI;
 
 public class UserRegisterPO extends BasePage {
@@ -62,13 +62,13 @@ public class UserRegisterPO extends BasePage {
     public UserLoginPO openLoginPage() {
         waitForElementClickable(driver, UserRegisterPageUI.LOGIN_LINK);
         clickToElement(driver, UserRegisterPageUI.LOGIN_LINK);
-        return PageGenerator.getUserLoginPage(driver);
+        return PageGenerators.getUserLoginPage(driver);
     }
 
     public UserHomePO clickToLogOutLink() {
         waitForElementClickable(driver, UserRegisterPageUI.LOGOUT_LINK);
         clickToElement(driver, UserRegisterPageUI.LOGOUT_LINK);
-        return PageGenerator.getUserHomePage(driver);
+        return PageGenerators.getUserHomePage(driver);
     }
 
     public String getRegisterPageTitle() {

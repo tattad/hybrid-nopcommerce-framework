@@ -7,7 +7,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import pageObjects.nopCommerce.PageGenerator;
+import pageObjects.nopCommerce.PageGenerators;
 import pageObjects.nopCommerce.admin.AdminDashboardPO;
 import pageObjects.nopCommerce.admin.AdminLoginPO;
 import pageObjects.nopCommerce.user.UserCustomerInfoPO;
@@ -35,7 +35,7 @@ public class Level_09_Switch_Site_Url extends BaseTest {
         adminUrlValue = adminUrl;
 
         driver = getBrowserDriver(browserName, userUrlValue);
-        userHomePage = PageGenerator.getUserHomePage(driver);
+        userHomePage = PageGenerators.getUserHomePage(driver);
 
         firstName = "Automation";
         lastName = "Testing";
@@ -74,7 +74,7 @@ public class Level_09_Switch_Site_Url extends BaseTest {
         //....
         //Qua trang admin để verify/ approve cái order vs quyền admin
         userHomePage.openAdminSite(driver, adminUrlValue);
-        adminLoginPage = PageGenerator.getAdminLoginPage(driver);
+        adminLoginPage = PageGenerators.getAdminLoginPage(driver);
 
         //Login vào trang Admin
         adminLoginPage.enterToEmailTextbox(adminEmailAddress);
@@ -87,7 +87,7 @@ public class Level_09_Switch_Site_Url extends BaseTest {
         //Vào trang Order/ Customer...
         //...
         adminDashboardPage.openPageUrl(driver, userUrlValue);
-        userHomePage = PageGenerator.getUserHomePage(driver);
+        userHomePage = PageGenerators.getUserHomePage(driver);
 
         //Action các step tiếp theo
         //...

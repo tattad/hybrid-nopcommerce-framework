@@ -2,7 +2,7 @@ package pageObjects.nopCommerce.user;
 
 import commons.BasePage;
 import org.openqa.selenium.WebDriver;
-import pageObjects.nopCommerce.PageGenerator;
+import pageObjects.nopCommerce.PageGenerators;
 import pageUIs.nopCommerce.user.UserSidebarPageUI;
 
 public class UserSidebarPO extends BasePage {
@@ -29,13 +29,13 @@ public class UserSidebarPO extends BasePage {
     public UserAddressPO openAddressPage() {
         waitForElementClickable(driver, UserSidebarPageUI.ADDRESS_LINK);
         clickToElement(driver, UserSidebarPageUI.ADDRESS_LINK);
-        return PageGenerator.getUserAddressPage(driver);
+        return PageGenerators.getUserAddressPage(driver);
     }
 
     public UserOrderPO openOrderPage() {
         waitForElementClickable(driver, UserSidebarPageUI.ORDER_LINK);
         clickToElement(driver, UserSidebarPageUI.ORDER_LINK);
-        return PageGenerator.getUserOrderPage(driver);
+        return PageGenerators.getUserOrderPage(driver);
     }
 
     //Phù hợp cho số lượng page ít - switch case ít
@@ -45,13 +45,13 @@ public class UserSidebarPO extends BasePage {
 
         switch (pageName) {
             case "Addresses":
-                return PageGenerator.getUserAddressPage(driver);
+                return PageGenerators.getUserAddressPage(driver);
             case "Reward Points":
-                return PageGenerator.getUserRewardPointPage(driver);
+                return PageGenerators.getUserRewardPointPage(driver);
             case "Orders":
-                return PageGenerator.getUserOrderPage(driver);
+                return PageGenerators.getUserOrderPage(driver);
             case "Customer Info":
-                return PageGenerator.getUserCustomerPage(driver);
+                return PageGenerators.getUserCustomerPage(driver);
             default:
                 throw new RuntimeException("Page name is invalid!!!");
         }

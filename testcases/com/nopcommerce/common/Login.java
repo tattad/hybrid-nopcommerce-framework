@@ -7,7 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
-import pageObjects.nopCommerce.PageGenerator;
+import pageObjects.nopCommerce.PageGenerators;
 import pageObjects.nopCommerce.user.UserCustomerInfoPO;
 import pageObjects.nopCommerce.user.UserHomePO;
 import pageObjects.nopCommerce.user.UserLoginPO;
@@ -29,7 +29,7 @@ public class Login extends BaseTest {
     @BeforeTest
     public void beforeTest(String browserName, String url) {
         driver = getBrowserDriver(browserName);
-        homePage = PageGenerator.getUserHomePage(driver);
+        homePage = PageGenerators.getUserHomePage(driver);
 
         //Data test
         firstName = "Automation";
@@ -57,7 +57,7 @@ public class Login extends BaseTest {
         loginPage.enterToTextBoxByID(driver, "Email", emailAddress);
         loginPage.enterToTextBoxByID(driver, "Password", password);
         loginPage.clickToButtonByText(driver, "Log in");
-        homePage = PageGenerator.getUserHomePage(driver);
+        homePage = PageGenerators.getUserHomePage(driver);
         Assert.assertTrue(homePage.isMyAccountLinkDisplayed());
 
         //Get Cookies

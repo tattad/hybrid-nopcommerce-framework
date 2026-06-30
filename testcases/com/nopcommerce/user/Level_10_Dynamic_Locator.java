@@ -7,7 +7,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import pageObjects.nopCommerce.PageGenerator;
+import pageObjects.nopCommerce.PageGenerators;
 import pageObjects.nopCommerce.user.*;
 
 public class Level_10_Dynamic_Locator extends BaseTest {
@@ -28,7 +28,7 @@ public class Level_10_Dynamic_Locator extends BaseTest {
 
         driver = getBrowserDriver(browserName);
 
-        homePage = PageGenerator.getUserHomePage(driver);
+        homePage = PageGenerators.getUserHomePage(driver);
 
         firstName = "Automation";
         lastName = "Testing";
@@ -97,19 +97,19 @@ public class Level_10_Dynamic_Locator extends BaseTest {
     public void User_05_Dynamic_Page() {
         // Address -> Reward Point
         addressPage.openSidebarLinkPageName("Reward Points");
-        rewardPointPage = PageGenerator.getUserRewardPointPage(driver);
+        rewardPointPage = PageGenerators.getUserRewardPointPage(driver);
 
         // Reward Point -> Order
         rewardPointPage.openSidebarLinkPageName("Orders");
-        orderPage = PageGenerator.getUserOrderPage(driver);
+        orderPage = PageGenerators.getUserOrderPage(driver);
 
         // Order -> Address
         orderPage.openSidebarLinkPageName("Addresses");
-        addressPage = PageGenerator.getUserAddressPage(driver);
+        addressPage = PageGenerators.getUserAddressPage(driver);
 
         // Address -> Customer Info
         addressPage.openSidebarLinkPageName("Customer Info");
-        customerInfoPage = PageGenerator.getUserCustomerPage(driver);
+        customerInfoPage = PageGenerators.getUserCustomerPage(driver);
     }
 
     @AfterClass

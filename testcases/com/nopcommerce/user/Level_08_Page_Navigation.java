@@ -7,7 +7,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import pageObjects.nopCommerce.PageGenerator;
+import pageObjects.nopCommerce.PageGenerators;
 import pageObjects.nopCommerce.user.*;
 
 public class Level_08_Page_Navigation extends BaseTest {
@@ -28,7 +28,7 @@ public class Level_08_Page_Navigation extends BaseTest {
 
         driver = getBrowserDriver(browserName);
 
-        homePage = PageGenerator.getUserHomePage(driver);
+        homePage = PageGenerators.getUserHomePage(driver);
 
         firstName = "Automation";
         lastName = "Testing";

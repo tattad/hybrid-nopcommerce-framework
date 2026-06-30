@@ -24,8 +24,8 @@ public class GlobalConstants {
     public static final String ADMIN_PASSWORD_ORANGEHRM = "D@ttran8895";
 
     // Wait Infor
-    public static final long SHORT_TIMEOUT = 10;
-    public static final long LONG_TIMEOUT = 30;
+    public static final long SHORT_TIMEOUT = 5;
+    public static final long LONG_TIMEOUT = 10;
 
     // Download/ Upload file
     public static final String UPLOAD_PATH = PROJECT_PATH + SEPARTOR + "uploadFiles" + SEPARTOR;

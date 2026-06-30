@@ -5,7 +5,7 @@ import pageObjects.nopCommerce.admin.AdminDashboardPO;
 import pageObjects.nopCommerce.admin.AdminLoginPO;
 import pageObjects.nopCommerce.user.*;
 
-public class PageGenerator {
+public class PageGenerators {
     public static UserHomePO getUserHomePage(WebDriver driver) {
         return new UserHomePO(driver);
     }

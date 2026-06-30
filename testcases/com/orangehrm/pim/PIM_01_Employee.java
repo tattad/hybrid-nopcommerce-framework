@@ -34,9 +34,8 @@ public class PIM_01_Employee extends BaseTest {
 
         loginPage = PageGenerator.getPage(LoginPO.class, driver);
 
-        employeeFirstName = "Ha";
-        employeeLastName = "Ni";
-        employeeUsername = employeeFirstName + "." + employeeLastName + "." + getRandomNumber();
+        employeeFirstName = "Hani";
+//        employeeID = String.valueOf(getRandomNumber());
         employeePassword = "Or@ngeHRM123";
 
         loginPage.enterToTextBoxByLabel(driver, "Username", GlobalConstants.ADMIN_USERNAME_ORANGEHRM);
@@ -47,12 +46,11 @@ public class PIM_01_Employee extends BaseTest {
         verifyTrue(dashboardPage.isLoadingSpinnerDisappear(driver));
         dashboardPage.sleepInSecond(2);
 
-        dashboardPage.waitForAllLoadingIconInvisible(driver);
         verifyTrue(dashboardPage.isModuleByTextInMenuItemDisplayed(driver, "Dashboard"));
     }
 
     @Test
-    public void Employee_01_Add_New() {
+    public void Employee_01_NewEmployee_Enabled() {
         dashboardPage.clickToModuleByTextInMenuItem(driver, "PIM");
         employeeListPage = PageGenerator.getPage(EmployeeListPO.class, driver);
         verifyTrue(employeeListPage.isLoadingSpinnerDisappear(driver));
@@ -61,12 +59,17 @@ public class PIM_01_Employee extends BaseTest {
         addNewEmployeePage = PageGenerator.getPage(AddNewEmployeePO.class, driver);
         verifyTrue(addNewEmployeePage.isLoadingSpinnerDisappear(driver));
 
+//        addNewEmployeePage.clearTextBoxByLabel(driver, "Employee Id");
+//        addNewEmployeePage.enterToTextBoxByLabel(driver, "Employee Id", employeeID);
+        employeeID = addNewEmployeePage.getTextboxValueByLabel(driver, "Employee Id");
+        employeeLastName = employeeID;
         addNewEmployeePage.enterToTextBoxByName(driver, "firstName", employeeFirstName);
         addNewEmployeePage.enterToTextBoxByName(driver, "lastName", employeeLastName);
 
         employeeID = addNewEmployeePage.getTextboxValueByLabel(driver, "Employee Id");
         addNewEmployeePage.clickToCheckboxByLabel(driver, "Create Login Details");
 
+        employeeUsername = employeeFirstName + "." + employeeLastName;
         addNewEmployeePage.enterToTextBoxByLabel(driver, "Username", employeeUsername);
         addNewEmployeePage.enterToTextBoxByLabel(driver, "Password", employeePassword);
         addNewEmployeePage.enterToTextBoxByLabel(driver, "Confirm Password", employeePassword);
@@ -77,51 +80,52 @@ public class PIM_01_Employee extends BaseTest {
         verifyTrue(personalDetailsPage.isToastMessageDisplayed(driver, "Successfully Saved"));
 
         verifyTrue(personalDetailsPage.isLoadingSpinnerDisappear(driver));
-        personalDetailsPage.sleepInSecond(2);
+        personalDetailsPage.sleepInSecond(5);
 
         verifyEqual(personalDetailsPage.getTextboxValueByName(driver, "firstName"), employeeFirstName);
         verifyEqual(personalDetailsPage.getTextboxValueByName(driver, "lastName"), employeeLastName);
         verifyEqual(personalDetailsPage.getTextboxValueByLabel(driver, "Employee Id"), employeeID);
 
-        personalDetailsPage.selectDropdownByLabel(driver, "Nationality", "British");
-        personalDetailsPage.selectDropdownByLabel(driver, "Marital Status", "Married");
-        personalDetailsPage.clickToButtonByText(driver, "Save");
-        verifyTrue(personalDetailsPage.isToastMessageDisplayed(driver, "Successfully Updated"));
+        //Logout
+        loginPage = personalDetailsPage.clickLogoutOnTopMenu(driver);
 
-//        //Logout
-//        loginPage = personalDetailsPage.clickLogoutOnTopMenu(driver);
-//
-//        //Login = quyền user vừa tạo
-//        loginPage.enterToTextBoxByLabel(driver, "Username", employeeUsername);
-//        loginPage.enterToTextBoxByLabel(driver, "Password", employeePassword);
-//        loginPage.clickToButtonByText(driver, "Login");
-//        dashboardPage = PageGenerator.getPage(DashboardPO.class, driver);
-//
-//        verifyTrue(dashboardPage.isLoadingSpinnerDisappear(driver));
-//        dashboardPage.sleepInSecond(2);
-//
-//        //Đến màn hình Dashboard
-//        verifyTrue(dashboardPage.isModuleByTextInMenuItemDisplayed(driver, "My Info"));
-//
-//        dashboardPage.clickToModuleByTextInMenuItem(driver, "My Info");
-//        personalDetailsPage = PageGenerator.getPage(PersonalDetailsPO.class, driver);
+        //Login bằng employee vừa tạo
+        loginPage.enterToTextBoxByLabel(driver, "Username", employeeUsername);
+        loginPage.enterToTextBoxByLabel(driver, "Password", employeePassword);
+        loginPage.clickToLoginButton();
+        dashboardPage = PageGenerator.getPage(DashboardPO.class, driver);
+
+        verifyTrue(dashboardPage.isLoadingSpinnerDisappear(driver));
+        dashboardPage.sleepInSecond(5);
+
+        verifyTrue(dashboardPage.isModuleByTextInMenuItemDisplayed(driver, "My Info"));
+
+        dashboardPage.clickToModuleByTextInMenuItem(driver, "My Info");
+        personalDetailsPage = PageGenerator.getPage(PersonalDetailsPO.class, driver);
+
+        verifyEqual(personalDetailsPage.getTextboxValueByName(driver, "firstName"), employeeFirstName);
+        verifyEqual(personalDetailsPage.getTextboxValueByName(driver, "lastName"), employeeLastName);
+        verifyEqual(personalDetailsPage.getTextboxValueByLabel(driver, "Employee Id"), employeeID);
     }
 
-    //    @Test
+    @Test
     public void Employee_02_Upload_Avatar() {
-        personalDetailsPage.clickToEmployeeAvatar();
+        personalDetailsPage.clickToProfileImage();
         Dimension beforeUpload = personalDetailsPage.getAvatarSize();
         personalDetailsPage.uploadMultipleFiles(driver, avatarImageName);
+//        verifyEqual(personalDetailsPage.getErrorMessageAtProfileImage(), "File type not allowed");
+//        verifyEqual(personalDetailsPage.getErrorMessageAtProfileImage(), "Attachment Size Exceeded");
 
-        personalDetailsPage.clickToSaveButtonAtChangeProfilePictureContainer();
-        Assert.assertTrue(personalDetailsPage.isSuccessMessageDisplayed());
+        personalDetailsPage.clickToButtonByText(driver, "Save");
+        verifyTrue(personalDetailsPage.isToastMessageDisplayed(driver, "Successfully Updated"));
+        verifyTrue(personalDetailsPage.isLoadingSpinnerDisappear(driver));
+        personalDetailsPage.sleepInSecond(5);
 
-        personalDetailsPage.waitForAllLoadingIconInvisible(driver);
         Assert.assertTrue(personalDetailsPage.isProfileAvatarUpdateSuccess(beforeUpload));
     }
 
 //    @Test
-//    public void Employee_03_Personal_Details() {
+//    public void Employee_03_Edit_Personal_Details() {
 //        personalDetailsPage.openPersonalDetailsPage();
 //
 //        personalDetailsPage.enterToFirstNameTextbox("");
@@ -143,7 +147,7 @@ public class PIM_01_Employee extends BaseTest {
 
     }
 
-    @AfterClass
+    @AfterClass(alwaysRun = true)
     public void afterClass() {
         closeBrowserDriver();
     }

@@ -7,7 +7,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import pageObjects.nopCommerce.PageGenerator;
+import pageObjects.nopCommerce.PageGenerators;
 import pageObjects.nopCommerce.user.UserCustomerInfoPO;
 import pageObjects.nopCommerce.user.UserHomePO;
 import pageObjects.nopCommerce.user.UserLoginPO;
@@ -27,7 +27,7 @@ public class Level_19_Pattern_Object extends BaseTest {
     public void beforeClass(String browserName, String url) {
 
         driver = getBrowserDriver(browserName);
-        homePage = PageGenerator.getUserHomePage(driver);
+        homePage = PageGenerators.getUserHomePage(driver);
 
         firstName = "Automation";
         lastName = "Testing";
@@ -66,7 +66,7 @@ public class Level_19_Pattern_Object extends BaseTest {
         loginPage.enterToTextBoxByID(driver, "Password", password);
 
         loginPage.clickToButtonByText(driver, "Log in");
-        homePage = PageGenerator.getUserHomePage(driver);
+        homePage = PageGenerators.getUserHomePage(driver);
 
         Assert.assertTrue(homePage.isMyAccountLinkDisplayed());
     }

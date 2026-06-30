@@ -16,7 +16,7 @@ public class PersonalDetailsPO extends EmployeeTabs {
         return getElementSize(driver, PersonalDetailsPUI.EMPLOYEE_IMAGE);
     }
 
-    public void clickToEmployeeAvatar() {
+    public void clickToProfileImage() {
         waitForElementClickable(driver, PersonalDetailsPUI.EMPLOYEE_IMAGE);
         clickToElement(driver, PersonalDetailsPUI.EMPLOYEE_IMAGE);
     }
@@ -34,5 +34,10 @@ public class PersonalDetailsPO extends EmployeeTabs {
     public boolean isProfileAvatarUpdateSuccess(Dimension beforeUpload) {
         Dimension afterUpload = getAvatarSize();
         return beforeUpload.equals(afterUpload);
+    }
+
+    public String getErrorMessageAtProfileImage() {
+        waitForElementVisible(driver, PersonalDetailsPUI.PROFILE_IMAGE_UPLOAD_ERROR_MSG);
+        return getElementText(driver, PersonalDetailsPUI.PROFILE_IMAGE_UPLOAD_ERROR_MSG);
     }
 }

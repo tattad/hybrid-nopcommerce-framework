@@ -11,6 +11,9 @@ public class BasePUI {
     public static final String DYNAMIC_PARENT_DROPDOWN_BY_LABEL = "xpath=//label[text()='%s']/parent::div/following-sibling::div//i";
     public static final String DYNAMIC_CHILD_DROPDOWN_BY_LABEL = "xpath=//label[text()='%s']/parent::div/following-sibling::div//div[@class='oxd-select-option']/span";
     public static final String DYNAMIC_RADIO_BUTTON_BY_LABEL = "xpath=//label[text()='%s']/input";
-    public static final String DYNAMIC_CHECKBOX_BY_LABEL = "xpath=//p[text()='%s']/following-sibling::div//input";
+    public static final String DYNAMIC_CHECKBOX_BY_LABEL = "xpath=//p[text()='%s']/following-sibling::div//span";
+    public static final String USER_DROPDOWN = "css=p.oxd-userdropdown-name";
+    public static final String LOGOUT_LINK = "xpath=//a[@class='oxd-userdropdown-link' and text()='Logout']";
+
 }
 
