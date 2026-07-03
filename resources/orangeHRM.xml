@@ -6,7 +6,8 @@
         <listener class-name="commons.MethodListener"></listener>
     </listeners>
 
-    <parameter name="url" value="http://automationtada.edu:90/orangehrm5"/>
+    <parameter name="url" value="https://opensource-demo.orangehrmlive.com/"/>
+    <!--    <parameter name="url" value="http://automationtada.edu:90/orangehrm5"/>-->
 
     <test name="Run on Firefox browser" preserve-order="true">
         <parameter name="browser" value="firefox"/>

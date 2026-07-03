@@ -1,7 +1,6 @@
 package com.orangehrm.pim;
 
 import commons.BaseTest;
-import commons.GlobalConstants;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
@@ -37,8 +36,8 @@ public class PIM_01_Employee extends BaseTest {
 //        employeeID = String.valueOf(getRandomNumber());
         employeePassword = "Or@ngeHRM123";
 
-        loginPage.enterToTextBoxByLabel(driver, "Username", GlobalConstants.ADMIN_USERNAME_ORANGEHRM);
-        loginPage.enterToTextBoxByLabel(driver, "Password", GlobalConstants.ADMIN_PASSWORD_ORANGEHRM);
+        loginPage.enterToTextBoxByLabel(driver, "Username", "Admin");
+        loginPage.enterToTextBoxByLabel(driver, "Password", "admin123");
         loginPage.clickToButtonByText(driver, "Login");
         dashboardPage = PageGenerator.getPage(DashboardPO.class, driver);
 
