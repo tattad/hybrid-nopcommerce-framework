@@ -263,6 +263,14 @@ public class BasePage {
         }
     }
 
+    public void sleepInMiliSecond(long timeInMiliSeconds) {
+        try {
+            Thread.sleep(timeInMiliSeconds);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public String getElementAttribute(WebDriver driver, String locator, String attributeName) {
         return getWebElement(driver, locator).getAttribute(attributeName);
     }
@@ -275,19 +283,19 @@ public class BasePage {
         return getWebElement(driver, locator).getSize();
     }
 
-    private String getElementDOMAttribute(WebDriver driver, String locator, String attributeName) {
+    public String getElementDOMAttribute(WebDriver driver, String locator, String attributeName) {
         return getWebElement(driver, locator).getAttribute(attributeName);
     }
 
-    private String getElementDOMAttribute(WebDriver driver, String locator, String attributeName, String... restValue) {
+    public String getElementDOMAttribute(WebDriver driver, String locator, String attributeName, String... restValue) {
         return getWebElement(driver, castParameter(locator, restValue)).getAttribute(attributeName);
     }
 
-    private String getElementDOMProperty(WebDriver driver, String locator, String propertyName) {
+    public String getElementDOMProperty(WebDriver driver, String locator, String propertyName) {
         return getWebElement(driver, locator).getDomProperty(propertyName);
     }
 
-    private String getElementDOMProperty(WebDriver driver, String locator, String propertyName, String... restValue) {
+    public String getElementDOMProperty(WebDriver driver, String locator, String propertyName, String... restValue) {
         return getWebElement(driver, castParameter(locator, restValue)).getDomProperty(propertyName);
     }
 
@@ -622,7 +630,8 @@ public class BasePage {
         }
         //Cắt kí tự xuống dòng (\n) ở đầu 2 chuỗi
         fullFileName = fullFileName.trim();
-        getWebElement(driver, BasePageUI.UPLOAD_FILE_TYPE).sendKeys(fullFileName);
+        getWebElement(driver, BasePageUI.UPLOAD_FILE_TYPE).sendKeys(fullFileName.trim());
+        sleepInSecond(1);
     }
 
     /*Only use for Level_07_Switch_Page_Object*/

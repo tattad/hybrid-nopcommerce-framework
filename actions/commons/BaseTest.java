@@ -91,10 +91,8 @@ public class BaseTest {
         boolean status = true;
         try {
             Assert.assertTrue(condition);
-            log.info("-------------------- PASSED --------------------");
         } catch (Throwable e) {
             status = false;
-            log.info("-------------------- FAILED --------------------");
             VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
             Reporter.getCurrentTestResult().setThrowable(e);
         }
@@ -105,10 +103,8 @@ public class BaseTest {
         boolean status = true;
         try {
             Assert.assertFalse(condition);
-            log.info("-------------------- PASSED --------------------");
         } catch (Throwable e) {
             status = false;
-            log.info("-------------------- FAILED --------------------");
             VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
             Reporter.getCurrentTestResult().setThrowable(e);
         }
@@ -128,6 +124,19 @@ public class BaseTest {
         }
         return status;
     }
+
+    protected boolean verifyNotEqual(Object actual, Object expected) {
+        boolean status = true;
+        try {
+            Assert.assertNotEquals(actual, expected);
+        } catch (Throwable e) {
+            status = false;
+            VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
+            Reporter.getCurrentTestResult().setThrowable(e);
+        }
+        return status;
+    }
+
 //.   ReportNG
 //    @BeforeSuite
 //    public void deleteReportFolder() {

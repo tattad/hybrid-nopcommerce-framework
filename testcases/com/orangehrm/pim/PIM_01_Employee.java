@@ -4,7 +4,6 @@ import commons.BaseTest;
 import commons.GlobalConstants;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -112,7 +111,7 @@ public class PIM_01_Employee extends BaseTest {
     //    @Test
     public void Employee_02_Upload_Avatar() {
         personalDetailsPage.clickToProfileImage();
-        Dimension beforeUpload = personalDetailsPage.getAvatarSize();
+        Dimension beforeUpload = personalDetailsPage.getProfileNaturalImageSize();
         personalDetailsPage.uploadMultipleFiles(driver, avatarImageName);
 //        verifyEqual(personalDetailsPage.getErrorMessageAtProfileImage(), "File type not allowed");
 //        verifyEqual(personalDetailsPage.getErrorMessageAtProfileImage(), "Attachment Size Exceeded");
@@ -121,8 +120,10 @@ public class PIM_01_Employee extends BaseTest {
         verifyTrue(personalDetailsPage.isToastMessageDisplayed(driver, "Successfully Updated"));
         verifyTrue(personalDetailsPage.isLoadingSpinnerDisappear(driver));
         personalDetailsPage.sleepInSecond(5);
+        Dimension afterUpload = personalDetailsPage.getProfileNaturalImageSize();
 
-        Assert.assertFalse(personalDetailsPage.isProfileAvatarUpdateSuccess(beforeUpload));
+//        Assert.assertFalse(personalDetailsPage.isProfileAvatarUpdateSuccess(beforeUpload));
+        verifyNotEqual(beforeUpload, afterUpload);
     }
 
 //    @Test

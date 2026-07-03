@@ -12,8 +12,11 @@ public class PersonalDetailsPO extends EmployeeTabs {
         this.driver = driver;
     }
 
-    public Dimension getAvatarSize() {
-        return getElementSize(driver, PersonalDetailsPUI.EMPLOYEE_IMAGE);
+    public Dimension getProfileNaturalImageSize() {
+        waitForElementVisible(driver, PersonalDetailsPUI.EMPLOYEE_IMAGE);
+        int x = Integer.parseInt(getElementDOMProperty(driver, PersonalDetailsPUI.EMPLOYEE_IMAGE, "naturalWidth"));
+        int y = Integer.parseInt(getElementDOMProperty(driver, PersonalDetailsPUI.EMPLOYEE_IMAGE, "naturalHeight"));
+        return new Dimension(x, y);
     }
 
     public void clickToProfileImage() {
@@ -32,7 +35,7 @@ public class PersonalDetailsPO extends EmployeeTabs {
     }
 
     public boolean isProfileAvatarUpdateSuccess(Dimension beforeUpload) {
-        Dimension afterUpload = getAvatarSize();
+        Dimension afterUpload = getProfileNaturalImageSize();
         return beforeUpload.equals(afterUpload);
     }
 
