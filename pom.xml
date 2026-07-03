@@ -59,6 +59,7 @@
     </dependencies>
 
     <build>
+        <testSourceDirectory>testcases</testSourceDirectory>
         <plugins>
             <!-- Compiler -->
             <plugin>
