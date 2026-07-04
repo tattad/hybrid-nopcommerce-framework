@@ -45,7 +45,7 @@ public class BaseTest {
             case FIREFOX:
                 FirefoxOptions options = new FirefoxOptions();
                 options.addArguments("--headless");
-                driver = new FirefoxDriver();
+                driver = new FirefoxDriver(options);
                 break;
             case CHROME:
                 driver = new ChromeDriver();
@@ -67,7 +67,7 @@ public class BaseTest {
             case FIREFOX:
                 FirefoxOptions options = new FirefoxOptions();
                 options.addArguments("--headless");
-                driver = new FirefoxDriver();
+                driver = new FirefoxDriver(options);
                 break;
             case CHROME:
                 driver = new ChromeDriver();
