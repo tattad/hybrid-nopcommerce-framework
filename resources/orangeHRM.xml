@@ -3,7 +3,7 @@
 
 <suite name="Orange HRM 5">
     <listeners>
-        <listener class-name="commons.MethodListener"></listener>
+        <listener class-name="actions.commons.MethodListener"></listener>
     </listeners>
 
     <parameter name="url" value="https://opensource-demo.orangehrmlive.com/"/>
@@ -12,7 +12,7 @@
     <test name="Run on Firefox browser" preserve-order="true">
         <parameter name="browser" value="firefox"/>
         <classes>
-            <class name="com.orangehrm.pim.PIM_01_Employee"/>
+            <class name="testcases.com.orangehrm.pim.PIM_01_Employee"/>
             <!--            <class name="com.orangehrm.pim.PIM_02_Employee"/>-->
         </classes>
     </test>
