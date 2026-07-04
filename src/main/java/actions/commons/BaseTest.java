@@ -140,7 +140,7 @@ public class BaseTest {
         return status;
     }
 
-//.   ReportNG
+//   ReportNG
 //    @BeforeSuite
 //    public void deleteReportFolder() {
 //        deleteAllFileInFolder("htmlReportNG");
