@@ -43,6 +43,8 @@ public class BaseTest {
         BrowserList browserList = BrowserList.valueOf(browserName.toUpperCase());
         switch (browserList) {
             case FIREFOX:
+                FirefoxOptions options = new FirefoxOptions();
+                options.addArguments("--headless");
                 driver = new FirefoxDriver();
                 break;
             case CHROME:
