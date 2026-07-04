@@ -44,7 +44,12 @@ public class BaseTest {
         switch (browserList) {
             case FIREFOX:
                 FirefoxOptions options = new FirefoxOptions();
-                options.addArguments("--headless");
+                // Nhận tham số "headless" từ câu lệnh Maven
+                String isHeadless = System.getProperty("headless");
+                // Nếu người dùng truyền vào tham số -Dheadless=true thì mới chạy ẩn
+                if (isHeadless != null && isHeadless.equalsIgnoreCase("true")) {
+                    options.addArguments("--headless");
+                }
                 driver = new FirefoxDriver(options);
                 break;
             case CHROME:
@@ -66,7 +71,12 @@ public class BaseTest {
         switch (browserList) {
             case FIREFOX:
                 FirefoxOptions options = new FirefoxOptions();
-                options.addArguments("--headless");
+                // Nhận tham số "headless" từ câu lệnh Maven
+                String isHeadless = System.getProperty("headless");
+                // Nếu người dùng truyền vào tham số -Dheadless=true thì mới chạy ẩn
+                if (isHeadless != null && isHeadless.equalsIgnoreCase("true")) {
+                    options.addArguments("--headless");
+                }
                 driver = new FirefoxDriver(options);
                 break;
             case CHROME:

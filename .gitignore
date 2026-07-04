@@ -38,3 +38,5 @@ bin/
 /logs2/
 /test-output/
 /logs2/
+/target/
+/test-output/
