@@ -14,6 +14,5 @@ public class BasePUI {
     public static final String DYNAMIC_CHECKBOX_BY_LABEL = "xpath=//p[text()='%s']/following-sibling::div//span";
     public static final String USER_DROPDOWN = "css=p.oxd-userdropdown-name";
     public static final String LOGOUT_LINK = "xpath=//a[@class='oxd-userdropdown-link' and text()='Logout']";
-
 }
 

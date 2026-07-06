@@ -1,18 +1,18 @@
 package testcases.com.orangehrm.pim;
 
 import actions.commons.BaseTest;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
 import actions.pageObjects.orangehrm.DashboardPO;
 import actions.pageObjects.orangehrm.LoginPO;
 import actions.pageObjects.orangehrm.PageGenerator;
 import actions.pageObjects.orangehrm.pim.employee.AddNewEmployeePO;
 import actions.pageObjects.orangehrm.pim.employee.EmployeeListPO;
 import actions.pageObjects.orangehrm.pim.employee.PersonalDetailsPO;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
 
 public class PIM_01_Employee extends BaseTest {
     private WebDriver driver;
@@ -36,8 +36,10 @@ public class PIM_01_Employee extends BaseTest {
 //        employeeID = String.valueOf(getRandomNumber());
         employeePassword = "Or@ngeHRM123";
 
-        loginPage.enterToTextBoxByLabel(driver, "Username", "Admin");
-        loginPage.enterToTextBoxByLabel(driver, "Password", "admin123");
+//        loginPage.enterToTextBoxByLabel(driver, "Username", "Admin");
+//        loginPage.enterToTextBoxByLabel(driver, "Password", "admin123");
+        loginPage.enterToTextBoxByLabel(driver, "Username", "Hani.0013");
+        loginPage.enterToTextBoxByLabel(driver, "Password", "Or@ngeHRM123");
         loginPage.clickToButtonByText(driver, "Login");
         dashboardPage = PageGenerator.getPage(DashboardPO.class, driver);
 
@@ -47,7 +49,7 @@ public class PIM_01_Employee extends BaseTest {
         verifyTrue(dashboardPage.isModuleByTextInMenuItemDisplayed(driver, "Dashboard"));
     }
 
-    @Test
+    //    @Test
     public void Employee_01_NewEmployee_Enabled() {
         dashboardPage.clickToModuleByTextInMenuItem(driver, "PIM");
         employeeListPage = PageGenerator.getPage(EmployeeListPO.class, driver);
@@ -125,28 +127,67 @@ public class PIM_01_Employee extends BaseTest {
         verifyNotEqual(beforeUpload, afterUpload);
     }
 
-//    @Test
-//    public void Employee_03_Edit_Personal_Details() {
+    @Test
+    public void Employee_03_Edit_Personal_Details() {
+        dashboardPage.clickToModuleByTextInMenuItem(driver, "My Info");
+        personalDetailsPage = PageGenerator.getPage(PersonalDetailsPO.class, driver);
+        personalDetailsPage.sleepInSecond(5);
+
 //        personalDetailsPage.openPersonalDetailsPage();
+
+        personalDetailsPage.enterToTextBoxByName(driver, "firstName", "0013");
+        personalDetailsPage.enterToTextBoxByName(driver, "lastName", "Hani");
+        personalDetailsPage.selectDropdownByLabel(driver, "Nationality", "German");
+        personalDetailsPage.selectDropdownByLabel(driver, "Marital Status", "Married");
+        personalDetailsPage.clickToRadioButtonByLabel(driver, "Female");
+
+        personalDetailsPage.clickToButtonByText(driver, "Save");
+        verifyTrue(personalDetailsPage.isToastMessageDisplayed(driver, "Successfully Updated"));
+        verifyTrue(personalDetailsPage.isLoadingSpinnerDisappear(driver));
+        personalDetailsPage.sleepInSecond(2);
+
+        personalDetailsPage.clickToButtonByText(driver, "Add");
+    }
+
+//    @Test
+//    public void Employee_04_Contact_Details() {
 //
-//        personalDetailsPage.enterToFirstNameTextbox("");
-//        personalDetailsPage.enterToLastNameTextbox("");
 //    }
-
-    //    @Test
-    public void Employee_04_Contact_Details() {
-
-    }
-
-    //    @Test
-    public void Employee_05_Emergency_Details() {
-
-    }
-
-    //    @Test
-    public void Employee_06_Dependents() {
-
-    }
+//
+//    @Test
+//    public void Employee_05_Emergency_Details() {
+//
+//    }
+//
+//    @Test
+//    public void Employee_06_Dependents() {
+//
+//    }
+//
+//    @Test
+//    public void Employee_07_Immigration() {
+//
+//    }
+//
+//    @Test
+//    public void Employee_08_Job() {
+//
+//    }
+//
+//    @Test
+//    public void Employee_09_Salary() {
+//
+//    }
+//
+//    @Test
+//    public void Employee_10_Report_To() {
+//
+//    }
+//
+//    @Test
+//    public void Employee_11_Qualifications() {
+//
+//    }
 
     @AfterClass(alwaysRun = true)
     public void afterClass() {
