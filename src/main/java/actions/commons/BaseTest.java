@@ -188,12 +188,14 @@ public class BaseTest {
             String pathFolderDownload = GlobalConstants.PROJECT_PATH + File.separator + folderName;
             File file = new File(pathFolderDownload);
             File[] listOfFiles = file.listFiles();
-            if (listOfFiles.length != 0) {
-                for (int i = 0; i < listOfFiles.length; i++) {
-                    if (listOfFiles[i].isFile() && !listOfFiles[i].getName().equals("environment.properties")) {
-                        new File(listOfFiles[i].toString()).delete();
+            if (listOfFiles != null && listOfFiles.length > 0) {
+                for (File currentFile : listOfFiles) {
+                    if (currentFile.isFile() && !currentFile.getName().equals("environment.properties")) {
+                        currentFile.delete();
                     }
                 }
+            } else {
+                System.out.println("Empty folder");
             }
         } catch (Exception e) {
             System.out.print(e.getMessage());

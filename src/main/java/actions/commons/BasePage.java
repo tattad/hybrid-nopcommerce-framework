@@ -186,7 +186,7 @@ public class BasePage {
     }
 
     public void sendkeyToElement(WebDriver driver, String locator, String value) {
-        getWebElement(driver, locator).clear();
+        getWebElement(driver, locator).click();
         getWebElement(driver, locator).sendKeys(value);
     }
 
@@ -229,10 +229,11 @@ public class BasePage {
         clickToElement(driver, castParameter(parentLocator, restValue));
         sleepInSecond(1);
 
-        List<WebElement> allItems = new WebDriverWait(driver, Duration.ofSeconds(GlobalConstants.LONG_TIMEOUT)).until(ExpectedConditions.presenceOfAllElementsLocatedBy(getByLocator(childLocator)));
+        List<WebElement> allItems = new WebDriverWait(driver, Duration.ofSeconds(GlobalConstants.LONG_TIMEOUT)).until(ExpectedConditions.presenceOfAllElementsLocatedBy(getByLocator(castParameter(childLocator, restValue))));
         for (WebElement item : allItems) {
             if (item.getText().trim().equals(itemText)) {
                 item.click();
+                waitForListElementInvisible(driver, castParameter(childLocator, restValue));
                 sleepInSecond(1);
                 break;
             }
@@ -505,6 +506,11 @@ public class BasePage {
         sleepInSecond(3);
     }
 
+    public void clickToElementByJS(WebDriver driver, String locator, String... restValue) {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", getWebElement(driver, castParameter(locator, restValue)));
+        sleepInSecond(3);
+    }
+
     public String getElementTextByJS(WebDriver driver, String locator) {
         return (String) ((JavascriptExecutor) driver).executeScript("return arguments[0].textContent;", getWebElement(driver, locator));
     }
@@ -749,10 +755,22 @@ public class BasePage {
         sendkeyToElement(driver, BasePUI.DYNAMIC_TEXTBOX_BY_LABEL, value, textboxLabel);
     }
 
+    @Step("Enter to {0} textarea by label with value {1}")
+    public void enterToTextAreaByLabel(WebDriver driver, String textareaLabel, String value) {
+        waitForElementVisible(driver, BasePUI.DYNAMIC_TEXTAREA_BY_LABEL, textareaLabel);
+        sendkeyToElement(driver, BasePUI.DYNAMIC_TEXTAREA_BY_LABEL, value, textareaLabel);
+    }
+
+    public void clearTextBoxByName(WebDriver driver, String textboxNameAttribute) {
+        waitForElementVisible(driver, BasePUI.DYNAMIC_TEXBOX_BY_NAME, textboxNameAttribute);
+        getWebElement(driver, castParameter(BasePUI.DYNAMIC_TEXBOX_BY_NAME, textboxNameAttribute)).sendKeys(Keys.chord(Keys.CONTROL, "a"));
+        getWebElement(driver, castParameter(BasePUI.DYNAMIC_TEXBOX_BY_NAME, textboxNameAttribute)).sendKeys(Keys.chord(Keys.DELETE));
+    }
+
     public void clearTextBoxByLabel(WebDriver driver, String textboxLabel) {
         waitForElementVisible(driver, BasePUI.DYNAMIC_TEXTBOX_BY_LABEL, textboxLabel);
         sendkeyToElement(driver, BasePUI.DYNAMIC_TEXTBOX_BY_LABEL, Keys.chord(Keys.CONTROL, "a"), textboxLabel);
-        sendkeyToElement(driver, BasePUI.DYNAMIC_TEXTBOX_BY_LABEL, String.valueOf(Keys.DELETE), textboxLabel);
+        sendkeyToElement(driver, BasePUI.DYNAMIC_TEXTBOX_BY_LABEL, String.valueOf(Keys.BACK_SPACE), textboxLabel);
     }
 
     @Step("Check if {0} toast message is displayed")
@@ -763,8 +781,8 @@ public class BasePage {
 
     @Step("Click to {0} button by text")
     public void clickToButtonByText(WebDriver driver, String buttonText) {
-        waitForElementClickable(driver, BasePUI.DYNAMIC_BUTTON_BY_TEXT, buttonText);
-        clickToElement(driver, BasePUI.DYNAMIC_BUTTON_BY_TEXT, buttonText);
+        waitForElementClickable(driver, BasePUI.DYNAMIC_BUTTON_BY_TEXT, buttonText.trim());
+        clickToElement(driver, BasePUI.DYNAMIC_BUTTON_BY_TEXT, buttonText.trim());
     }
 
     @Step("Click to {0} button by main title")
@@ -790,7 +808,7 @@ public class BasePage {
 
     public void clickToRadioButtonByLabel(WebDriver driver, String labelName) {
         waitForElementPresence(driver, BasePUI.DYNAMIC_RADIO_BUTTON_BY_LABEL, labelName);
-        clickToElement(driver, BasePUI.DYNAMIC_RADIO_BUTTON_BY_LABEL, labelName);
+        clickToElementByJS(driver, BasePUI.DYNAMIC_RADIO_BUTTON_BY_LABEL, labelName);
     }
 
     public void clickToCheckboxByLabel(WebDriver driver, String labelName) {
@@ -804,5 +822,16 @@ public class BasePage {
         waitForElementClickable(driver, BasePUI.LOGOUT_LINK);
         clickToElement(driver, BasePUI.LOGOUT_LINK);
         return PageGenerator.getPage(LoginPO.class, driver);
+    }
+
+    public void deleteRecordByFileName(WebDriver driver, String fileName) {
+        waitForElementPresence(driver, BasePUI.DYNAMIC_SELECT_CHECKBOX_BY_FILE_NAME, fileName);
+        checkToCheckboxOrRadio(driver, BasePUI.DYNAMIC_SELECT_CHECKBOX_BY_FILE_NAME, fileName);
+        clickToElement(driver, BasePUI.DELETE_ACTION_BY_FILE_NAME, fileName);
+    }
+
+    public void selectAllRecordsByFirstColumnName(WebDriver driver, String firstColumnName) {
+        waitForElementPresence(driver, BasePUI.DYNAMIC_SELECT_ALL_CHECKBOX_BY_FIRST_COLUMN_NAME, firstColumnName);
+        checkToCheckboxOrRadio(driver, BasePUI.DYNAMIC_SELECT_ALL_CHECKBOX_BY_FIRST_COLUMN_NAME, firstColumnName);
     }
 }

@@ -1,5 +1,6 @@
 package actions.pageObjects.orangehrm.pim.employee;
 
+import interfaces.pageUIs.orangehrm.BasePUI;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import interfaces.pageUIs.orangehrm.pim.employee.PersonalDetailsPUI;
@@ -42,5 +43,10 @@ public class PersonalDetailsPO extends EmployeeTabs {
     public String getErrorMessageAtProfileImage() {
         waitForElementVisible(driver, PersonalDetailsPUI.PROFILE_IMAGE_UPLOAD_ERROR_MSG);
         return getElementText(driver, PersonalDetailsPUI.PROFILE_IMAGE_UPLOAD_ERROR_MSG);
+    }
+
+    public boolean isConfirmationPopupDisplayed(String popupTitle, String warningMessage) {
+        waitForElementVisible(driver, BasePUI.CONFIRMATION_POPUP, popupTitle, warningMessage);
+        return isElementDisplayed(driver, BasePUI.CONFIRMATION_POPUP, popupTitle, warningMessage);
     }
 }

@@ -5,6 +5,7 @@ import actions.pageObjects.orangehrm.DashboardPO;
 import actions.pageObjects.orangehrm.LoginPO;
 import actions.pageObjects.orangehrm.PageGenerator;
 import actions.pageObjects.orangehrm.pim.employee.AddNewEmployeePO;
+import actions.pageObjects.orangehrm.pim.employee.ContactDetailsPO;
 import actions.pageObjects.orangehrm.pim.employee.EmployeeListPO;
 import actions.pageObjects.orangehrm.pim.employee.PersonalDetailsPO;
 import org.openqa.selenium.Dimension;
@@ -21,6 +22,7 @@ public class PIM_01_Employee extends BaseTest {
     private AddNewEmployeePO addNewEmployeePage;
     private EmployeeListPO employeeListPage;
     private PersonalDetailsPO personalDetailsPage;
+    private ContactDetailsPO contactDetailsPage;
     private String employeeID, employeeFirstName, employeeLastName;
     private String employeeUsername, employeePassword;
     private String avatarImageName = "female.jpg";
@@ -127,18 +129,18 @@ public class PIM_01_Employee extends BaseTest {
         verifyNotEqual(beforeUpload, afterUpload);
     }
 
-    @Test
+    //    @Test
     public void Employee_03_Edit_Personal_Details() {
-        dashboardPage.clickToModuleByTextInMenuItem(driver, "My Info");
-        personalDetailsPage = PageGenerator.getPage(PersonalDetailsPO.class, driver);
-        personalDetailsPage.sleepInSecond(5);
+        personalDetailsPage.openPersonalDetailsPage();
 
-//        personalDetailsPage.openPersonalDetailsPage();
-
-        personalDetailsPage.enterToTextBoxByName(driver, "firstName", "0013");
-        personalDetailsPage.enterToTextBoxByName(driver, "lastName", "Hani");
+        /*Edit Personal Details*/
+        personalDetailsPage.clearTextBoxByName(driver, "firstName");
+        personalDetailsPage.enterToTextBoxByName(driver, "firstName", "Hani");
+        personalDetailsPage.clearTextBoxByName(driver, "lastName");
+        personalDetailsPage.enterToTextBoxByName(driver, "lastName", "0013");
         personalDetailsPage.selectDropdownByLabel(driver, "Nationality", "German");
         personalDetailsPage.selectDropdownByLabel(driver, "Marital Status", "Married");
+        personalDetailsPage.sleepInSecond(1);
         personalDetailsPage.clickToRadioButtonByLabel(driver, "Female");
 
         personalDetailsPage.clickToButtonByText(driver, "Save");
@@ -146,14 +148,64 @@ public class PIM_01_Employee extends BaseTest {
         verifyTrue(personalDetailsPage.isLoadingSpinnerDisappear(driver));
         personalDetailsPage.sleepInSecond(2);
 
+        /*Add Attachment files*/
         personalDetailsPage.clickToButtonByText(driver, "Add");
+        personalDetailsPage.uploadMultipleFiles(driver, avatarImageName);
+        personalDetailsPage.enterToTextAreaByLabel(driver, "Comment", "Add an image");
+        personalDetailsPage.clickToButtonByMainTitle(driver, "Save", "Add Attachment");
+        verifyTrue(personalDetailsPage.isToastMessageDisplayed(driver, "Successfully Saved"));
+        verifyTrue(personalDetailsPage.isLoadingSpinnerDisappear(driver));
+
+        personalDetailsPage.clickToButtonByText(driver, "Add");
+        personalDetailsPage.uploadMultipleFiles(driver, "cutehost.jpg");
+        personalDetailsPage.clickToButtonByMainTitle(driver, "Save", "Add Attachment");
+        verifyTrue(personalDetailsPage.isToastMessageDisplayed(driver, "Successfully Saved"));
+        verifyTrue(personalDetailsPage.isLoadingSpinnerDisappear(driver));
+
+        /*Edit Records Found*/
+        personalDetailsPage.deleteRecordByFileName(driver, avatarImageName);
+        verifyTrue(personalDetailsPage.isConfirmationPopupDisplayed("Are you Sure?", "The selected record will be permanently deleted. Are you sure you want to continue?"));
+        personalDetailsPage.sleepInSecond(2);
+        personalDetailsPage.clickToButtonByText(driver, "Yes, Delete");
+
+        verifyTrue(personalDetailsPage.isToastMessageDisplayed(driver, "Successfully Deleted"));
+        verifyTrue(personalDetailsPage.isLoadingSpinnerDisappear(driver));
+
+        personalDetailsPage.selectAllRecordsByFirstColumnName(driver, "File Name");
+        personalDetailsPage.clickToButtonByText(driver, "Delete Selected");
+
+        verifyTrue(personalDetailsPage.isConfirmationPopupDisplayed("Are you Sure?", "The selected record will be permanently deleted. Are you sure you want to continue?"));
+        personalDetailsPage.sleepInSecond(2);
+        personalDetailsPage.clickToButtonByText(driver, "Yes, Delete");
+
+        verifyTrue(personalDetailsPage.isToastMessageDisplayed(driver, "Successfully Deleted"));
+        verifyTrue(personalDetailsPage.isLoadingSpinnerDisappear(driver));
     }
 
-//    @Test
-//    public void Employee_04_Contact_Details() {
-//
-//    }
-//
+    @Test
+    public void Employee_04_Contact_Details() {
+        dashboardPage.clickToModuleByTextInMenuItem(driver, "My Info");
+        personalDetailsPage = PageGenerator.getPage(PersonalDetailsPO.class, driver);
+        verifyTrue(personalDetailsPage.isLoadingSpinnerDisappear(driver));
+        personalDetailsPage.sleepInSecond(2);
+
+        personalDetailsPage.openContactDetailsPage();
+        contactDetailsPage = PageGenerator.getPage(ContactDetailsPO.class, driver);
+        verifyTrue(contactDetailsPage.isLoadingSpinnerDisappear(driver));
+        contactDetailsPage.sleepInSecond(2);
+
+        contactDetailsPage.enterToTextBoxByLabel(driver, "Street 1", "Street 1");
+        contactDetailsPage.enterToTextBoxByLabel(driver, "Street 2", "Street 2");
+        contactDetailsPage.enterToTextBoxByLabel(driver, "City", "Ho Chi Minh");
+        contactDetailsPage.selectDropdownByLabel(driver, "Country", "France");
+        contactDetailsPage.enterToTextBoxByLabel(driver, "Mobile", "+847755443311");
+
+        contactDetailsPage.clickToButtonByText(driver, "Save");
+        verifyTrue(personalDetailsPage.isToastMessageDisplayed(driver, "Successfully Updated"));
+        verifyTrue(personalDetailsPage.isLoadingSpinnerDisappear(driver));
+        personalDetailsPage.sleepInSecond(2);
+    }
+
 //    @Test
 //    public void Employee_05_Emergency_Details() {
 //

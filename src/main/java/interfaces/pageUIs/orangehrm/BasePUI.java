@@ -10,9 +10,14 @@ public class BasePUI {
     public static final String DYNAMIC_MODULE_BY_TEXT_IN_MENU_ITEM = "xpath=//a[contains(@class,'oxd-main-menu-item')]//span[text()='%s']";
     public static final String DYNAMIC_PARENT_DROPDOWN_BY_LABEL = "xpath=//label[text()='%s']/parent::div/following-sibling::div//i";
     public static final String DYNAMIC_CHILD_DROPDOWN_BY_LABEL = "xpath=//label[text()='%s']/parent::div/following-sibling::div//div[@class='oxd-select-option']/span";
-    public static final String DYNAMIC_RADIO_BUTTON_BY_LABEL = "xpath=//label[text()='%s']/input";
+    public static final String DYNAMIC_RADIO_BUTTON_BY_LABEL = "xpath=//label[text()='%s']/span";
     public static final String DYNAMIC_CHECKBOX_BY_LABEL = "xpath=//p[text()='%s']/following-sibling::div//span";
     public static final String USER_DROPDOWN = "css=p.oxd-userdropdown-name";
     public static final String LOGOUT_LINK = "xpath=//a[@class='oxd-userdropdown-link' and text()='Logout']";
+    public static final String DYNAMIC_TEXTAREA_BY_LABEL = "xpath=//label[text()='Comment']/parent::div/following-sibling::div/textarea";
+    public static final String DYNAMIC_SELECT_CHECKBOX_BY_FILE_NAME = "xpath=//div[text()='%s']/parent::div/preceding-sibling::div//span";
+    public static final String DYNAMIC_SELECT_ALL_CHECKBOX_BY_FIRST_COLUMN_NAME = "xpath=//div[text()='%s']/parent::div//span";
+    public static final String DELETE_ACTION_BY_FILE_NAME = "xpath=//div[text()='%s']/parent::div/following-sibling::div//i[contains(@class,'bi-trash')]";
+    public static final String CONFIRMATION_POPUP = "xpath=//p[text()='%s']/parent::div/following-sibling::div/p[text()='%s']";
 }
 
