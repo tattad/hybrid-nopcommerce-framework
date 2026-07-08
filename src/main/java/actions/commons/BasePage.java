@@ -1,5 +1,13 @@
 package actions.commons;
 
+import actions.pageObjects.nopCommerce.PageGenerators;
+import actions.pageObjects.nopCommerce.user.*;
+import actions.pageObjects.orangehrm.LoginPO;
+import actions.pageObjects.orangehrm.PageGenerator;
+import interfaces.pageUIs.nopCommerce.BasePageUI;
+import interfaces.pageUIs.nopCommerce.user.UserHomePageUI;
+import interfaces.pageUIs.nopCommerce.user.UserRegisterPageUI;
+import interfaces.pageUIs.orangehrm.BasePUI;
 import io.qameta.allure.Step;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -7,16 +15,9 @@ import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import actions.pageObjects.nopCommerce.PageGenerators;
-import actions.pageObjects.nopCommerce.user.*;
-import actions.pageObjects.orangehrm.LoginPO;
-import interfaces.pageUIs.nopCommerce.BasePageUI;
-import interfaces.pageUIs.nopCommerce.user.UserHomePageUI;
-import interfaces.pageUIs.nopCommerce.user.UserRegisterPageUI;
-import interfaces.pageUIs.orangehrm.BasePUI;
-import actions.pageObjects.orangehrm.PageGenerator;
 
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -833,5 +834,16 @@ public class BasePage {
     public void selectAllRecordsByFirstColumnName(WebDriver driver, String firstColumnName) {
         waitForElementPresence(driver, BasePUI.DYNAMIC_SELECT_ALL_CHECKBOX_BY_FIRST_COLUMN_NAME, firstColumnName);
         checkToCheckboxOrRadio(driver, BasePUI.DYNAMIC_SELECT_ALL_CHECKBOX_BY_FIRST_COLUMN_NAME, firstColumnName);
+    }
+
+    public List<String> getAllEmergencyContactValuesInRow(WebDriver driver, String valurFirstColumn) {
+        waitForElementVisible(driver, BasePUI.DYNAMIC_EMERGENCY_CONTACT_VALUES_IN_ROW_BY_FIRST_COLUMN, valurFirstColumn);
+        List<WebElement> cells = getListElement(driver, castParameter(BasePUI.DYNAMIC_EMERGENCY_CONTACT_VALUES_IN_ROW_BY_FIRST_COLUMN, valurFirstColumn));
+
+        List<String> cellValues = new ArrayList<>();
+        for (WebElement cell : cells) {
+            cellValues.add(cell.getText().trim());
+        }
+        return cellValues;
     }
 }

@@ -4,16 +4,16 @@ import actions.commons.BaseTest;
 import actions.pageObjects.orangehrm.DashboardPO;
 import actions.pageObjects.orangehrm.LoginPO;
 import actions.pageObjects.orangehrm.PageGenerator;
-import actions.pageObjects.orangehrm.pim.employee.AddNewEmployeePO;
-import actions.pageObjects.orangehrm.pim.employee.ContactDetailsPO;
-import actions.pageObjects.orangehrm.pim.employee.EmployeeListPO;
-import actions.pageObjects.orangehrm.pim.employee.PersonalDetailsPO;
+import actions.pageObjects.orangehrm.pim.employee.*;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class PIM_01_Employee extends BaseTest {
     private WebDriver driver;
@@ -23,9 +23,11 @@ public class PIM_01_Employee extends BaseTest {
     private EmployeeListPO employeeListPage;
     private PersonalDetailsPO personalDetailsPage;
     private ContactDetailsPO contactDetailsPage;
+    private EmergencyContactsPO emergencyContactsPage;
     private String employeeID, employeeFirstName, employeeLastName;
     private String employeeUsername, employeePassword;
     private String avatarImageName = "female.jpg";
+    private String emergencyContactName = "", emergencyContactRelationship = "", emergencyContactHomeTelephone = "", emergencyContactMobile = "", emergencyContactWorkTelephone = "";
 
     @Parameters({"browser", "url"})
     @BeforeClass
@@ -182,7 +184,7 @@ public class PIM_01_Employee extends BaseTest {
         verifyTrue(personalDetailsPage.isLoadingSpinnerDisappear(driver));
     }
 
-    @Test
+    //    @Test
     public void Employee_04_Contact_Details() {
         dashboardPage.clickToModuleByTextInMenuItem(driver, "My Info");
         personalDetailsPage = PageGenerator.getPage(PersonalDetailsPO.class, driver);
@@ -201,21 +203,44 @@ public class PIM_01_Employee extends BaseTest {
         contactDetailsPage.enterToTextBoxByLabel(driver, "Mobile", "+847755443311");
 
         contactDetailsPage.clickToButtonByText(driver, "Save");
-        verifyTrue(personalDetailsPage.isToastMessageDisplayed(driver, "Successfully Updated"));
-        verifyTrue(personalDetailsPage.isLoadingSpinnerDisappear(driver));
-        personalDetailsPage.sleepInSecond(2);
+        verifyTrue(contactDetailsPage.isToastMessageDisplayed(driver, "Successfully Updated"));
+        verifyTrue(contactDetailsPage.isLoadingSpinnerDisappear(driver));
+        contactDetailsPage.sleepInSecond(2);
+    }
+
+    @Test
+    public void Employee_05_Emergency_Contacts() {
+        personalDetailsPage.openEmergencyContactsPage();
+        emergencyContactsPage = PageGenerator.getPage(EmergencyContactsPO.class, driver);
+        verifyTrue(emergencyContactsPage.isLoadingSpinnerDisappear(driver));
+        emergencyContactsPage.sleepInSecond(2);
+
+        emergencyContactName = "Contact 2";
+        emergencyContactRelationship = "Relations 2";
+        emergencyContactMobile = "+847755443311";
+        emergencyContactsPage.clickToButtonByMainTitle(driver, "Add", "Assigned Emergency Contacts");
+        emergencyContactsPage.enterToTextBoxByLabel(driver, "Name", emergencyContactName);
+        emergencyContactsPage.enterToTextBoxByLabel(driver, "Relationship", emergencyContactRelationship);
+        emergencyContactsPage.enterToTextBoxByLabel(driver, "Mobile", emergencyContactMobile);
+        emergencyContactsPage.clickToButtonByText(driver, "Save");
+        verifyTrue(emergencyContactsPage.isToastMessageDisplayed(driver, "Successfully Saved"));
+        verifyTrue(emergencyContactsPage.isLoadingSpinnerDisappear(driver));
+        emergencyContactsPage.sleepInSecond(2);
+
+        List<String> expectedRowData = Arrays.asList(emergencyContactName, emergencyContactRelationship, emergencyContactHomeTelephone, emergencyContactMobile, emergencyContactWorkTelephone);
+        verifyEqual(emergencyContactsPage.getAllEmergencyContactValuesInRow(driver, emergencyContactName), expectedRowData);
     }
 
 //    @Test
-//    public void Employee_05_Emergency_Details() {
-//
-//    }
-//
-//    @Test
-//    public void Employee_06_Dependents() {
-//
-//    }
-//
+public void Employee_06_Dependents() {
+    dashboardPage.clickToModuleByTextInMenuItem(driver, "My Info");
+    personalDetailsPage = PageGenerator.getPage(PersonalDetailsPO.class, driver);
+    verifyTrue(personalDetailsPage.isLoadingSpinnerDisappear(driver));
+    personalDetailsPage.sleepInSecond(2);
+
+
+}
+
 //    @Test
 //    public void Employee_07_Immigration() {
 //
