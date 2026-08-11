@@ -10,7 +10,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.Assert;
@@ -18,6 +20,8 @@ import org.testng.Reporter;
 import org.testng.annotations.BeforeSuite;
 
 import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.Duration;
 import java.util.Random;
 
@@ -41,22 +45,48 @@ public class BaseTest {
 
     protected WebDriver getBrowserDriver(String browserName) {
         BrowserList browserList = BrowserList.valueOf(browserName.toUpperCase());
+        Path path = null;
+        File extensionFilePath = null;
+
         switch (browserList) {
             case FIREFOX:
-                FirefoxOptions options = new FirefoxOptions();
-                // Nhận tham số "headless" từ câu lệnh Maven
-                String isHeadless = System.getProperty("headless");
-                // Nếu người dùng truyền vào tham số -Dheadless=true thì mới chạy ẩn
-                if (isHeadless != null && isHeadless.equalsIgnoreCase("true")) {
-                    options.addArguments("--headless");
-                }
-                driver = new FirefoxDriver(options);
+                driver = new FirefoxDriver();
+                path = Paths.get(GlobalConstants.BROWSER_EXTENSION_PATH + "WappalyzeFirefox.xpi");
+                FirefoxDriver ffDriver = (FirefoxDriver) driver;
+                ffDriver.installExtension(path);
+                driver = ffDriver;
                 break;
             case CHROME:
-                driver = new ChromeDriver();
+                ChromeOptions chromeExtensionOptions = new ChromeOptions();
+                path = Paths.get(GlobalConstants.BROWSER_EXTENSION_PATH + "WappalyzeChrome.crx");
+                extensionFilePath = new File(path.toUri());
+                chromeExtensionOptions.addExtensions(extensionFilePath);
+                driver = new ChromeDriver(chromeExtensionOptions);
                 break;
             case EDGE:
-                driver = new EdgeDriver();
+                EdgeOptions edgeExtensionOptions = new EdgeOptions();
+                path = Paths.get(GlobalConstants.BROWSER_EXTENSION_PATH + "WappalyzeEdge.crx");
+                extensionFilePath = new File(path.toUri());
+                edgeExtensionOptions.addExtensions(extensionFilePath);
+                driver = new EdgeDriver(edgeExtensionOptions);
+                break;
+            case HEAD_CHROME:
+                ChromeOptions chromeHeadlessOptions = new ChromeOptions();
+                chromeHeadlessOptions.addArguments("--headless");
+                chromeHeadlessOptions.addArguments("window-size=1920x1080");
+                driver = new ChromeDriver(chromeHeadlessOptions);
+                break;
+            case HEAD_FIREFOX:
+                FirefoxOptions firefoxHeadlessOptions = new FirefoxOptions();
+                firefoxHeadlessOptions.addArguments("-headless");
+                firefoxHeadlessOptions.addArguments("window-size=1920x1080");
+                driver = new FirefoxDriver(firefoxHeadlessOptions);
+                break;
+            case HEAD_EDGE:
+                EdgeOptions edgeHeadlessOptions = new EdgeOptions();
+                edgeHeadlessOptions.addArguments("--headless");
+                edgeHeadlessOptions.addArguments("window-size=1920x1080");
+                driver = new EdgeDriver(edgeHeadlessOptions);
                 break;
             default:
                 throw new RuntimeException("Browser not recognized");
@@ -68,28 +98,54 @@ public class BaseTest {
 
     protected WebDriver getBrowserDriver(String browserName, String url) {
         BrowserList browserList = BrowserList.valueOf(browserName.toUpperCase());
+        Path path = null;
+        File extensionFilePath = null;
+
         switch (browserList) {
             case FIREFOX:
-                FirefoxOptions options = new FirefoxOptions();
-                // Nhận tham số "headless" từ câu lệnh Maven
-                String isHeadless = System.getProperty("headless");
-                // Nếu người dùng truyền vào tham số -Dheadless=true thì mới chạy ẩn
-                if (isHeadless != null && isHeadless.equalsIgnoreCase("true")) {
-                    options.addArguments("--headless");
-                }
-                driver = new FirefoxDriver(options);
+                driver = new FirefoxDriver();
+                path = Paths.get(GlobalConstants.BROWSER_EXTENSION_PATH + "WappalyzeFirefox.xpi");
+                FirefoxDriver ffDriver = (FirefoxDriver) driver;
+                ffDriver.installExtension(path);
+                driver = ffDriver;
                 break;
             case CHROME:
-                driver = new ChromeDriver();
+                ChromeOptions chromeExtensionOptions = new ChromeOptions();
+                path = Paths.get(GlobalConstants.BROWSER_EXTENSION_PATH + "WappalyzeChrome.crx");
+                extensionFilePath = new File(path.toUri());
+                chromeExtensionOptions.addExtensions(extensionFilePath);
+                driver = new ChromeDriver(chromeExtensionOptions);
                 break;
             case EDGE:
-                driver = new EdgeDriver();
+                EdgeOptions edgeExtensionOptions = new EdgeOptions();
+                path = Paths.get(GlobalConstants.BROWSER_EXTENSION_PATH + "WappalyzeEdge.crx");
+                extensionFilePath = new File(path.toUri());
+                edgeExtensionOptions.addExtensions(extensionFilePath);
+                driver = new EdgeDriver(edgeExtensionOptions);
+                break;
+            case HEAD_CHROME:
+                ChromeOptions chromeHeadlessOptions = new ChromeOptions();
+                chromeHeadlessOptions.addArguments("--headless");
+                chromeHeadlessOptions.addArguments("window-size=1920x1080");
+                driver = new ChromeDriver(chromeHeadlessOptions);
+                break;
+            case HEAD_FIREFOX:
+                FirefoxOptions firefoxHeadlessOptions = new FirefoxOptions();
+                firefoxHeadlessOptions.addArguments("-headless");
+                firefoxHeadlessOptions.addArguments("window-size=1920x1080");
+                driver = new FirefoxDriver(firefoxHeadlessOptions);
+                break;
+            case HEAD_EDGE:
+                EdgeOptions edgeHeadlessOptions = new EdgeOptions();
+                edgeHeadlessOptions.addArguments("--headless");
+                edgeHeadlessOptions.addArguments("window-size=1920x1080");
+                driver = new EdgeDriver(edgeHeadlessOptions);
                 break;
             default:
                 throw new RuntimeException("Browser not recognized");
         }
         driver.get(url);
-        driver.manage().window().maximize();
+//        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(GlobalConstants.LONG_TIMEOUT));
         return driver;
     }

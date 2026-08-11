@@ -9,10 +9,24 @@
     <!--    <parameter name="url" value="https://opensource-demo.orangehrmlive.com/"/>-->
     <parameter name="url" value="http://automationtada.edu:90/orangehrm5"/>
 
-    <test name="Run on Firefox browser" preserve-order="true">
-        <parameter name="browser" value="firefox"/>
+    <test name="Run on Chrome Headless browser">
+        <parameter name="browser" value="head_chrome"/>
         <classes>
-            <class name="testcases.com.orangehrm.pim.PIM_01_Employee"/>
+            <class name="com.orangehrm.Level_23_Browser_Config"/>
+        </classes>
+    </test>
+
+    <test name="Run on Firefox Headless browser">
+        <parameter name="browser" value="head_firefox"/>
+        <classes>
+            <class name="com.orangehrm.Level_23_Browser_Config"/>
+        </classes>
+    </test>
+
+    <test name="Run on Edge Headless browser">
+        <parameter name="browser" value="head_edge"/>
+        <classes>
+            <class name="com.orangehrm.Level_23_Browser_Config"/>
         </classes>
     </test>
 </suite> 
