@@ -10,18 +10,22 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeDriverService;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxDriverLogLevel;
+import org.openqa.selenium.firefox.FirefoxDriverService;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.firefox.GeckoDriverService;
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.BeforeSuite;
 
 import java.io.File;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.time.Duration;
 import java.util.Random;
 
@@ -50,25 +54,45 @@ public class BaseTest {
 
         switch (browserList) {
             case FIREFOX:
-                driver = new FirefoxDriver();
-                path = Paths.get(GlobalConstants.BROWSER_EXTENSION_PATH + "WappalyzeFirefox.xpi");
-                FirefoxDriver ffDriver = (FirefoxDriver) driver;
-                ffDriver.installExtension(path);
-                driver = ffDriver;
+                //Add extension
+//                driver = new FirefoxDriver();
+//                path = Paths.get(GlobalConstants.BROWSER_EXTENSION_PATH + "WappalyzeFirefox.xpi");
+//                FirefoxDriver ffDriver = (FirefoxDriver) driver;
+//                ffDriver.installExtension(path);
+//                driver = ffDriver;
+
+                //Add log
+                FirefoxDriverService fService = new GeckoDriverService.Builder()
+                        .withLogFile(new File(GlobalConstants.BROWSER_LOG_PATH + "FirefoxLog.log")).build();
+                FirefoxOptions fOptions = new FirefoxOptions();
+                fOptions.setLogLevel(FirefoxDriverLogLevel.DEBUG);
+                driver = new FirefoxDriver(fService, fOptions);
                 break;
             case CHROME:
-                ChromeOptions chromeExtensionOptions = new ChromeOptions();
-                path = Paths.get(GlobalConstants.BROWSER_EXTENSION_PATH + "WappalyzeChrome.crx");
-                extensionFilePath = new File(path.toUri());
-                chromeExtensionOptions.addExtensions(extensionFilePath);
-                driver = new ChromeDriver(chromeExtensionOptions);
+                //Add extension
+//                ChromeOptions chromeExtensionOptions = new ChromeOptions();
+//                path = Paths.get(GlobalConstants.BROWSER_EXTENSION_PATH + "WappalyzeChrome.crx");
+//                extensionFilePath = new File(path.toUri());
+//                chromeExtensionOptions.addExtensions(extensionFilePath);
+//                driver = new ChromeDriver(chromeExtensionOptions);
+
+                //Add log
+                ChromeDriverService cService = new ChromeDriverService.Builder()
+                        .withLogFile(new File(GlobalConstants.BROWSER_LOG_PATH + "ChromeLog.log")).build();
+                driver = new ChromeDriver(cService);
                 break;
             case EDGE:
-                EdgeOptions edgeExtensionOptions = new EdgeOptions();
-                path = Paths.get(GlobalConstants.BROWSER_EXTENSION_PATH + "WappalyzeEdge.crx");
-                extensionFilePath = new File(path.toUri());
-                edgeExtensionOptions.addExtensions(extensionFilePath);
-                driver = new EdgeDriver(edgeExtensionOptions);
+                //Add extension
+//                EdgeOptions edgeExtensionOptions = new EdgeOptions();
+//                path = Paths.get(GlobalConstants.BROWSER_EXTENSION_PATH + "WappalyzeEdge.crx");
+//                extensionFilePath = new File(path.toUri());
+//                edgeExtensionOptions.addExtensions(extensionFilePath);
+//                driver = new EdgeDriver(edgeExtensionOptions);
+
+                //Add log
+                EdgeDriverService eService = new EdgeDriverService.Builder()
+                        .withLogFile(new File(GlobalConstants.BROWSER_LOG_PATH + "EdgeLog.log")).build();
+                driver = new EdgeDriver(eService);
                 break;
             case HEAD_CHROME:
                 ChromeOptions chromeHeadlessOptions = new ChromeOptions();
@@ -103,25 +127,45 @@ public class BaseTest {
 
         switch (browserList) {
             case FIREFOX:
-                driver = new FirefoxDriver();
-                path = Paths.get(GlobalConstants.BROWSER_EXTENSION_PATH + "WappalyzeFirefox.xpi");
-                FirefoxDriver ffDriver = (FirefoxDriver) driver;
-                ffDriver.installExtension(path);
-                driver = ffDriver;
+                //Add extension
+//                driver = new FirefoxDriver();
+//                path = Paths.get(GlobalConstants.BROWSER_EXTENSION_PATH + "WappalyzeFirefox.xpi");
+//                FirefoxDriver ffDriver = (FirefoxDriver) driver;
+//                ffDriver.installExtension(path);
+//                driver = ffDriver;
+
+                //Add log
+                FirefoxDriverService fService = new GeckoDriverService.Builder()
+                        .withLogFile(new File(GlobalConstants.BROWSER_LOG_PATH + "FirefoxLog.log")).build();
+                FirefoxOptions fOptions = new FirefoxOptions();
+                fOptions.setLogLevel(FirefoxDriverLogLevel.DEBUG);
+                driver = new FirefoxDriver(fService, fOptions);
                 break;
             case CHROME:
-                ChromeOptions chromeExtensionOptions = new ChromeOptions();
-                path = Paths.get(GlobalConstants.BROWSER_EXTENSION_PATH + "WappalyzeChrome.crx");
-                extensionFilePath = new File(path.toUri());
-                chromeExtensionOptions.addExtensions(extensionFilePath);
-                driver = new ChromeDriver(chromeExtensionOptions);
+                //Add extension
+//                ChromeOptions chromeExtensionOptions = new ChromeOptions();
+//                path = Paths.get(GlobalConstants.BROWSER_EXTENSION_PATH + "WappalyzeChrome.crx");
+//                extensionFilePath = new File(path.toUri());
+//                chromeExtensionOptions.addExtensions(extensionFilePath);
+//                driver = new ChromeDriver(chromeExtensionOptions);
+
+                //Add log
+                ChromeDriverService cService = new ChromeDriverService.Builder()
+                        .withLogFile(new File(GlobalConstants.BROWSER_LOG_PATH + "ChromeLog.log")).build();
+                driver = new ChromeDriver(cService);
                 break;
             case EDGE:
-                EdgeOptions edgeExtensionOptions = new EdgeOptions();
-                path = Paths.get(GlobalConstants.BROWSER_EXTENSION_PATH + "WappalyzeEdge.crx");
-                extensionFilePath = new File(path.toUri());
-                edgeExtensionOptions.addExtensions(extensionFilePath);
-                driver = new EdgeDriver(edgeExtensionOptions);
+                //Add extension
+//                EdgeOptions edgeExtensionOptions = new EdgeOptions();
+//                path = Paths.get(GlobalConstants.BROWSER_EXTENSION_PATH + "WappalyzeEdge.crx");
+//                extensionFilePath = new File(path.toUri());
+//                edgeExtensionOptions.addExtensions(extensionFilePath);
+//                driver = new EdgeDriver(edgeExtensionOptions);
+
+                //Add log
+                EdgeDriverService eService = new EdgeDriverService.Builder()
+                        .withLogFile(new File(GlobalConstants.BROWSER_LOG_PATH + "EdgeLog.log")).build();
+                driver = new EdgeDriver(eService);
                 break;
             case HEAD_CHROME:
                 ChromeOptions chromeHeadlessOptions = new ChromeOptions();
