@@ -40,3 +40,29 @@ bin/
 /logs2/
 /target/
 /test-output/
+
+# Maven build folder
+target/
+
+# IDE specific files
+.idea/
+*.iml
+.vscode/
+
+# Logs
+*.log
+/logs/
+
+# Test reports
+/test-output/
+/allure-results/
+/test-output/*
+/allure-results/*
+# TestNG results
+/test-output/
+/allure-results/
+/allure-report/
+
+# Optional - uncomment if you want to exclude all Maven builds
+#target/
+#bin/
